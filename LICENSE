@@ -1,71 +1,46 @@
 Copy Right (c) 2019 Nekonya Studio
 
-Corala.Space Project Private LICENSE
+"Anti 996" License Version 1.0 (Draft)
 
-Everyone is permitted to copy and distribute verbatim copies of this license document, 
-but changing it is not allowed.
+Permission is hereby granted to any individual or legal entity
+obtaining a copy of this licensed work (including the source code,
+documentation and/or related items, hereinafter collectively referred
+to as the "licensed work"), free of charge, to deal with the licensed
+work for any purpose, including without limitation, the rights to use,
+reproduce, modify, prepare derivative works of, distribute, publish
+and sublicense the licensed work, subject to the following conditions:
 
-在符合下列条件的情况下，特此免费向任何得到本授权作品的副本（包括源代码、文件和/或相关内容，以下
-统称为“授权作品”）的个人和法人实体授权：被授权个人或法人实体有权以任何目的处置授权作品，包括但
-不限于使用、复制，修改，衍生利用、散布，发布和再许可，被授权人则称为"您"：
+1. The individual or the legal entity must conspicuously display,
+without modification, this License and the notice on each redistributed
+or derivative copy of the Licensed Work.
 
-1. 个人或法人实体必须在许可作品的每个再散布或衍生副本上包含以上版权声明和本许可证，不得自行修改。
-2. 个人或法人实体必须严格遵守与个人实际所在地或个人出生地或归化地、或法人实体注册地或经营地（以
-较严格者为准）的司法管辖区所有适用的与劳动和就业相关法律、法规、规则和标准。如果该司法管辖区没有
-此类法律、法规、规章和标准或其法律、法规、规章和标准不可执行，则个人或法人实体必须遵守国际劳工标
-准的核心公约。
-3. 个人或法人不得以任何方式诱导、暗示或强迫其全职或兼职员工或其独立承包人以口头或书面形式同意直
-接或间接限制、削弱或放弃其所拥有的，受相关与劳动和就业有关的法律、法规、规则和标准保护的权利或补
-救措施，无论该等书面或口头协议是否被该司法管辖区的法律所承认，该等个人或法人实体也不得以任何方法
-限制其雇员或独立承包人向版权持有人或监督许可证合规情况的有关当局报告或投诉上述违反许可证的行为的
-权利。
-4. 该授权作品仅向该授权作品的实际参与开发且贡献内容（不包括分支合并）不少于5%的人员提供使用授权。
-5. 该授权作品禁止任何非实际参与开发且贡献内容（不包括分支合并）不少于5%的人员用于各国专利、软件
-著作权申请等版权、产权申明行为。仅该授权作品的实际参与开发且贡献内容（不包括分支合并）不少于5%
-的人员可用于以自身个人为主体，或以自身为法人代表、股东的公司为主体，可在必要时申请各国专利、
-软件著作权等版权、产权申明。
-6. 该授权作品禁止任何非实际参与开发且贡献内容（不包括分支合并）不少于5%的人员用于直接盈利用途。
-仅该授权作品的实际参与开发且贡献内容（不包括分支合并）不少于5%的人员可用于以自身个人为主体，或
-以自身为法人代表、实际股东的公司为主体，进行盈利行为。
-7. 您可以修改本程序的一个或数个复制物或者本程序的任何部份，以此形成基于本程序所生的著作，并依
-前述第一条规定，复制与发布此一修改过的程序或著作，但您必须符合以下要件：
-    (a) 您必须在所修改的挡案上附加显著的标示，阐明您修改过这些挡案，以及修改日期。
-    (b) 您必须就您所发布或发行的著作，无论是包含本程序全部或一部的著作，或者是自本程序或其任何
-    部份所衍生的著作，整体授权所有第三人依本授权规定使用，且不得因此项授权行为而收取任何费用。
-    (c) 若经过修改的程序在执行时通常以交互方式读取命令时，您必须在最常被使用的方式下，于开始进
-    入这种交互式使用时，列印或展示以下宣告：适当的著作权标示及无担保声明（或者声明您提供担保）、
-    使用者可以依这些条件再发布此程序，以及告知使用者如何浏览本授权的副本。（例外：若本程序本身
-    是以交互的方式执行，然而通常却不会列印该宣告时，则您基于本程序所生的著作便无需列印该宣告。）
-8. 除本授权所明示的方式外，您不得对本程序加以复制、修改、再授权或发布。任何试图以其他方式进行复
-制、修改、再授权或者发布本程序的行为均为无效，并且将自动终止您基于本授权所得享有的权利。然而，
-依本授权规定自您手中收受复制物或权利之人，只要遵守本授权规定，他们所获得的授权并不会因此终止。
-9. 因为您并未在本授权上签名，所以您无须接受本授权。然而，除此之外您別无其他修改或发布本程序或其
-衍生著作的授权许可。若您不接受本授权，则这些行为在法律上都是被禁止的。因此，藉由对本程序（或任何
-基于本程序所生的著作）的修改或发布行为，您表示了对于本授权的接受，以及接受所有关于复制、发布或修
-改本程序或基于本程序所生著作的条款与条件。
-10. 每当您再发布本程序（或任何基于本程序所生的著作）时，收受者即自动获得原授权人所授予依本授权条
-款与条件复制、发布或修改本程序的权利。您不得就本授权所赋予收受者行使的权利附加任何进一步的限制。
-您对于第三人是否履行本授权一事，无须负责。
-11. 若法院判决、专利侵权主张或者其他任何理由（不限于专利争议）的结果，使得加诸于您的条件（无论是
-由法院命令、协议书或其他方式造成）与本授权规定有所冲突，他们并不免除您对于本授权规定的遵守。若您
-无法同时符合依本授权所生义务及其他相关义务而进行发布，那么其结果便是您不得发布该程序。例如，若专
-利授权不允许其他人直接或间接取得复制物，通过您以免付权利金的方式再发布该程序，您唯一能同时滿足该
-义务及本授权的方式就是徹底避免进行该程序的发布。
-若本条任一部份在特殊情况下被认定无效或无法执行时，本条其余部分仍应适用，且本条全部于其他情况下仍
-应适用。
-12. 若因为专利或享有著作权保护的介面问题，而使得本程序的发布与／或使用局限于某些国家时，则将本程
-序置于本授权规范之下的原著作权人得增列明确的发布地区限制条款，将这些国家排除在外，而使发布的许可
-只限在未受排除的国家之內或之中。在该等情况下，该限制条款如同以书面方式订定于本授权內容中，而成为
-本授权的条款。
-13. 由于本程序是无偿授权，因此在法律许可范围內，本授权对本程序并不负担保责任。非经书面声明，著作
-权人与／或其他提供程序之人，无论明示或默许，均是依「现况」提供本程序而并无任何形式的担保责任，其
-包括但不限于，就适售性以及特定目的的适用性为默示性担保。有关本程序品质与效能的全部风险均由您承担。
-如本程序被证明有瑕疵，您应承担所有服务、修复或改正的费用。
-14. 非经法律要求或书面同意，任何著作权人或任何可能依前述方式修改与／或发布本程序者，对于您因为使
-用或不能使用本程序所造成的一般性、特殊性、意外性或间接性损失，不负任何责任（包括但不限于，资料损
-失，资料执行不精确，或应由您或第三人承担的损失，或本程序无法与其他程序运作等），即便前述的著作权
-人或其他人已被告知该等损失的可能性时，也是一样。
+2. The individual or the legal entity must strictly comply with all
+applicable laws, regulations, rules and standards of the jurisdiction
+relating to labor and employment where the individual is physically
+located or where the individual was born or naturalized; or where the
+legal entity is registered or is operating (whichever is stricter). In
+case that the jurisdiction has no such laws, regulations, rules and
+standards or its laws, regulations, rules and standards are
+unenforceable, the individual or the legal entity are required to
+comply with Core International Labor Standards.
 
-该授权作品是"按原样"提供，不做任何明示或暗示的保证，包括但不限于对适销性、特定用途适用性和非侵权
-性的保证。在任何情况下，无论是在合同诉讼、侵权诉讼或其他诉讼中，版权持有人均不承担因本软件或本软
-件的使用或其他交易而产生、引起或与之相关的任何索赔、损害或其他责任。
+3. The individual or the legal entity shall not induce, suggest or force
+its employee(s), whether full-time or part-time, or its independent
+contractor(s), in any methods, to agree in oral or written form, to
+directly or indirectly restrict, weaken or relinquish his or her
+rights or remedies under such laws, regulations, rules and standards
+relating to labor and employment as mentioned above, no matter whether
+such written or oral agreements are enforceable under the laws of the
+said jurisdiction, nor shall such individual or the legal entity
+limit, in any methods, the rights of its employee(s) or independent
+contractor(s) from reporting or complaining to the copyright holder or
+relevant authorities monitoring the compliance of the license about
+its violation(s) of the said license.
+
+THE LICENSED WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN ANY WAY CONNECTION WITH THE
+LICENSED WORK OR THE USE OR OTHER DEALINGS IN THE LICENSED WORK.
