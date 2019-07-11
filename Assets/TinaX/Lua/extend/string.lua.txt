@@ -1,0 +1,128 @@
+--[[
+    字符串扩展
+
+    -string.split   --字符串分割(待分割文本,分割符) 返回值：字符串table
+]]
+
+---分割字符串
+function string.split(inputstr, sep)
+    if sep == nil then
+            sep = "%s"
+    end
+    local t={} ; i=1
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+            t[i] = str
+            i = i + 1
+    end
+    return t
+end
+
+---删首尾空
+function string.trim(s) 
+    if s == nil then return "" end
+    return (string.gsub(s, "^%s*(.-)%s*$", "%1")) 
+end
+
+---删首空格
+function string.trim_start(s)
+    return string.gsub(s, "^[ \t\n\r]+", "")
+end
+
+---删尾空格
+function string.trim_end(s)
+    return string.gsub(s, "[ \t\n\r]+$", "")
+end
+
+---过滤字符串中的空字符
+function string.filterNullChar(str)
+    if not str then
+        return str
+    end
+    local retStr = ""
+    for char in string.gmatch(str,"[^%z]") do      -- 存在空字符，造成字符串截断
+        retStr = retStr..char
+    end
+    return retStr
+end
+
+---是否为空字符串
+function string.isNilOrEmpty(str)
+    str = string.filterNullChar(str)
+    return str == nil or str == ""
+end
+
+---Base64编码
+function string.ToBase64(source_str)
+    local b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    local s64 = ''
+    local str = source_str
+ 
+    while #str > 0 do
+        local bytes_num = 0
+        local buf = 0
+ 
+        for byte_cnt=1,3 do
+            buf = (buf * 256)
+            if #str > 0 then
+                buf = buf + string.byte(str, 1, 1)
+                str = string.sub(str, 2)
+                bytes_num = bytes_num + 1
+            end
+        end
+ 
+        for group_cnt=1,(bytes_num+1) do
+            local b64char = math.fmod(math.floor(buf/262144), 64) + 1
+            s64 = s64 .. string.sub(b64chars, b64char, b64char)
+            buf = buf * 64
+        end
+ 
+        for fill_cnt=1,(3-bytes_num) do
+            s64 = s64 .. '='
+        end
+    end
+ 
+    return s64
+end
+
+---Base64解码
+function string.Base64ToStr(str64)
+    local b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    local temp={}
+    for i=1,64 do
+        temp[string.sub(b64chars,i,i)] = i
+    end
+    temp['=']=0
+    local str=""
+    for i=1,#str64,4 do
+        if i>#str64 then
+            break
+        end
+        local data = 0
+        local str_count=0
+        for j=0,3 do
+            local str1=string.sub(str64,i+j,i+j)
+            if not temp[str1] then
+                return
+            end
+            if temp[str1] < 1 then
+                data = data * 64
+            else
+                data = data * 64 + temp[str1]-1
+                str_count = str_count + 1
+            end
+        end
+        for j=16,0,-8 do
+            if str_count > 0 then
+                str=str..string.char(math.floor(data/math.pow(2,j)))
+                data=math.mod(data,math.pow(2,j))
+                str_count = str_count - 1
+            end
+        end
+    end
+ 
+    local last = tonumber(string.byte(str, string.len(str), string.len(str)))
+    if last == 0 then
+        str = string.sub(str, 1, string.len(str) - 1)
+    end
+    return str
+end

@@ -1,0 +1,16 @@
+XCore.Sound = XCore.Sound or {}
+
+---创建音频轨道,如果已存在，则返回已存在的音轨
+XCore.Sound.CreateSoundTrack = function(name)
+    return CS.TinaX.XSound.I:CreateSoundTrack(name)
+end
+
+---检查音轨是否存在
+XCore.Sound.IsSoundTrackExist = function(name)
+    return CS.TinaX.XSound.I:IsSoundTrackExist(name);
+end
+
+---获取已存在的音轨
+XCore.Sound.GetSoundTrack = function(name)
+    return CS.TinaX.XSound.I:GetSoundTrack(name);
+end

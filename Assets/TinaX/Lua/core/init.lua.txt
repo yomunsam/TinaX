@@ -1,0 +1,44 @@
+---TinaX Lua Init
+
+local TinaX_Lua_Root_Path = CS.TinaX.Setup.Framework_Path .. "/Lua/"
+
+--Debug- IDE调试扩展
+if CS.UnityEngine.Application.isEditor then
+    local luaConfig = CS.UnityEngine.Resources.Load(CS.TinaX.Setup.Framework_Config_Path .. "/lua_script")
+    if luaConfig ~= nil then
+        if luaConfig:IsEnableLuaIDE() then
+            --启用LuaIDE
+            do
+                print("[TinaX]LuaScript 启用IDE调试扩展：<color=green>LuaIDE</color>")
+                local breakSocketHandle,debugXpCall = require("Assets/TinaX/Lua/debug/luaide/LuaDebug")("localhost",7003)
+            end
+        end
+        if luaConfig:IsEnableLuaPanda() then
+            --启用LuaPanda
+            do
+                -- print("[TinaX]LuaScript 启用IDE调试扩展：<color=green>LuaPanda</color>")
+                -- require("Assets/TinaX/Lua/debug/luapanda/LuaPanda").start("127.0.0.1",8818)
+            end
+        end
+    else
+        error("获取LuaScript配置 失败:" .. CS.TinaX.Setup.Framework_Config_Path .. "/lua_script");
+    end
+end
+
+
+--Debug
+-- if CS.UnityEngine.Application.isEditor == true then
+--     -- 尝试加载LuaIDE调试文件 
+--     local file_path = CS.System.IO.Path.Combine(CS.System.IO.Directory.GetCurrentDirectory(), "LuaDebug");
+--     if CS.System.IO.File.Exists(file_path .. ".txt") == true then
+--         local breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7003)
+--     end
+-- end
+
+--载入Lua语言扩展
+require(TinaX_Lua_Root_Path .. "extend/string")
+require(TinaX_Lua_Root_Path .. "extend/class")
+require(TinaX_Lua_Root_Path .. "extend/table")
+require(TinaX_Lua_Root_Path .. "extend/logger")
+
+require(TinaX_Lua_Root_Path .. "core/xcore")

@@ -1,0 +1,72 @@
+--TinaX 场景管理器
+
+XCore.Scene = XCore.Scene or {}
+
+--@RefType [XCore.UIKit#CS.TinaX.UIKit.IUIMgr]
+local SceneMgr = CS.TinaX.SceneMgr.Instance
+
+
+---打开场景
+XCore.Scene.OpenScene = function(scene_name)
+    SceneMgr:OpenScene(scene_name)
+end
+
+--[[
+    @desc: 打开场景（异步）
+    author:yomunsam
+    time:2019-07-03 03:40:13
+    --@data: table
+    @return:nil
+]]
+function XCore.Scene.OpenSceneAsync(data)
+    --[[
+        data = {
+            scene_name = "scene name ",                         --场景名
+            load_mode   = XCore.Scene.LoadSceneMode.xxx         --加载模式，可空，默认：Single
+            allow_activation = true/false,                      --是否运行在场景准备就绪后立即激活场景，可空，默认true
+            onFinish    = function(load_plan),                  --回调：加载结束回调,接收一个参数：[TinaX.SceneLoadAsyncPlan]
+            onProgress = function(float),                       --回调，接受加载进度，接受一个num参数
+        }
+
+        data可以按照上面的方法传个table,也可以直接传一个string,作为scene_name
+    ]]
+
+    local param_data = nil
+    if type(data) == "table"  then
+        param_data = data
+    else
+        param_data = {
+            scene_name = tostring(data),
+            -- load_mode = XCore.Scene.LoadSceneMode.Single,
+            -- allow_activation = true,
+            -- onFinish = nil,
+            -- onProgress = nil
+        }
+    end
+
+    --处理默认值
+    if param_data.load_mode == nil then
+        param_data.load_mode = XCore.Scene.LoadSceneMode.Single
+    end
+    if param_data.allow_activation == nil then
+        param_data.allow_activation = true
+    end
+    if param_data.load_mode == XCore.Scene.LoadSceneMode.Additive then
+        param_data.load_mode = CS.UnityEngine.SceneManagement.LoadSceneMode.Additive
+    else
+        param_data.load_mode = CS.UnityEngine.SceneManagement.LoadSceneMode.Single
+    end
+
+    SceneMgr:OpenSceneAsync(param_data.scene_name,param_data.load_mode,param_data.allow_activation,param_data.onProgress,param_data.onFinish)
+
+end
+
+
+
+--------------------------------------------------------------------------------
+
+---加载模式 [UnityEngine.SceneManagement.LoadSceneMode]
+XCore.Scene.LoadSceneMode = {
+    Single          = 0,
+    Additive        = 1
+}
