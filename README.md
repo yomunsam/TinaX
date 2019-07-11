@@ -14,7 +14,7 @@ TinaX Framework 是一个基于Unity引擎的游戏开发框架，旨在为中�
 
 ## 环境要求
 
-### Unity 版本 {docsify-ignore}
+### Unity 版本 
 
 TinaX 最低兼容 `Unity 2018.3` 以上版本，由于TinaX基于新的Unity prefab机制，固不兼容更低版本。
 
@@ -22,7 +22,7 @@ TinaX 最低兼容 `Unity 2018.3` 以上版本，由于TinaX基于新的Unity pr
 
 当前推荐用于业务的Unity版本： `Unity 2019.1.x` / `Unity 2018.4.x LTS`
 
-### C# 版本 {docsify-ignore}
+### C# 版本 
 
 Unity Api Compatibility Level : `.NET 4.x` / `.NET Standard 2.0`
 
@@ -31,23 +31,23 @@ Unity Api Compatibility Level : `.NET 4.x` / `.NET Standard 2.0`
 
 TinaX 主要实现了以下功能：
 
-### Lua 语言支持 {docsify-ignore}
+### Lua 语言支持 
 
 出于普遍的热更新需求，TinaX原生提供了基于 [Tencent/xlua](https://github.com/Tencent/xLua) 的Lua语言运行环境，并为主要功能提供了Lua层面的API支持。
 
 如果不需要Lua环境的话，也可以在项目中将Lua相关功能完全关闭，不会影响包体体积。
 
-### 虚拟文件系统 {docsify-ignore}
+### 虚拟文件系统 
 
 虚拟文件系统（VFS: Virtual File System)是TinaX 中实现的基于用来管理资源的功能模块。VFS为业务逻辑开发提供了可虚拟寻址的、统一的资源加载API，并在系统内部处理AssetBundle的依赖加载与释放。
 
 VFS支持热更新。
 
-### UIKit 用户界面系统 {docsify-ignore}
+### UIKit 用户界面系统 
 
 基于uGUI提供的UIKit工具，提供了统一的、基于页面的UI管理框架。
 
-### 其他 {docsify-ignore}
+### 其他 
 
 - I18N 国际化系统
 - 跨语言的事件消息广播
