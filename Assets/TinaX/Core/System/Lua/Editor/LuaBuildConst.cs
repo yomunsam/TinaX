@@ -119,10 +119,10 @@ namespace TinaXEditor.Lua
 
             #region 第三方依赖
 
-            //thirdParty
+            ////thirdParty
 
-            typeof(SuperScrollView.LoopListView2),
-            typeof(SuperScrollView.LoopListViewItem2),
+            //typeof(SuperScrollView.LoopListView2),
+            //typeof(SuperScrollView.LoopListViewItem2),
 
 
             //Unirx
@@ -145,9 +145,9 @@ namespace TinaXEditor.Lua
             typeof(Action<Collision>),
             typeof(Action<UnityEngine.Object>),
 
-            //thirdparty
-            typeof(System.Func<SuperScrollView.LoopListView2, int, SuperScrollView.LoopListViewItem2>),
-            typeof(Action<SuperScrollView.LoopListViewItem2,object>),
+            ////thirdparty
+            //typeof(System.Func<SuperScrollView.LoopListView2, int, SuperScrollView.LoopListViewItem2>),
+            //typeof(Action<SuperScrollView.LoopListViewItem2,object>),
             
         };
 

@@ -5,7 +5,7 @@ namespace TinaX.Lua.ProjectSetting
 {
     static class PSLuaConfig
     {
-
+#if TinaX_CA_LuaRuntime_Enable
         private static Lua.LuaConfig mConfig;
         private static SerializedObject mSer_Config;
 
@@ -22,7 +22,7 @@ namespace TinaX.Lua.ProjectSetting
         private static SerializedProperty mConf_Debug_LuaPerfact_Enable; //LuaPerfact enable
         private static SerializedProperty mConf_Debug_LuaPerfact_Addr; //
         private static SerializedProperty mConf_Debug_LuaPerfact_Port; //
-        
+#endif
 
 
         [SettingsProvider]
@@ -33,7 +33,7 @@ namespace TinaX.Lua.ProjectSetting
                 label = "Lua Script",
                 activateHandler = (searchContext, rootElement) =>
                 {
-
+#if TinaX_CA_LuaRuntime_Enable
                     mTitle.normal.textColor = TinaX.Core.XEditorStyleDefine.Color_Blue;
                     mTitle.fontSize = 15;
 
@@ -60,13 +60,14 @@ namespace TinaX.Lua.ProjectSetting
                         }
 
                     }
+#endif
 
                 },
                 guiHandler = (searchContext) =>
                 {
 #if !TinaX_CA_LuaRuntime_Enable
                     GUILayout.Label("您似乎未启用TinaX Framework的 Lua 功能，请先在宏定义设置中启用.");
-#endif
+#else
                     if (mSer_Config != null && mConfig != null)
                     {
                         EditorGUILayout.BeginVertical(GUILayout.MaxWidth(500));
@@ -116,7 +117,7 @@ namespace TinaX.Lua.ProjectSetting
 
                         mSer_Config.ApplyModifiedProperties();
                     }
-
+#endif
                 },
                 deactivateHandler = () =>
                 {
