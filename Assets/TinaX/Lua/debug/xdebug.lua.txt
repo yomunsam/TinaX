@@ -1,0 +1,23 @@
+XCore = XCore or {}
+XCore.XDebug = XCore.XDebug or {}
+
+XCore.XDebug.Paths = {
+    LuaIDE = {
+        Startup = table.concat( {CS.TinaX.Setup.Framework_Lua_RootPath,"/",CS.TinaX.Lua.LuaIDEDebugConst.LuaIDE_Debug_Startup_Path}),
+        DebugFile = table.concat( {CS.TinaX.Setup.Framework_Lua_RootPath,"/",CS.TinaX.Lua.LuaIDEDebugConst.LuaIDE_Debug_File_Path}),
+    }
+}
+
+function XCore.XDebug.StartLuaIDE(addr,port)
+    local m = require(XCore.XDebug.Paths.LuaIDE.Startup)
+    m.Start(addr,port,XCore.XDebug.Paths.LuaIDE.DebugFile)
+end
+
+function XCore.XDebug.StartLuaPerfect(addr,port)
+    if addr == nil then addr = "127.0.0.1" end
+    if port == nil then port = 9826 end
+
+    print("[TinaX][Lua Runtime] 启用IDE调试扩展：<color=green>Tencent Lua Perfect</color>")
+    local _, LuaDebuggee = pcall(require, "LuaDebuggee")
+    if LuaDebuggee then LuaDebuggee.StartDebug(addr,port) end
+end

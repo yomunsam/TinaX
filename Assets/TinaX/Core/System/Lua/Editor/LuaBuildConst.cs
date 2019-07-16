@@ -138,6 +138,7 @@ namespace TinaXEditor.Lua
             typeof(Action),
             typeof(Action<string>),
             typeof(Action<string, string>),
+            typeof(Action<string, int>),
             typeof(Action<double>),
             typeof(Action<bool>),
             typeof(Action<Collider>),
@@ -146,7 +147,8 @@ namespace TinaXEditor.Lua
 
             //thirdparty
             typeof(System.Func<SuperScrollView.LoopListView2, int, SuperScrollView.LoopListViewItem2>),
-            typeof(Action<SuperScrollView.LoopListViewItem2,object>)
+            typeof(Action<SuperScrollView.LoopListViewItem2,object>),
+            
         };
 
 

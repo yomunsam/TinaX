@@ -3,10 +3,10 @@
 XCore = XCore or {}
 
 ------常用全局变量
-XCore.LocalStorage_TinaX = CS.UnityEngine.Application.persistentDataPath .. "/" .. CS.TinaX.Setup.Framework_LocalStorage_TinaX
-XCore.LocalStorage_App = CS.UnityEngine.Application.persistentDataPath .. "/" .. CS.TinaX.Setup.Framework_LocalStorage_App
+XCore.LocalStorage_TinaX = table.concat({CS.UnityEngine.Application.persistentDataPath,"/",CS.TinaX.Setup.Framework_LocalStorage_TinaX})
+XCore.LocalStorage_App = table.concat({CS.UnityEngine.Application.persistentDataPath,"/", CS.TinaX.Setup.Framework_LocalStorage_App})
 XCore.TinaX_Root_Path = CS.TinaX.Setup.Framework_Path
-XCore.TinaX_Root_Lua_Path = XCore.TinaX_Root_Path .. "/Lua"
+XCore.TinaX_Root_Lua_Path = CS.TinaX.Setup.Framework_Lua_RootPath
 
 
 

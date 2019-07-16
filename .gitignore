@@ -6,7 +6,11 @@
 Logs/
 Assets/AssetStoreTools*
 
-
+#开发临时
+# Assets/TinaX/Editor/Vendor/Removable/
+# Assets/TinaX/Editor/Vendor/Removable.meta
+# Assets/TinaX/Vendor/Removable/
+# Assets/TinaX/Vendor/Removable.meta
 
 # Visual Studio cache directory
 .vs/
@@ -41,14 +45,16 @@ sysinfo.txt
 # Builds
 *.apk
 
-#TinaX 开发
+# TinaX 
+TinaX_VFS/
+Assets/StreamingAssets/vfs.meta
+Assets/StreamingAssets/vfs
+
+#TinaX 开源版
 Assets/TinaX/Editor/Vendor/Removable/
 Assets/TinaX/Editor/Vendor/Removable.meta
 Assets/TinaX/Vendor/Removable/
 Assets/TinaX/Vendor/Removable.meta
-TinaX_VFS/
-Assets/StreamingAssets/vfs.meta
-Assets/StreamingAssets/vfs
 LuaDebug.txt
 LuaDebugjit.txt
 Tools/
@@ -57,3 +63,9 @@ Assets/Example.meta
 Assets/Test/*
 Assets/Test.meta
 Assets/Resources/*
+
+#Tencent Lua Prefect
+Assets/.lpproj/*
+Assets/ThirdParty/*
+Assets/ThirdParty.meta
+LuaDebuggee.dll
