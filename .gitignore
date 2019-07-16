@@ -52,3 +52,8 @@ Assets/StreamingAssets/vfs
 LuaDebug.txt
 LuaDebugjit.txt
 Tools/
+Assets/Example/*
+Assets/Example.meta
+Assets/Test/*
+Assets/Test.meta
+Assets/Resources/*

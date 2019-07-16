@@ -241,12 +241,12 @@ namespace TinaXEditor.Setup
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("看看文档"))
             {
-                Application.OpenURL("https://tinax.corala.space/catalog/");
+                Application.OpenURL("https://tinax.corala.space/");
             }
-            if (GUILayout.Button("打开项目配置"))
-            {
+            //if (GUILayout.Button("打开项目配置"))
+            //{
 
-            }
+            //}
             GUILayout.EndHorizontal();
         }
     }
