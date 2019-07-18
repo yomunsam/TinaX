@@ -255,17 +255,20 @@ namespace TinaXEditor.Setup
     /// <summary>
     /// 在引擎编辑器启动的时候加载一次，确保一些框架关键性依赖和配置文件正常
     /// </summary>
-    [UnityEditor.InitializeOnLoad]
-    public class FrameworkAutoSetup
-    {
-        static FrameworkAutoSetup()
-        {
-            //Debug.Log("喵！");
-            foreach(var item in TinaX.Conf.ConfigRegister.ConfigRegisters)
-            {
-                item.Action_Create();
-            }
-        }
-    }
+    //[UnityEditor.InitializeOnLoad]
+    //public class FrameworkAutoSetup
+    //{
+    //    static FrameworkAutoSetup()
+    //    {
+    //        //Debug.Log("喵！");
+    //        foreach(var item in TinaX.Conf.ConfigRegister.ConfigRegisters)
+    //        {
+    //            item.Action_Create();
+    //        }
+    //    }
+    //}
+
+    //上面这段代码导致了一个很沙雕的bug
+
 }
 
