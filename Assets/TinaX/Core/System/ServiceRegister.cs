@@ -19,7 +19,7 @@ namespace TinaX
                 {
                     new SceneProvide(),
                     //new LogProvide(),
-                    new AssetProvide(),
+                    new VFSProvide(),
                     new UIProvide(),
                     new I18NProvide(),
                     new TimeMachineProvide(),

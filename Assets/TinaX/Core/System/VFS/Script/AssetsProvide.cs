@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using CatLib;
 using TinaX.VFS;
+//using System;
 
 namespace TinaX
 {
     
-
-    public class AssetsMgr : Facade<IAssetsManager>
+    [System.Obsolete("AssetsMgr API is obsolete, please use VFSMgr instead.")]
+    public class AssetsMgr : Facade<IVFS>
     {
-        public static IAssetsManager I
+        public static IVFS I
+        {
+            get
+            {
+                return Instance;
+            }
+        }
+    }
+
+    public class VFSMgr : Facade<IVFS>
+    {
+        public static IVFS I
         {
             get
             {
@@ -25,7 +37,7 @@ namespace TinaX
 
 namespace TinaX.Cat
 {
-    public class AssetProvide : IServiceProvider
+    public class VFSProvide : IServiceProvider
     {
         public void Init()
         {
@@ -34,7 +46,7 @@ namespace TinaX.Cat
 
         public void Register()
         {
-            App.Singleton<XAssetsManager>().Alias<IAssetsManager>();
+            App.Singleton<XAssetsManager>().Alias<IVFS>();
         }
     }
 }

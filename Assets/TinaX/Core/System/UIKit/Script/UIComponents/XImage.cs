@@ -56,19 +56,19 @@ namespace TinaX.UIKit
             //检查当前是否已有资源
             if (!mResPath.IsNullOrEmpty())
             {
-                AssetsMgr.I.RemoveUse(mResPath);
+                VFSMgr.I.RemoveUse(mResPath);
             }
 
             if (async)
             {
                 //异步
-                AssetsMgr.I.LoadAssetAsync<Sprite>(res_path, (s) => {
+                VFSMgr.I.LoadAssetAsync<Sprite>(res_path, (s) => {
                     sprite = s;
                 });
             }
             else
             {
-                sprite = AssetsMgr.I.LoadAsset<Sprite>(res_path);
+                sprite = VFSMgr.I.LoadAsset<Sprite>(res_path);
             }
 
             mResPath = res_path;
@@ -82,7 +82,7 @@ namespace TinaX.UIKit
             //释放资源
             if (!mResPath.IsNullOrEmpty())
             {
-                AssetsMgr.I.RemoveUse(mResPath);
+                VFSMgr.I.RemoveUse(mResPath);
                 mResPath = null;
             }
         }

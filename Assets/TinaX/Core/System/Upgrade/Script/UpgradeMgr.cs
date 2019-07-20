@@ -233,7 +233,7 @@ namespace TinaX.Upgrade
         /// <returns>安装成功返回true,失败返回false</returns>
         public bool InstallPatchFromLocal(string patch_path , bool DeleteAfterInstall = false)
         {
-            var target_dir = AssetsMgr.I.GetVFSPersistentDataPath(); //VFS补丁根目录
+            var target_dir = VFSMgr.I.GetVFSPersistentDataPath(); //VFS补丁根目录
 
             //解压补丁
             var patch_unzip_dir_path = Path.Combine(mPatchUnzipTemp, Path.GetFileNameWithoutExtension(patch_path));

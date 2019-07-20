@@ -13,6 +13,7 @@ namespace TinaX.UIKit
     public class XUIManagerAdv
     {
         private XUIMgrGateway mGateway;
+        private IVFS mVFS;
 
         /// <summary>
         /// 简单模式的UI对象存储池
@@ -21,8 +22,11 @@ namespace TinaX.UIKit
         /// </summary>
         private Dictionary<int, UIItem> mUIPool = new Dictionary<int, UIItem>();
 
-        public XUIManagerAdv(XUIMgrGateway _Gateway)
+        
+
+        public XUIManagerAdv(XUIMgrGateway _Gateway,IVFS _vfs)
         {
+            mVFS = _vfs;
             mGateway = _Gateway;
         }
 
@@ -118,7 +122,7 @@ namespace TinaX.UIKit
             }
 
             //走到这儿就说明肯定得新建UI了
-            var ui_prefab = AssetsMgr.I.LoadAsset<GameObject>(ui_path);
+            var ui_prefab = mVFS.LoadAsset<GameObject>(ui_path);
             //创建UI对象
             var ui_item = new UIItem(ui_prefab, ui_path, mGateway);
             //初始化UI
@@ -184,7 +188,7 @@ namespace TinaX.UIKit
             }
 
             //走到这儿就说明肯定得新建UI了
-            var ui_prefab = AssetsMgr.I.LoadAsset<GameObject>(ui_path);
+            var ui_prefab = mVFS.LoadAsset<GameObject>(ui_path);
             //创建UI对象
             var ui_item = new UIItem(ui_prefab, ui_path, mGateway);
             //初始化UI

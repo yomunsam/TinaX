@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TinaX.UIKit
 {
-    public interface IUIMgr
+    public interface IUIKit
     {
 
         /// <summary>

@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TinaX.VFS;
 
-namespace TinaX.VFS
+namespace TinaX
 {
-    public interface IAssetsManager
+    public interface IVFS
     {
         /// <summary>
         /// 加载资源

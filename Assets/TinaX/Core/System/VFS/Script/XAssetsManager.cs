@@ -12,7 +12,7 @@ namespace TinaX.VFS
     /// <summary>
     /// 资源管理器
     /// </summary>
-    public class XAssetsManager : IAssetsManager
+    public class XAssetsManager : IVFS
     {
         /// <summary>
         /// 资源管理器用户配置，

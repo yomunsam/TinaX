@@ -81,7 +81,7 @@ namespace TinaXEditor.Lua
             
             typeof(TinaX.XSound),
             typeof(TinaX.Sound.SoundTrack),
-            typeof(TinaX.AssetsMgr),
+            typeof(TinaX.VFSMgr),
             typeof(TinaX.VFS.XAssetsManager),
 
             typeof(TinaX.Lua.LuaBehaviour),
@@ -112,7 +112,7 @@ namespace TinaXEditor.Lua
             typeof(TinaX.UIKit.UIEntity),
             typeof(TinaX.UIKit.XUIMgrGateway),
             typeof(TinaX.UIKit.IUIEntity),
-            typeof(TinaX.UIKit.IUIMgr),
+            typeof(TinaX.UIKit.IUIKit),
 
 
             #endregion
@@ -144,6 +144,9 @@ namespace TinaXEditor.Lua
             typeof(Action<Collider>),
             typeof(Action<Collision>),
             typeof(Action<UnityEngine.Object>),
+
+            //Scene
+            typeof(Action<TinaX.SceneLoadAsyncPlan>),
 
             ////thirdparty
             //typeof(System.Func<SuperScrollView.LoopListView2, int, SuperScrollView.LoopListViewItem2>),

@@ -87,7 +87,13 @@ namespace TinaX.UIKit
         }
 
 
-        
+        public int LayerIndex
+        {
+            get
+            {
+                return mCanvas.sortingOrder;
+            }
+        }
 
 
         public int SetLayer(int layer)

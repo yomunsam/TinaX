@@ -1,6 +1,6 @@
 XCore.UIKit = XCore.UIKit or {}
 
---@RefType [XCore.UIKit#CS.TinaX.UIKit.IUIMgr]
+--@RefType [XCore.UIKit#CS.TinaX.UIKit.IUIKit]
 local UIKitMgr = CS.TinaX.UIKit.UIKit.I
 
 ---设置当前使用的UI组

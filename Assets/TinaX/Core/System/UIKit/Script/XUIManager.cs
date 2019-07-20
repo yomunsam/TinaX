@@ -10,6 +10,8 @@ namespace TinaX.UIKit
     public class XUIManager
     {
         private XUIMgrGateway mGateway;
+        private IVFS mVFS;
+
         /// <summary>
         /// 简单模式的UI对象存储池
         /// key为UI路径
@@ -18,10 +20,10 @@ namespace TinaX.UIKit
 
 
 
-        public XUIManager(XUIMgrGateway _Gateway)
+        public XUIManager(XUIMgrGateway _Gateway, IVFS _vfs)
         {
             mGateway = _Gateway;
-
+            mVFS = _vfs;
         }
 
 
@@ -151,6 +153,8 @@ namespace TinaX.UIKit
 
         #region 私有方法_UI操作
 
+        
+
 #if TinaX_CA_LuaRuntime_Enable
         /// <summary>
         /// 打开UI
@@ -162,13 +166,13 @@ namespace TinaX.UIKit
             if (mUIPool.ContainsKey(ui_path))
             {
                 //存在，直接置顶
-
+                mGateway.SetUILayerTop(mUIPool[ui_path].GetUIEntity());
                 return mUIPool[ui_path].GetUIEntityAPI();
             }
             else
             {
                 //不存在，打开流程
-                var ui_prefab = AssetsMgr.I.LoadAsset<GameObject>(ui_path);
+                var ui_prefab = mVFS.LoadAsset<GameObject>(ui_path);
                 //创建UI对象
                 var ui_item = new UIItem(ui_prefab, ui_path, mGateway);
                 //初始化UI
@@ -214,13 +218,13 @@ namespace TinaX.UIKit
             if (mUIPool.ContainsKey(ui_path))
             {
                 //存在，直接置顶
-
+                mGateway.SetUILayerTop(mUIPool[ui_path].GetUIEntity());
                 return mUIPool[ui_path].GetUIEntityAPI();
             }
             else
             {
                 //不存在，打开流程
-                var ui_prefab = AssetsMgr.I.LoadAsset<GameObject>(ui_path);
+                var ui_prefab = mVFS.LoadAsset<GameObject>(ui_path);
                 //创建UI对象
                 var ui_item = new UIItem(ui_prefab, ui_path, mGateway);
                 //初始化UI

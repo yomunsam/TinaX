@@ -2,7 +2,7 @@
 
 XCore.Scene = XCore.Scene or {}
 
---@RefType [XCore.UIKit#CS.TinaX.UIKit.IUIMgr]
+--@RefType [XCore.UIKit#CS.TinaX.Scene.ISceneManager]
 local SceneMgr = CS.TinaX.SceneMgr.Instance
 
 

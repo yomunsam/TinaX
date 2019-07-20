@@ -7,6 +7,7 @@ namespace TinaX.I18N
 {
     public class XI18NMgr : IXI18N
     {
+        private IVFS mVFS;
         private I18NConfig mConfig;
         private E_Language mCurSystemLanguage = E_Language.Vietnamese;
         private bool mEnable = false;
@@ -17,8 +18,9 @@ namespace TinaX.I18N
         private Dictionary<string, string> m_dict_cur_language = new Dictionary<string, string>();
 
 
-        public XI18NMgr()
+        public XI18NMgr(IVFS _vfs)
         {
+            mVFS = _vfs;
             mConfig = Config.GetTinaXConfig<I18NConfig>(ConfigPath.i18n);
             if (mConfig == null)
             {
@@ -67,7 +69,7 @@ namespace TinaX.I18N
             //读普通Json
             foreach(var item in region_s.language_file)
             {
-                var json_file = AssetsMgr.Instance.LoadAsset<TextAsset>(item);
+                var json_file = mVFS.LoadAsset<TextAsset>(item);
                 if(json_file != null)
                 {
                     var jsonObj = JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
@@ -90,7 +92,7 @@ namespace TinaX.I18N
             //读Base64
             foreach (var item in region_s.language_file_base64)
             {
-                var json_file = AssetsMgr.Instance.LoadAsset<TextAsset>(item);
+                var json_file = mVFS.LoadAsset<TextAsset>(item);
                 if (json_file != null)
                 {
                     var jsonObj = JsonUtility.FromJson<I18NJsonTpl>(json_file.text);

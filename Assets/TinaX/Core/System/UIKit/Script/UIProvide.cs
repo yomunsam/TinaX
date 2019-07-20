@@ -8,9 +8,9 @@ namespace TinaX.UIKit
 {
     
 
-    public class UIKit : Facade<IUIMgr>
+    public class UIKit : Facade<IUIKit>
     {
-        public static IUIMgr I
+        public static IUIKit I
         {
             get
             {
@@ -31,7 +31,7 @@ namespace TinaX.Cat
 
         public void Register()
         {
-            App.Singleton<XUIMgrGateway>().Alias<IUIMgr>();
+            App.Singleton<XUIMgrGateway>().Alias<IUIKit>();
         }
     }
 }

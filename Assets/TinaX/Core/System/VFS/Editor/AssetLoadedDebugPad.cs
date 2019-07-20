@@ -55,7 +55,7 @@ namespace TinaXEditor.VFS
 
             if (GUILayout.Button("GC"))
             {
-                TinaX.AssetsMgr.I.GC();
+                TinaX.VFSMgr.I.GC();
             }
 
 
@@ -101,7 +101,7 @@ namespace TinaXEditor.VFS
 
         private void Refresh_List()
         {
-            loaded_abList = TinaX.AssetsMgr.I.Debug_GetABLoadedInfo();
+            loaded_abList = TinaX.VFSMgr.I.Debug_GetABLoadedInfo();
         }
 
     }

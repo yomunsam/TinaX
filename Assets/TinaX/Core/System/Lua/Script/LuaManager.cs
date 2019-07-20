@@ -39,6 +39,8 @@ namespace TinaX.Lua
 
         private LuaConfig mLuaConfig;
 
+        private IVFS mVFSMgr;
+
         /// <summary>
         /// 是否启用了Lua
         /// </summary>
@@ -56,8 +58,9 @@ namespace TinaX.Lua
 
         #endregion
 
-        public LuaManager()
+        public LuaManager(IVFS vfsMgr)
         {
+            mVFSMgr = vfsMgr;
             //先获取配置，检查是否启用Lua
             mLuaConfig = Config.GetTinaXConfig<LuaConfig>(Conf.ConfigPath.lua);
             mTinaXFileRootPath = Setup.Framework_Path + "/Lua/";
@@ -233,15 +236,6 @@ namespace TinaX.Lua
                 fileName = fileName.Replace('.','/');
             }
 
-            //if (fileName.StartsWith(mTinaXFileRootPath))
-            //{
-            //    //TinaX内部文件
-            //    fileName = fileName + mTinaXFileExt;
-            //}
-            //else
-            //{
-            //    fileName = fileName + mFileExt;
-            //}
 
             //上面那堆改造成酱子：
 
@@ -277,7 +271,7 @@ namespace TinaX.Lua
                 fileName += mFileExt;
             }
             
-
+            
             #region 注释掉的东西,大概率是不要了，但是先留着
             //#if UNITY_EDITOR
             //            //编辑器下特殊加载处理
@@ -301,7 +295,7 @@ namespace TinaX.Lua
             //#endif
             #endregion
 
-            var codeText = AssetsMgr.Instance.LoadAsset<TextAsset>(fileName);
+            var codeText = mVFSMgr.LoadAsset<TextAsset>(fileName);
             if (codeText == null)
             {
                 XLog.PrintE("[TinaX][LuaManager]File Not Found :" + fileName);

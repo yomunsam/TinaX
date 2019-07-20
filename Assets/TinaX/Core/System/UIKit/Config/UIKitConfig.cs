@@ -64,6 +64,12 @@ namespace TinaX.UIKit
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("UI绘制")]
+        [Header("完美像素")]
+#endif
+        public bool PixelPerfect = false;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [FoldoutGroup("UI绘制")]
         [Header("权重模式")]
         [ShowIf("can_show_uisize")]
 
