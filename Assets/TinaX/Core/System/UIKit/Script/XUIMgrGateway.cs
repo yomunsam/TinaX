@@ -799,11 +799,11 @@ namespace TinaX.UIKit
         /// <param name="uientity"></param>
         public void SetUILayerTop(UIEntity uiEntity)
         {
-            if(uiEntity == mUIPool[mUIPool.Count])
+            if(uiEntity == mUIPool[mUIPool.Count - 1])
             {
                 return;
             }
-            int cur_max_layer_index = mUIPool[mUIPool.Count].LayerIndex;
+            int cur_max_layer_index = mUIPool[mUIPool.Count - 1].LayerIndex;
             for(var i = mUIPool.Count -1; i >= 0; i -- )
             {
                 if(mUIPool[i] != uiEntity)
@@ -815,8 +815,8 @@ namespace TinaX.UIKit
                 {
                     uiEntity.SetLayer(cur_max_layer_index);
                     //得把这个UI在list中放在最后面
-                    var temp = mUIPool[mUIPool.Count];
-                    mUIPool[mUIPool.Count] = mUIPool[i];
+                    var temp = mUIPool[mUIPool.Count -1];
+                    mUIPool[mUIPool.Count -1] = mUIPool[i];
                     mUIPool[i] = temp;
                     break;
                 }
