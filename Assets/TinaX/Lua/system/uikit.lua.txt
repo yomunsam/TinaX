@@ -5,7 +5,7 @@ local UIKitMgr = CS.TinaX.UIKit.UIKit.I
 
 ---设置当前使用的UI组
 XCore.UIKit.SetUIGroup = function(ui_group)
-    CS.TinaX.UIKit.UIKit.I:SetUIGroup(ui_group)
+    UIKitMgr:SetUIGroup(ui_group)
 end
 
 ---设置当前使用的UI组,返回UIEntity接口
@@ -110,13 +110,25 @@ XCore.UIKit.ShowUI_ByPath = function(ui_path)
     CS.TinaX.UIKit.UIKit.I:ShowUIByPath(ui_name)
 end
 
---[[
-    @desc: 设置UI组
-    author:yomunsam
-    time:2019-03-06 16:37:33
-    @return: null
-    --@ui_group: [CS.TinaX.UIKit.UIGroupConf] UI组对象
-]]
-function XCore.UIKit.SetUIGroup(ui_group)
-    UIKitMgr:SetUIGroup(ui_group)
+--是否为UIKit高级模式
+XCore.UIKit.IsAdvanced = function()
+    return UIKitMgr.IsAdvanced
+end
+
+---获取UIkit UIRoot Transform
+XCore.UIKit.GetUIRootRectTransform = function()
+    return UIKitMgr.UIKit_UIRoot_RectTrans
+end
+
+XCore.UIKit.GetUICamera = function()
+    return UIKitMgr.UIKit_UICamera
+end
+
+XCore.UIKit.GetUICameraGameObject = function()
+    return UIKitMgr.UIKit_UICamera_GameObject
+end
+
+
+XCore.UIKit.GetUIScreenLocalPoint = function(ui_transform)
+    return UIKitMgr:GetUIScreenLocalPoint(ui_transform)
 end

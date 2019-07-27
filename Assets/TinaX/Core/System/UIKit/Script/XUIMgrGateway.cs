@@ -25,6 +25,8 @@ namespace TinaX.UIKit
         private Canvas mUIRootCanvas;   //UIRoot Canvas
         private Transform mUIRootTrans;
         private RectTransform mUIRootRectTrans;
+        private Camera mUICamera;
+        private GameObject mUICameraGameObject;
         
 
         private UIKitConfig mConfig;
@@ -116,7 +118,8 @@ namespace TinaX.UIKit
             camera.allowHDR = false;
             camera.allowMSAA = false;
 
-
+            mUICameraGameObject = Go_UIKit_Camera;
+            mUICamera = camera;
             #endregion
 
 
@@ -226,6 +229,24 @@ namespace TinaX.UIKit
                 return mUIRootRectTrans;
             }
         }
+
+        public GameObject UIKit_UICamera_GameObject
+        {
+            get
+            {
+                return mUICameraGameObject;
+            }
+        }
+
+        public Camera UIKit_UICamera
+        {
+            get
+            {
+                return mUICamera;
+            }
+        }
+
+
 
         public XUISafeAreaMgr UISafeAreaManager
         {
@@ -541,6 +562,24 @@ namespace TinaX.UIKit
         public void SetUILayerTop(UIEntity entity)
         {
             m_UILayerMgr.SetUILayerTop(entity);
+        }
+
+
+        public Vector2 GetUIScreenLocalPoint(Transform trans)
+        {
+            Vector2 point;
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                mUIRootRectTrans,
+                mUICamera.WorldToScreenPoint(trans.position),
+                mUICamera,
+                out point))
+            {
+                return point;
+            }
+            else
+            {
+                return Vector2.zero;
+            }
         }
 
     }
