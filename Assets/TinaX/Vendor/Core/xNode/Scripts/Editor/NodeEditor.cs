@@ -12,35 +12,10 @@ namespace XNodeEditor {
 
         /// <summary> Fires every whenever a node was modified through the editor </summary>
         public static Action<XNode.Node> onUpdateNode;
-        public static Dictionary<XNode.NodePort, Vector2> portPositions;
-        public int renaming;
+        public readonly static Dictionary<XNode.NodePort, Vector2> portPositions = new Dictionary<XNode.NodePort, Vector2>();
 
         public virtual void OnHeaderGUI() {
-            string title = target.name;
-            if (renaming != 0) { 
-                if (Selection.Contains(target)) {
-                    int controlID = EditorGUIUtility.GetControlID(FocusType.Keyboard) + 1;
-                    if (renaming == 1) {
-                        EditorGUIUtility.keyboardControl = controlID;
-                        EditorGUIUtility.editingTextField = true;
-                        renaming = 2;
-                    }
-                    target.name = EditorGUILayout.TextField(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-                    if (!EditorGUIUtility.editingTextField) {
-                        Debug.Log("Finish renaming");
-                        Rename(target.name);
-                        renaming = 0;
-                    }
-                }
-                else {
-                    // Selection changed, so stop renaming.
-                    GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-                    Rename(target.name);
-                    renaming = 0;
-                }
-            } else {
-                GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
-            }
+            GUILayout.Label(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
         }
 
         /// <summary> Draws standard field editors for all public fields </summary>
@@ -50,8 +25,8 @@ namespace XNodeEditor {
             // serializedObject.ApplyModifiedProperties(); goes at the end.
             serializedObject.Update();
             string[] excludes = { "m_Script", "graph", "position", "ports" };
-            portPositions = new Dictionary<XNode.NodePort, Vector2>();
 
+            // Iterate through serialized properties and draw them like the Inspector (But with ports)
             SerializedProperty iterator = serializedObject.GetIterator();
             bool enterChildren = true;
             EditorGUIUtility.labelWidth = 84;
@@ -60,6 +35,13 @@ namespace XNodeEditor {
                 if (excludes.Contains(iterator.name)) continue;
                 NodeEditorGUILayout.PropertyField(iterator, true);
             }
+
+            // Iterate through dynamic ports and draw them in the order in which they are serialized
+            foreach (XNode.NodePort dynamicPort in target.DynamicPorts) {
+                if (NodeEditorGUILayout.IsDynamicPortListPort(dynamicPort)) continue;
+                NodeEditorGUILayout.PortField(dynamicPort);
+            }
+
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -101,11 +83,9 @@ namespace XNodeEditor {
             }
         }
 
-        public void InitiateRename() {
-            renaming = 1;
-        }
-
+        /// <summary> Rename the node asset. This will trigger a reimport of the node. </summary>
         public void Rename(string newName) {
+            if (newName == null || newName.Trim() == "") newName = UnityEditor.ObjectNames.NicifyVariableName(target.GetType().Name);
             target.name = newName;
             AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(target));
         }

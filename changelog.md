@@ -1,3 +1,10 @@
+## 2019.8.1
+
+1. [Remove][xUISafeArea] 暂时移除了xUISafeArea 关于畸形屏设备自适应的功能（目前组件还在），因为新版Unity有了关于这方面的更新，所以原来的实现方法可能就不需要了，以后会重构。
+2. [Remove][JSON.NET for Unity] 移除了Json.NET for Unity依赖，因为该库在UWP上的适配比较麻烦（需要有专门针对平台的特殊操作）。框架内部将只使用`UnityEngine.JsonUtility` 类进行Json操作。
+3. [Update]更新了框架内部依赖`xNode`到1.7版本。
+4. [Upgrade] 工程升级到Unity 2019.2.0f1.
+
 ## 2019.7.28
 1. [UIKit] C# 接口增加：
     - UIKit_UIRoot_RectTrans

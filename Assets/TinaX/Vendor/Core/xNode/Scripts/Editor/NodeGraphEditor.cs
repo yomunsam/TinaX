@@ -8,12 +8,15 @@ namespace XNodeEditor {
     /// <summary> Base class to derive custom Node Graph editors from. Use this to override how graphs are drawn in the editor. </summary>
     [CustomNodeGraphEditor(typeof(XNode.NodeGraph))]
     public class NodeGraphEditor : XNodeEditor.Internal.NodeEditorBase<NodeGraphEditor, NodeGraphEditor.CustomNodeGraphEditorAttribute, XNode.NodeGraph> {
-        /// <summary> The position of the window in screen space. </summary>
-        public Rect position;
+        [Obsolete("Use window.position instead")]
+        public Rect position { get { return window.position; } set { window.position = value; } }
         /// <summary> Are we currently renaming a node? </summary>
         protected bool isRenaming;
 
         public virtual void OnGUI() { }
+
+        /// <summary> Called when opened by NodeEditorWindow </summary>
+        public virtual void OnOpen() { }
 
         public virtual Texture2D GetGridTexture() {
             return NodeEditorPreferences.GetSettings().gridTexture;
@@ -57,6 +60,10 @@ namespace XNodeEditor {
             NodeEditorWindow.AddCustomContextMenuItems(menu, target);
         }
 
+        public virtual Color GetPortColor(XNode.NodePort port) {
+            return GetTypeColor(port.ValueType);
+        }
+
         public virtual Color GetTypeColor(Type type) {
             return NodeEditorPreferences.GetTypeColor(type);
         }
@@ -65,7 +72,12 @@ namespace XNodeEditor {
         public virtual void CreateNode(Type type, Vector2 position) {
             XNode.Node node = target.AddNode(type);
             node.position = position;
-            if (string.IsNullOrEmpty(node.name)) node.name = UnityEditor.ObjectNames.NicifyVariableName(type.Name);
+            if (string.IsNullOrEmpty(node.name)) {
+                // Automatically remove redundant 'Node' postfix
+                string typeName = type.Name;
+                if (typeName.EndsWith("Node")) typeName = typeName.Substring(0, typeName.LastIndexOf("Node"));
+                node.name = UnityEditor.ObjectNames.NicifyVariableName(typeName);
+            }
             AssetDatabase.AddObjectToAsset(node, target);
             if (NodeEditorPreferences.GetSettings().autoSave) AssetDatabase.SaveAssets();
             NodeEditorWindow.RepaintAll();
@@ -81,9 +93,9 @@ namespace XNodeEditor {
         }
 
         /// <summary> Safely remove a node and all its connections. </summary>
-        public void RemoveNode(XNode.Node node) {
-            UnityEngine.Object.DestroyImmediate(node, true);
+        public virtual void RemoveNode(XNode.Node node) {
             target.RemoveNode(node);
+            UnityEngine.Object.DestroyImmediate(node, true);
             if (NodeEditorPreferences.GetSettings().autoSave) AssetDatabase.SaveAssets();
         }
 

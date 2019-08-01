@@ -4,7 +4,7 @@ using System;
 using UniRx;
 using UniRx.Async;
 using UnityEngine.Networking;
-using Newtonsoft.Json;
+
 
 namespace TinaX.Upgrade
 {

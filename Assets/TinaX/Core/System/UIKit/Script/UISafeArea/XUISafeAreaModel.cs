@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+
 
 namespace TinaX.UIKit
 {
-    //UIKit UISafeArea 数据模型
 
-    [JsonObject]
+    //UIKit UISafeArea 数据模型
     public class XUISafeAreaModel
     {
-        [JsonProperty(PropertyName ="data")]
-        public List<XUISafeAreaItemModel> Data;
+
+        public List<XUISafeAreaItemModel> data;
 
         public XUISafeAreaItemModel CurDeviceInfo
         {
@@ -43,19 +42,19 @@ namespace TinaX.UIKit
         private XUISafeAreaItemModel GetCurDeviceInfo()
         {
             var myDeviceName = UnityEngine.SystemInfo.deviceModel;
-            foreach(var item in Data)
+            foreach(var item in data)
             {
-                if (item.EnableRegular)
+                if (item.regular)
                 {
                     //正则匹配
-                    if (Regex.IsMatch(myDeviceName, item.Device_RegularStr))
+                    if (Regex.IsMatch(myDeviceName, item.device_regular))
                     {
                         return item;
                     }
                 }
                 else
                 {
-                    if(item.Device_name == myDeviceName)
+                    if(item.device_name == myDeviceName)
                     {
                         return item;
                     }
@@ -72,54 +71,45 @@ namespace TinaX.UIKit
         /// <summary>
         /// 设备名
         /// </summary>
-        [JsonProperty(PropertyName = "device_name")]
-        public string Device_name { get; set; }
+        public string device_name { get; set; }
         /// <summary>
         /// 厂商名 品牌名
         /// </summary>
-        [JsonProperty(PropertyName = "brand")]
-        public string BrandName { get; set; }
+        public string brand { get; set; }
         /// <summary>
         /// 是否启用正则匹配设备名
         /// </summary>
-        [JsonProperty(PropertyName = "regular")]
-        public bool EnableRegular { get; set; }
+        public bool regular { get; set; }
 
         /// <summary>
         /// 设备名正则表达式
         /// </summary>
-        [JsonProperty(PropertyName = "device_regular")]
-        public string Device_RegularStr { get; set; }
+        public string device_regular { get; set; }
 
         /// <summary>
         /// 是否为畸形屏幕
         /// </summary>
-        [JsonProperty(PropertyName = "abnormal")]
-        public bool IsAbnormal { get; set; }
+        public bool abnormal { get; set; }
 
         /// <summary>
         /// 设备顶部缩进
         /// </summary>
-        [JsonProperty(PropertyName = "top")]
-        public int Top { get; set; }
+        public int top { get; set; }
 
         /// <summary>
         /// 设备底部缩进
         /// </summary>
-        [JsonProperty(PropertyName = "bottom")]
-        public int Bottom { get; set; }
+        public int bottom { get; set; }
 
         /// <summary>
         /// 设备左边
         /// </summary>
-        [JsonProperty(PropertyName = "left")]
-        public int Left { get; set; }
+        public int left { get; set; }
 
         /// <summary>
         /// 设备右边
         /// </summary>
-        [JsonProperty(PropertyName = "right")]
-        public int Right { get; set; }
+        public int right { get; set; }
 
     }
 
