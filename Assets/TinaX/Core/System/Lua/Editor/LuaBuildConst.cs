@@ -158,10 +158,10 @@ namespace TinaXEditor.Lua
 
         [BlackList]
         public static List<List<string>> BlackList = new List<List<string>>()  {
-            //Unity
+            //Unity--------------------------------------------
             new List<string>(){ "UnityEngine.UI.Text", "OnRebuildRequested"},
 
-
+            //TinaX ------------------------------------------
             new List<string>(){ "TinaX.VFS.XAssetsManager", "Debug_GetABLoadedInfo"},
 
             new List<string>(){ "TinaX.Setup", "EditorFrameworkOutsideFolderPath"},
@@ -170,7 +170,9 @@ namespace TinaXEditor.Lua
             new List<string>(){ "TinaX.Setup", "Framework_VFS_Patch_Path"},
             new List<string>(){ "TinaX.Setup", "EditorFrameworkCacheFolder"},
 
-            new List<string>(){ "TinaX.Lua.LuaBehaviour", "HotOverload"}
+            new List<string>(){ "TinaX.Lua.LuaBehaviour", "HotOverload"},
+            new List<string>(){ "TinaX.UIKit.XEmpty4Raycast", "AddxE4R"},
+
 
         };
 

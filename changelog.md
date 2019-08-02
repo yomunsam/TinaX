@@ -1,3 +1,17 @@
+## 2019.8.3
+
+1. 针对UnityEngine.GameObject类的C#扩展方法调整：
+    1. `DestroySelf` 方法增加延迟参数的重载。
+    2. `GetComponentOrAdd` 方法增加传入`System.Type`参数的重载。
+    3. `RemoveComponentIfExists` 方法增加传入`string`类型参数和`System.Type`类型参数的重载。
+    4. `RemoveComponentsIfExists` 方法增加传入`System.Type`类型参数的重载。
+    5. `FindOrCreateGo`方法 改为`FindOrCreateGameObject`，（原方法目前仍可用），并为`FindOrCreateGameObject`方法增加传入`params System.Type[]`类型的Components参数。
+    6. 新增 `CreateGameObject` 方法，与 `FindOrCreateGameObject`用法类似。
+    7. 咱家了一堆设置常用的`Transform`属性的扩展方法。
+    8. `HasComponent` 方法增加传入`string`类型参数和`System.Type`类型参数的重载。
+2. UIKit 新增常用UI组件：XEmpty4Raycast
+
+
 ## 2019.8.1
 
 1. [Remove][xUISafeArea] 暂时移除了xUISafeArea 关于畸形屏设备自适应的功能（目前组件还在），因为新版Unity有了关于这方面的更新，所以原来的实现方法可能就不需要了，以后会重构。

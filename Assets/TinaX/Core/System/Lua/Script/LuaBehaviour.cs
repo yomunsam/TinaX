@@ -123,9 +123,9 @@ namespace TinaX.Lua
             {
                 foreach (var item in Injections_str)
                 {
-                    if (item.Name != "" && item.Name != null && item.str != null)
+                    if (item.Name != "" && item.Name != null && item.strValue != null)
                     {
-                        scriptData.Set(item.Name, item.str);
+                        scriptData.Set(item.Name, item.strValue);
                     }
                 }
             }
@@ -334,10 +334,10 @@ namespace TinaX.Lua
     [System.Serializable]
     public class Injection_String
     {
-
-        public string str;
-
+        [Header("注入变量名")]
         public string Name;
+        [Header("注入值")]
+        public string strValue;
     }
 
 #endif
