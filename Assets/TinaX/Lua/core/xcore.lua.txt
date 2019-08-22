@@ -11,8 +11,9 @@ XCore.TinaX_Root_Lua_Path = CS.TinaX.Setup.Framework_Lua_RootPath
 
 
 --初始化TinaX Systems在 Lua中的管理器接口
-require(XCore.TinaX_Root_Lua_Path .. "/system/asset")
+require(XCore.TinaX_Root_Lua_Path .. "/system/vfs")
 require(XCore.TinaX_Root_Lua_Path .. "/system/event")
 require(XCore.TinaX_Root_Lua_Path .. "/system/i18n")
 require(XCore.TinaX_Root_Lua_Path .. "/system/uikit")
 require(XCore.TinaX_Root_Lua_Path .. "/system/sound")
+require(XCore.TinaX_Root_Lua_Path .. "/system/scene")

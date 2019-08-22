@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 using UnityEngine;
 using CatLib;
 using TinaX.Conf;
-using TinaX.VFS;
+using TinaX.VFSKit;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -36,6 +38,10 @@ namespace TinaX
         #endregion
 
         #region Info
+
+        /// <summary>
+        /// framework version name
+        /// </summary>
         public string version_name
         {
             get
@@ -44,6 +50,9 @@ namespace TinaX
             }
         }
 
+        /// <summary>
+        /// framework version code
+        /// </summary>
         public int version_code
         {
             get
@@ -94,6 +103,7 @@ namespace TinaX
         private CatLib.Application m_catlib_app;
         private MainConfig mMainConfig;
         private GameObject mBaseGameObject;
+        private List<IXBootstrap> mXBootstrapClassList;
         #endregion
 
         #region Action
@@ -101,6 +111,7 @@ namespace TinaX
         /// <summary>
         /// 框架软重启时触发的action，如果业务逻辑有需要的，在这时候顺带着处理下吧
         /// </summary>
+        [Obsolete("please use interface \"TinaX.IXBootstrap\" instead it.")]
         public static Action OnFrameworkRestart; 
 
         #endregion
@@ -128,8 +139,31 @@ namespace TinaX
             m_catlib_app.Bootstrap(new XBootstrap());
             m_catlib_app.Init();
 
+            //TinaX 6.5 主动启动引导
+            var _b_type = typeof(IXBootstrap);
+            mXBootstrapClassList = new List<IXBootstrap>();
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(a => a.GetTypes().Where(t => t.GetInterfaces().Contains(_b_type)))
+                .ToArray();
+
+            foreach(var type in types)
+            {
+                mXBootstrapClassList.Add((IXBootstrap)Activator.CreateInstance(type));
+            }
+                
+            //Invoke 启动主动引导
+            foreach(var item in mXBootstrapClassList)
+            {
+                item.OnInit();
+            }
+
             //管理器等初始化工作
             InitMgrs();
+
+            foreach(var item in mXBootstrapClassList)
+            {
+                item.OnStart();
+            }
 
             //检查和处理自动更新
             HandleAutoUpgrade(() =>
@@ -150,7 +184,7 @@ namespace TinaX
         /// 软重启App
         /// </summary>
         /// <returns></returns>
-        public XCore RestartApp()
+        public XCore RestartAppInApp()
         {
             Debug.Log("[TinaX] Framework开始软重启");
 
@@ -166,13 +200,21 @@ namespace TinaX
 
 
             XStart.RestartFramework();
-
-            if (OnFrameworkRestart != null)
+#pragma warning disable 0618
+            OnFrameworkRestart?.Invoke();
+#pragma warning restore 0618
+            foreach(var item in mXBootstrapClassList)
             {
-                OnFrameworkRestart();
+                item.OnAppRestart();
             }
+
             return this;
         }
+
+        /// <summary>
+        /// App Version
+        /// </summary>
+        public int AppVersion => mMainConfig.Version_Code;
 
 
 
@@ -235,7 +277,7 @@ namespace TinaX
 #if UNITY_EDITOR
             //编辑器模式下，检查下要不要检查更新：如果使用AssetBundle包模拟加载，则检查更新，否则检查个锤子
             //编辑器模式下，需要判断，是从哪儿加载资源
-            if (!Menu.GetChecked(Const.AssetSystemConst.menu_editor_load_from_asset_pack_name))
+            if (!VFSKit.VFSKit.IsUseAssetBundleInEdtor())
             {
                 //直接使用编辑器加载策略
                 //这种情况下，不用检查更新
@@ -246,11 +288,11 @@ namespace TinaX
 
 #endif
 
-            TinaX.Upgrade.AutoUpgradeUI_Mgr.Start((res)=> {
+            //TinaX.Upgrade.AutoUpgradeUI_Mgr.Start((res)=> {
 
 
-                OnFinish();
-            });
+            //    OnFinish();
+            //});
 
         }
 

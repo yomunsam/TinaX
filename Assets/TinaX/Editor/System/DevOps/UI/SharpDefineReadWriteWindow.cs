@@ -119,11 +119,6 @@ namespace TinaXEditor.DevOps
 
                 foreach(var item in SharpDefineDefault.DefineItems)
                 {
-                    //if(mCommonSharpDefine == null)
-                    //{
-                    //    Debug.Log("a");
-                    //}
-                    
                     var enable = mCommonSharpDefine.Contains(item.DefineStr);
                     if (mSelect_CommonDefine_Default_Btn == item.DefineStr)
                     {

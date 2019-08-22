@@ -35,11 +35,11 @@ namespace TinaXEditor.Setup
                 Selectable = false,
                 DoInstall = () =>
                 {
-                    Config.CreateIfNotExist<TinaX.VFS.VFSConfigModel>(ConfigPath.vfs);
+                    Config.CreateIfNotExist<TinaX.VFSKit.VFSConfigModel>(ConfigPath.vfs);
                 },
                 IsInstalled = () =>
                 {
-                    return Config.GetTinaXConfig<TinaX.VFS.VFSConfigModel>(ConfigPath.vfs) != null;
+                    return Config.GetTinaXConfig<TinaX.VFSKit.VFSConfigModel>(ConfigPath.vfs) != null;
                 }
             },
             //UIKit

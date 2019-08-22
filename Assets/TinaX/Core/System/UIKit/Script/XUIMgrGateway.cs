@@ -1043,7 +1043,7 @@ namespace TinaX.UIKit
             //手起刀落
             GameObject.Destroy(mUIEntity.gameObject);
             //通知资源管理器，可以回收了
-            VFSMgr.I.RemoveUse(mUIPath);
+            VFS.I.RemoveUse(mUIPath);
             //打扫
             mUIEntity = null;
             mUIPrefab = null;

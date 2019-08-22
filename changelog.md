@@ -1,3 +1,7 @@
+## 2019.8.21
+
+1. 新增接口`IXBootstrap` （`TinaX.IXBootstrap`），用于在Framework启动之前的初始化工作。开发者可继承并实现接口，以获取精确的Framework生命周期。Framework会在启动后自动反射所有实现了接口的类。
+
 ## 2019.8.3
 
 1. 针对UnityEngine.GameObject类的C#扩展方法调整：

@@ -231,6 +231,7 @@ namespace TinaX.Lua
 
         private byte[] LoadLuaCodeFile(ref string fileName)
         {
+            
             if(fileName.IndexOf('.') != -1)
             {
                 fileName = fileName.Replace('.','/');
@@ -270,8 +271,8 @@ namespace TinaX.Lua
                 //附上后缀名
                 fileName += mFileExt;
             }
-            
-            
+
+
             #region 注释掉的东西,大概率是不要了，但是先留着
             //#if UNITY_EDITOR
             //            //编辑器下特殊加载处理
@@ -295,6 +296,8 @@ namespace TinaX.Lua
             //#endif
             #endregion
 
+
+            
             var codeText = mVFSMgr.LoadAsset<TextAsset>(fileName);
             if (codeText == null)
             {

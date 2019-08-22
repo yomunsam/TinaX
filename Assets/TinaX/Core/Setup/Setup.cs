@@ -12,9 +12,9 @@ namespace TinaX
         /// </summary>
         public static readonly string Framework_Path = "Assets/TinaX";
 
-        public static readonly string Framework_Lua_RootPath = Framework_Path + "/Lua";
+        public static readonly string Framework_Lua_RootPath = $"{Framework_Path}/Lua";
 
-        public static readonly string Framework_Lua_Init = Framework_Lua_RootPath + "/core/init";
+        public static readonly string Framework_Lua_Init = $"{Framework_Lua_RootPath}/core/init";
 
         /// <summary>
         /// 框架配置文件目录（相对于Resources文件夹）

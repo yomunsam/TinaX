@@ -38,7 +38,8 @@ namespace TinaX.Lua.ProjectSetting
                     mTitle.fontSize = 15;
 
 
-                    mConfig = TinaX.Config.GetTinaXConfig<LuaConfig>(TinaX.Conf.ConfigPath.lua);
+                    mConfig = TinaX.Config.CreateIfNotExist<LuaConfig>(TinaX.Conf.ConfigPath.lua);
+                    
                     if (mConfig != null)
                     {
                         mSer_Config = new SerializedObject(mConfig);

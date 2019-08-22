@@ -81,8 +81,7 @@ namespace TinaXEditor.Lua
             
             typeof(TinaX.XSound),
             typeof(TinaX.Sound.SoundTrack),
-            typeof(TinaX.VFSMgr),
-            typeof(TinaX.VFS.XAssetsManager),
+            typeof(TinaX.VFS),
 
             typeof(TinaX.Lua.LuaBehaviour),
 

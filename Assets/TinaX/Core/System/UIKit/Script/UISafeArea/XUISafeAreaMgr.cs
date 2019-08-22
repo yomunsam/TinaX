@@ -79,7 +79,7 @@ namespace TinaX.UIKit
             string config_json;
             if (mUIConfig.UISafeArea_LoadByVFS)
             {
-                config_json = VFSMgr.I.LoadAsset<TextAsset>(mUIConfig.UI_SafeArea_Json)?.text;
+                config_json = VFS.I.LoadAsset<TextAsset>(mUIConfig.UI_SafeArea_Json)?.text;
             }
             else
             {

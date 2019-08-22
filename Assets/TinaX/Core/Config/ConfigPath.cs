@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TinaX.VFS;
+using TinaX.VFSKit;
 
 namespace TinaX.Conf
 {
@@ -67,7 +67,7 @@ namespace TinaX.Conf
             },
             new S_ConfigInfo()
             {
-                Title = "资产管理器",
+                Title = "虚拟文件系统",
                 Action_Create = () =>
                 {
                     return Config.CreateIfNotExist<VFSConfigModel>(ConfigPath.vfs);

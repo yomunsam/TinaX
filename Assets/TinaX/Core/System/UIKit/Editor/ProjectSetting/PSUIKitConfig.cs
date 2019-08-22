@@ -28,7 +28,7 @@ namespace TinaX.UIKit.ProjectSetting
                     mTitle.normal.textColor = TinaX.Core.XEditorStyleDefine.Color_Blue;
                     mTitle.fontSize = 15;
 
-                    mConfig = TinaX.Config.GetTinaXConfig<UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
+                    mConfig = TinaX.Config.CreateIfNotExist<UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
                     if (mConfig != null)
                     {
                         mSer_Config = new SerializedObject(mConfig);

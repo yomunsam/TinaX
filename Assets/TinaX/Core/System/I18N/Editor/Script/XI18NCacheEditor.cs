@@ -30,7 +30,7 @@ namespace TinaXEditor.I18N
         static XI18NCacheEditor()
         {
             //添加配置文件到资源监听
-            AssetInputHandle.AddAssetListener("Assets/Resources/" + TinaX.Setup.Framework_Config_Path + "/" + TinaX.Conf.ConfigPath.i18n, OnConfigFileChanged);
+            //AssetInputHandle.AddAssetListener("Assets/Resources/" + TinaX.Setup.Framework_Config_Path + "/" + TinaX.Conf.ConfigPath.i18n, OnConfigFileChanged);
 
 
 
@@ -92,17 +92,17 @@ namespace TinaXEditor.I18N
 
 
 
-        private static void OnConfigFileChanged(string path,AssetInputHandle.ResChangeType type)
-        {
-            if (type == AssetInputHandle.ResChangeType.CreateOrModify)
-            {
-                mCurConfig = TinaX.Config.GetTinaXConfig<I18NConfig>(TinaX.Conf.ConfigPath.i18n);
-                if (mCurConfig != null)
-                {
-                    RefreshLanguageFiles();
-                }
-            }
-        }
+        //private static void OnConfigFileChanged(string path,AssetInputHandle.ResChangeType type)
+        //{
+        //    if (type == AssetInputHandle.ResChangeType.CreateOrModify)
+        //    {
+        //        mCurConfig = TinaX.Config.GetTinaXConfig<I18NConfig>(TinaX.Conf.ConfigPath.i18n);
+        //        if (mCurConfig != null)
+        //        {
+        //            RefreshLanguageFiles();
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// 语言包缓存是否存在
@@ -168,7 +168,7 @@ namespace TinaXEditor.I18N
                             });
                         }
                         //把语言添加进变动监听
-                        AssetInputHandle.AddAssetListener(lang, OnLangJsonFileChanged);
+                        //AssetInputHandle.AddAssetListener(lang, OnLangJsonFileChanged);
                     }
 
                     foreach (var lang in item.language_file_base64)
@@ -189,7 +189,7 @@ namespace TinaXEditor.I18N
 
                         }
                         //把语言添加进变动监听
-                        AssetInputHandle.AddAssetListener(lang, OnLangJsonFileChanged);
+                        //AssetInputHandle.AddAssetListener(lang, OnLangJsonFileChanged);
                     }
 
                     
@@ -199,25 +199,25 @@ namespace TinaXEditor.I18N
 
         }
 
-        private static void OnLangJsonFileChanged(string path, AssetInputHandle.ResChangeType type)
-        {
-            if(type == AssetInputHandle.ResChangeType.Remove)
-            {
-                RemoveIfLangCacheExist(path);
-                AssetInputHandle.RemoveAssetListener(path, OnLangJsonFileChanged);
-            }
-            if(type == AssetInputHandle.ResChangeType.CreateOrModify)
-            {
-                foreach(var item in mCurRegionLanguageFilesInfo)
-                {
-                    if (item.path == path)
-                    {
-                        item.RefreshFile();
-                        break;
-                    }
-                }
-            }
-        }
+        //private static void OnLangJsonFileChanged(string path, AssetInputHandle.ResChangeType type)
+        //{
+        //    if(type == AssetInputHandle.ResChangeType.Remove)
+        //    {
+        //        RemoveIfLangCacheExist(path);
+        //        AssetInputHandle.RemoveAssetListener(path, OnLangJsonFileChanged);
+        //    }
+        //    if(type == AssetInputHandle.ResChangeType.CreateOrModify)
+        //    {
+        //        foreach(var item in mCurRegionLanguageFilesInfo)
+        //        {
+        //            if (item.path == path)
+        //            {
+        //                item.RefreshFile();
+        //                break;
+        //            }
+        //        }
+        //    }
+        //}
 
 
         /// <summary>

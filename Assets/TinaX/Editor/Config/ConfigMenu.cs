@@ -17,11 +17,11 @@ namespace TinaXEditor
             Selection.activeObject = conf;
         }
 
-        [MenuItem("TinaX/配置/资源系统",false,101)]
+        [MenuItem("TinaX/配置/虚拟文件系统",false,101)]
         public static void Config_assets()
         {
             Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
-            var conf = TinaX.Config.CreateIfNotExist<TinaX.VFS.VFSConfigModel>(TinaX.Conf.ConfigPath.vfs);
+            var conf = TinaX.Config.CreateIfNotExist<TinaX.VFSKit.VFSConfigModel>(TinaX.Conf.ConfigPath.vfs);
             Selection.activeObject = conf;
         }
 
@@ -33,7 +33,7 @@ namespace TinaXEditor
             Selection.activeObject = conf;
         }
 
-        [MenuItem("TinaX/配置/国际化", false, 102)]
+        [MenuItem("TinaX/配置/国际化", false, 103)]
         public static void Config_i18n()
         {
             Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
@@ -41,6 +41,21 @@ namespace TinaXEditor
             Selection.activeObject = conf;
         }
 
+        [MenuItem("TinaX/配置/LuaScript Runtime", false, 104)]
+        public static void Config_lua()
+        {
+            Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
+            var conf = TinaX.Config.CreateIfNotExist<TinaX.Lua.LuaConfig>(TinaX.Conf.ConfigPath.lua);
+            Selection.activeObject = conf;
+        }
+
+        [MenuItem("TinaX/配置/热更新", false, 105)]
+        public static void Config_upgrade()
+        {
+            Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
+            var conf = TinaX.Config.CreateIfNotExist<TinaX.Upgrade.UpgradeConfig>(TinaX.Conf.ConfigPath.upgrade);
+            Selection.activeObject = conf;
+        }
 
 
 #endif
