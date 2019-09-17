@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TinaX.Conf;
 using UnityEngine;
-using TinaX.Conf;
 
 namespace TinaX
 {
     public class XStart
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        public static void OnGameStart()
+        public static async void OnGameStart()
         {
+            var curTime = System.DateTime.UtcNow;
+            Debug.Log("TinaX Start :" + curTime.ToLongTimeString());
             var main_conf  = Config.GetTinaXConfig<MainConfig>(ConfigPath.main);
             if (main_conf == null)
             {
@@ -19,10 +19,10 @@ namespace TinaX
             if (!main_conf.TinaX_Enable) { return; }
 
             //启动XCore
-            XCore.I.Init(main_conf);
+            await XCore.I.Init(main_conf);
         }
 
-        public static void RestartFramework()
+        public static async void RestartFramework()
         {
             var main_conf = Config.GetTinaXConfig<MainConfig>(ConfigPath.main);
             if (main_conf == null)
@@ -33,7 +33,7 @@ namespace TinaX
             if (!main_conf.TinaX_Enable) { return; }
 
             //启动XCore
-            XCore.I.Init(main_conf);
+            await XCore.I.Init(main_conf);
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]

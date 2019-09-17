@@ -39,17 +39,18 @@ namespace TinaXEditor.Assets
                     m_VSF_Root_path = m_VSF_Root_path.Replace(@"\","/");
                 }
             }
-            
 
-            m_VSF_Stram_path = System.IO.Path.Combine(new string[] {
+
+            m_VSF_Stream_path = System.IO.Path.Combine(new string[] {
                 m_cur_dir_path,
-                "Assets/StreamingAssets/vfs/"
-            });
+                "Assets/StreamingAssets/",
+                TinaX.VFSKit.VFSPathConst.VFS_File
+            }) ;
 
         }
         string m_cur_dir_path;
         string m_VSF_Root_path;
-        string m_VSF_Stram_path;
+        string m_VSF_Stream_path;
         string m_cur_selection_path;
         /*
          * 布局
@@ -57,6 +58,9 @@ namespace TinaXEditor.Assets
          *  
          *  右边栏显示工程StreamingAssets中所有目录的列表
          */
+
+
+
 
         private void OnGUI()
         {
@@ -119,7 +123,7 @@ namespace TinaXEditor.Assets
 
                     if (GUILayout.Button("移动到StreamingAssets"))
                     {
-                        var target_folder_path = Path.Combine(m_VSF_Stram_path, Path.GetFileName(m_cur_selection_path));
+                        var target_folder_path = Path.Combine(m_VSF_Stream_path, Path.GetFileName(m_cur_selection_path));
                         //判断一下对面有没有文件
                         if (Directory.Exists(target_folder_path))
                         {
@@ -131,7 +135,7 @@ namespace TinaXEditor.Assets
                         }
                         Directory.CreateDirectory(Directory.GetParent(target_folder_path).ToString());
                         EditorUtility.DisplayProgressBar("正在复制","稍等",0.4f);
-                        Folder.CopyDir(m_cur_selection_path, target_folder_path);
+                        TinaX.IO.XDirectory.CopyDir(m_cur_selection_path, target_folder_path);
                         EditorUtility.ClearProgressBar();
                     }
                 }
@@ -164,9 +168,9 @@ namespace TinaXEditor.Assets
             GUILayout.Space(10);
 
 
-            if (Directory.Exists(m_VSF_Stram_path))
+            if (Directory.Exists(m_VSF_Stream_path))
             {
-                var folders_Stream = System.IO.Directory.GetDirectories(System.IO.Path.GetFullPath(m_VSF_Stram_path));
+                var folders_Stream = System.IO.Directory.GetDirectories(System.IO.Path.GetFullPath(m_VSF_Stream_path));
 
                 foreach (var folder in folders_Stream)
                 {
@@ -193,6 +197,12 @@ namespace TinaXEditor.Assets
             #endregion
 
             GUILayout.EndHorizontal();
+        }
+
+
+        private void OnDestroy()
+        {
+            AssetDatabase.Refresh();
         }
     }
 }

@@ -139,9 +139,8 @@ namespace XNodeEditor {
 
                 rect.size = new Vector2(16, 16);
 
-                Color backgroundColor = new Color32(90, 97, 105, 255);
-                Color tint;
-                if (NodeEditorWindow.nodeTint.TryGetValue(port.node.GetType(), out tint)) backgroundColor *= tint;
+                NodeEditor editor = NodeEditor.GetEditor(port.node, NodeEditorWindow.current);
+                Color backgroundColor = editor.GetTint();
                 Color col = NodeEditorWindow.current.graphEditor.GetPortColor(port);
                 DrawPortHandle(rect, backgroundColor, col);
 
@@ -153,7 +152,7 @@ namespace XNodeEditor {
 
         private static System.Type GetType(SerializedProperty property) {
             System.Type parentType = property.serializedObject.targetObject.GetType();
-            System.Reflection.FieldInfo fi = NodeEditorWindow.GetFieldInfo(parentType, property.name);
+            System.Reflection.FieldInfo fi = parentType.GetFieldInfo(property.name);
             return fi.FieldType;
         }
 
@@ -176,7 +175,6 @@ namespace XNodeEditor {
 
                 Rect rect = GUILayoutUtility.GetLastRect();
                 position = rect.position - new Vector2(16, 0);
-
             }
             // If property is an output, display a text label and put a port handle on the right side
             else if (port.direction == XNode.NodePort.IO.Output) {
@@ -195,9 +193,8 @@ namespace XNodeEditor {
 
             Rect rect = new Rect(position, new Vector2(16, 16));
 
-            Color backgroundColor = new Color32(90, 97, 105, 255);
-            Color tint;
-            if (NodeEditorWindow.nodeTint.TryGetValue(port.node.GetType(), out tint)) backgroundColor *= tint;
+            NodeEditor editor = NodeEditor.GetEditor(port.node, NodeEditorWindow.current);
+            Color backgroundColor = editor.GetTint();
             Color col = NodeEditorWindow.current.graphEditor.GetPortColor(port);
             DrawPortHandle(rect, backgroundColor, col);
 
@@ -223,9 +220,8 @@ namespace XNodeEditor {
 
             rect.size = new Vector2(16, 16);
 
-            Color backgroundColor = new Color32(90, 97, 105, 255);
-            Color tint;
-            if (NodeEditorWindow.nodeTint.TryGetValue(port.node.GetType(), out tint)) backgroundColor *= tint;
+            NodeEditor editor = NodeEditor.GetEditor(port.node, NodeEditorWindow.current);
+            Color backgroundColor = editor.GetTint();
             Color col = NodeEditorWindow.current.graphEditor.GetPortColor(port);
             DrawPortHandle(rect, backgroundColor, col);
 
@@ -293,7 +289,7 @@ namespace XNodeEditor {
                     }
                 }
                 return new { index = -1, port = (XNode.NodePort) null };
-            });
+            }).Where(x => x.port != null);
             List<XNode.NodePort> dynamicPorts = indexedPorts.OrderBy(x => x.index).Select(x => x.port).ToList();
 
             ReorderableList list = null;
@@ -323,7 +319,6 @@ namespace XNodeEditor {
                     XNode.NodePort port = node.GetPort(fieldName + " " + index);
                     if (hasArrayData) {
                         if (arrayData.arraySize <= index) {
-                            string portInfo = port != null ? port.fieldName : "";
                             EditorGUI.LabelField(rect, "Array[" + index + "] data out of range");
                             return;
                         }
@@ -423,7 +418,7 @@ namespace XNodeEditor {
                             }
                         }
                         return new { index = -1, port = (XNode.NodePort) null };
-                    });
+                    }).Where(x => x.port != null);
                     dynamicPorts = indexedPorts.OrderBy(x => x.index).Select(x => x.port).ToList();
 
                     int index = rl.index;

@@ -4,6 +4,7 @@ using UnityEngine;
 #if UNITY_EDITOR && ODIN_INSPECTOR
 using Sirenix.OdinInspector;
 #endif
+using System.Threading.Tasks;
 
 namespace TinaX.UIKit
 {
@@ -68,6 +69,8 @@ namespace TinaX.UIKit
 
         }
 
+        
+
         protected override sealed void Start()
         {
             XStart();
@@ -77,6 +80,8 @@ namespace TinaX.UIKit
         {
 
         }
+
+        
 
         protected override sealed void OnDestroy()
         {

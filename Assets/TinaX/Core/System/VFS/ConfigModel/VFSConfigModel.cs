@@ -9,7 +9,7 @@ namespace TinaX.VFSKit
     /// <summary>
     /// VFS 配置定义模板
     /// </summary>
-    public class VFSConfigModel : ScriptableObject,ICloneable
+    public class VFSConfigModel : ScriptableObject , ICloneable
     {
         /// <summary>
         /// VFS 实现模式
@@ -97,6 +97,14 @@ namespace TinaX.VFSKit
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("Web VFS")]
         [ShowIf("IsAssetBundleMode")]
+#endif
+        [Header("在框架启动时初始化WebVFS （网络请求会堵塞主线程）")]
+        public bool InitWebVFSOnFrameworkStart = false;
+
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [FoldoutGroup("Web VFS")]
+        [ShowIf("IsAssetBundleMode")]
         [ShowIf("EnableWebVFS")]
 #endif
         [Header("以Web方式加载资源的基础Url路径")]
@@ -143,7 +151,7 @@ namespace TinaX.VFSKit
         [ShowIf("HandlerInputNotLettersOrNums")]
 #endif
         [Header("当导入了非字母、数字或下划线命名的文件的处理方式")]
-        public InputNotLettersOrNumsHandleType NotLettersOrNumsHandleType = InputNotLettersOrNumsHandleType.Warning;
+        public ImportNotLettersOrNumsHandleType NotLettersOrNumsHandleType = ImportNotLettersOrNumsHandleType.Warning;
 #endif
 
         public object Clone()

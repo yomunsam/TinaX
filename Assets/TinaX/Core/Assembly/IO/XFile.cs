@@ -21,6 +21,7 @@ namespace TinaX.IO
                 {
                     sb.Append(retVal[i].ToString("x2"));
                 }
+                md5.Dispose();
                 return sb.ToString();
             }
             catch (Exception ex)

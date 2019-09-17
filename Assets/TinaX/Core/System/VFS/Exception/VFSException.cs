@@ -111,6 +111,7 @@ namespace TinaX.Exceptions
 
             WebVFS_NotEnable,
 
+            WebVFS_InitFailed,
         }
 
     }

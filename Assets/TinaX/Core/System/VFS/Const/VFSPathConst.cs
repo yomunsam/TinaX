@@ -9,5 +9,6 @@
         public const string VFS_File_VersionInfo_FileName = "local_vfs_version.json";
         public const string VFS_File_AssetBundleHash_FileName = "fileHash.json";
 
+        public const string VFS_File_StreamAssets_AssetBundleManifest_Copy_File = "stream_cp_ab_manifest";
     }
 }

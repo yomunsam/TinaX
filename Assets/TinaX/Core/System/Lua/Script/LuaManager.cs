@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TinaX;
 using XLua;
+using UniRx.Async;
 
 namespace TinaX.Lua
 {
@@ -108,7 +109,6 @@ namespace TinaX.Lua
 
                 //把IDE调试相关代码移到这里
                 IDEDebugHandler(); //改动：部分IDE调试工具支持编译后远程调试，所以这里把“只在编辑器下启动调试”的限制去掉了
-
 
 
                 m_LuaVM.DoString(@"require('" + Setup.Framework_Lua_Init + "')", "init");
@@ -216,6 +216,73 @@ namespace TinaX.Lua
         {
             LuaManager.m_LuaVM?.DoString(LuaCodeStr, chunkName, luaEnv);
         }
+
+
+        #region VFS Extend
+
+        /// <summary>
+        /// 同步加载资源
+        /// </summary>
+        /// <param name="assetPath"></param>
+        /// <param name="type"></param>
+        /// <param name="callback"></param>
+        public void VFSLoadAsset(string assetPath, System.Type type, Action<UnityEngine.Object,TinaX.Exceptions.VFSException> callback)
+        {
+            try
+            {
+                var asset = mVFSMgr.LoadAsset(assetPath, type);
+                callback?.Invoke(asset, null);
+            }
+            catch (Exceptions.VFSException e)
+            {
+                callback?.Invoke(null, e);
+            }
+        }
+
+        /// <summary>
+        /// 异步加载资源
+        /// </summary>
+        /// <param name="assetPath"></param>
+        /// <param name="type"></param>
+        /// <param name="callback"></param>
+        public void VFSLoadAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object,TinaX.Exceptions.VFSException> callback)
+        {
+            try
+            {
+                mVFSMgr.LoadAssetAsync(assetPath, type, (asset) =>
+                {
+                    callback?.Invoke(asset, null);
+                });
+            }
+            catch (Exceptions.VFSException e)
+            {
+                callback?.Invoke(null, e);
+            }
+        }
+
+        /// <summary>
+        /// [WebVFS] 异步加载资源
+        /// </summary>
+        /// <param name="assetPath"></param>
+        /// <param name="type"></param>
+        /// <param name="callback"></param>
+        public void VFSLoadWebAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback)
+        {
+            try
+            {
+                mVFSMgr.LoadWebAssetAsync(assetPath, type, (asset) =>
+                {
+                    callback?.Invoke(asset, null);
+                });
+            }
+            catch (Exceptions.VFSException e)
+            {
+                callback?.Invoke(null, e);
+            }
+        }
+
+
+        #endregion
 
 
         private void XUpdate()

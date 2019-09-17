@@ -2,23 +2,60 @@ XCore.VFS = XCore.VFS or {}
 XCore.Asset = XCore.VFS
 
 ---加载资源
-XCore.Asset.LoadAsset = function(path,type)
-    return CS.TinaX.VFS.I:LoadAsset(path,type)
+XCore.VFS.LoadAsset = function(path,type)
+    -- return CS.TinaX.VFS.I:LoadAsset(path,type)
+    local r_asset;
+    local r_error;
+    CS.TinaX.LuaScript.I:VFSLoadAsset(path,type,function(asset,error)
+        r_asset = asset;
+        r_error = error;
+    end)
+    return r_asset,r_error
 end
 
 ---加载资源（异步）
-XCore.Asset.LoadAssetAsync = function(path,type,callback)
-    CS.TinaX.VFS.I:LoadAssetAsync(path,type,callback)
+XCore.VFS.LoadAssetAsync = function(path,type,callback)
+    -- CS.TinaX.VFS.I:LoadAssetAsync(path,type,callback)
+    CS.TinaX.LuaScript.I:VFSLoadAssetAsync(path, type, function(asset,error)
+        if callback then
+            callback(asset,error)
+        end
+    end)
+end
+
+---加载Web资源（异步）
+XCore.VFS.LoadWebAssetAsync = function(path,type,callback)
+    -- CS.TinaX.VFS.I:LoadWebAssetAsync(path,type,function())
+    CS.TinaX.LuaScript.I:VFSLoadWebAssetAsync(path, type, function(asset,error)
+        if callback then
+            callback(asset,error)
+        end
+    end)
 end
 
 
+
+
 ---移除资源引用（计数器： -1s, 太暴力啦）
-function XCore.Asset.RemoveUse(path)
+function XCore.VFS.RemoveUse(path)
     CS.TinaX.VFS.I:RemoveUse(path);
 end
 
 
----GC 
-function XCore.Asset.GC()
+---GC
+function XCore.VFS.GC()
     CS.TinaX.VFS.I:GC();
+end
+
+
+------常用加载类型封装---------------------------------------------------------------------------------
+
+function XCore.VFS.LoadPrefab(path)
+    return XCore.VFS.LoadAsset(path,typeof(CS.UnityEngine.GameObject))
+end
+
+function XCore.VFS.LoadPrefabAsync(path,callback)
+    if callback then
+        XCore.VFSLoadAssetAsync(path,typeof(CS.UnityEngine.GameObject),callback)
+    end
 end

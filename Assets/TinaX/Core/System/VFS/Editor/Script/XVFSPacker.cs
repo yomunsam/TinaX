@@ -70,6 +70,7 @@ namespace TinaXEditor.VFSKit
         /// </summary>
         private void SetFilesABSign(TinaX.VFSKit.VFSConfigModel config)
         {
+            EditorUtility.DisplayProgressBar("VFS Packer", "handle assetbundle sign", 0.5f);
             var ab_ext_name = TinaX.Setup.Framework_VFS_AssetBundle_Ext_Name;   //后缀名
             if (ab_ext_name.StartsWith("."))
             {
@@ -99,8 +100,19 @@ namespace TinaXEditor.VFSKit
                 guids = AssetDatabase.FindAssets("", _whiteLists.ToArray());
             }
             AssetDatabase.RemoveUnusedAssetBundleNames();
-            foreach(var item in guids)
+            EditorUtility.ClearProgressBar();
+
+            int counter = 0;
+            int counter_t = 0;
+            foreach (var item in guids)
             {
+                counter ++;
+                counter_t++;
+                if(counter_t >= 30)
+                {
+                    counter_t = 0;
+                    EditorUtility.DisplayProgressBar("VFS Packer", $"handle assetbundle sign - {counter} / {guids.Length}", counter/ guids.Length);
+                }
                 var _cur_path = AssetDatabase.GUIDToAssetPath(item);
                 var path_parse_info = TinaX.VFSKit.AssetParseHelper.Parse(_cur_path, config);
                 if (path_parse_info.IsValid)
@@ -152,7 +164,8 @@ namespace TinaXEditor.VFSKit
             }
             AssetDatabase.SaveAssets();
             Debug.Log("AssetBundle标记完毕");
-            
+            EditorUtility.ClearProgressBar();
+
         }
 
         private void StartBuildAssetBundle(VFSPackPlan plan)
@@ -218,7 +231,7 @@ namespace TinaXEditor.VFSKit
                 var target_path = Path.GetFullPath(Path.Combine("Assets/StreamingAssets/",TinaX.VFSKit.VFSPathConst.VFS_File,plan.XPlatform.ToString().ToLower()));
                 //Debug.Log("移动到目录:" + target_path);
                 //移动目标目录
-                TinaXEditor.Folder.CopyDir(output_path, target_path);
+                TinaX.IO.XDirectory.CopyDir(output_path, target_path);
             }
             
         }
@@ -232,6 +245,8 @@ namespace TinaXEditor.VFSKit
         {
             if (config.VFS_EncryFolder.Length > 0)
             {
+                EditorUtility.DisplayProgressBar("VFS Packer", "Handle File Encry", 0.5f);
+
                 //处理加密
                 var output_path = Path.GetFullPath(plan.OutputPath);
                 var ab_manifest = AssetBundle.LoadFromFile(Path.Combine(output_path, plan.XPlatform.ToString().ToLower()));
@@ -257,8 +272,18 @@ namespace TinaXEditor.VFSKit
                 }
                 var vfs_path_guids = AssetDatabase.FindAssets("", rule_folder.ToArray());
 
-                foreach(var guid in vfs_path_guids)
+                int counter = 0;
+                int counter_t = 0;
+                foreach (var guid in vfs_path_guids)
                 {
+                    counter++;
+                    counter_t++;
+                    if (counter_t >= 30)
+                    {
+                        counter_t = 0;
+                        EditorUtility.DisplayProgressBar("VFS Packer", $"Handle File Encry - {counter} / {vfs_path_guids.Length}", counter / vfs_path_guids.Length);
+                    }
+
                     var path = AssetDatabase.GUIDToAssetPath(guid);
                     var parse_info = AssetParseHelper.Parse(path, config);
                     if(parse_info.IsValid && parse_info.IsEncry && !IsFolder(path))
@@ -315,6 +340,8 @@ namespace TinaXEditor.VFSKit
 
                     }
                 }
+                EditorUtility.ClearProgressBar();
+
             }
         }
 
@@ -322,16 +349,22 @@ namespace TinaXEditor.VFSKit
         {
 
             var ab_names = AssetDatabase.GetAllAssetBundleNames();
-            foreach(var name in ab_names)
+            int counter = 0;
+            int counter_t = 0;
+            foreach (var name in ab_names)
             {
-                //var files = AssetDatabase.GetAssetPathsFromAssetBundle(path);
-                //foreach(var fileName in files)
-                //{
-                //    var importer = AssetImporter.GetAtPath(fileName);
-                //    importer.assetBundleName = null;
-                //}
+                counter++;
+                counter_t++;
+                if (counter_t >= 30)
+                {
+                    counter_t = 0;
+                    EditorUtility.DisplayProgressBar("VFS Packer", $"Remove AssetBundle Sign - {counter} / {ab_names.Length}", counter / ab_names.Length);
+                }
+                
                 AssetDatabase.RemoveAssetBundleName(name,true);
             }
+            EditorUtility.ClearProgressBar();
+
             AssetDatabase.RemoveUnusedAssetBundleNames();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

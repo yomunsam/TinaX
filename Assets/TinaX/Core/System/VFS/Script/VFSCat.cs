@@ -20,7 +20,7 @@ namespace TinaX.Cat
 
         public void Register()
         {
-            App.Singleton<VFSKit.VFSKit>().Alias<IVFS>();
+            App.Singleton<IVFS,VFSKit.VFSKit>();
         }
     }
 }

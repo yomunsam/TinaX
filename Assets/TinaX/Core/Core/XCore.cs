@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -116,7 +117,7 @@ namespace TinaX
 
         #endregion
 
-        public XCore Init(MainConfig mainConfig)
+        public async Task<XCore> Init(MainConfig mainConfig)
         {
             if (m_inited) { return this; }
             m_inited = true;
@@ -158,7 +159,7 @@ namespace TinaX
             }
 
             //管理器等初始化工作
-            InitMgrs();
+            await InitSystemsCtor();
 
             foreach(var item in mXBootstrapClassList)
             {
@@ -218,13 +219,13 @@ namespace TinaX
 
 
 
-        private void InitMgrs()
+        private async Task InitSystemsCtor()
         {
+            await VFS.I.CtorAsync();
             XI18N.Instance.Start();
 #if TinaX_CA_LuaRuntime_Enable
             LuaScript.I.Start();
 #endif
-
         }
 
         private void StartupApp()
@@ -249,7 +250,7 @@ namespace TinaX
                 }
             }
 
-            
+            Debug.Log("app startup finish:" + System.DateTime.UtcNow.ToLongTimeString());
         }
 
         /// <summary>

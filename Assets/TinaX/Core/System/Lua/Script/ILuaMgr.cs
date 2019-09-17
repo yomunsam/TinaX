@@ -1,5 +1,6 @@
 ﻿#if TinaX_CA_LuaRuntime_Enable
 
+using System;
 using XLua;
 
 namespace TinaX.Lua
@@ -74,6 +75,16 @@ namespace TinaX.Lua
         /// <param name="chunkName"></param>
         /// <param name="luaEnv"></param>
         void DoString(string LuaCodeStr, string chunkName = "chunk", LuaTable luaEnv = null);
+
+
+
+        #region 提供给Lua调用
+        void VFSLoadAsset(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback);
+
+        void VFSLoadAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback);
+
+        void VFSLoadWebAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback);
+        #endregion
 
     }
 }

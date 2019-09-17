@@ -113,6 +113,8 @@ namespace TinaXEditor.Lua
             typeof(TinaX.UIKit.IUIEntity),
             typeof(TinaX.UIKit.IUIKit),
 
+            //VFS
+            typeof(TinaX.Exceptions.VFSException),
 
             #endregion
 
@@ -143,6 +145,7 @@ namespace TinaXEditor.Lua
             typeof(Action<Collider>),
             typeof(Action<Collision>),
             typeof(Action<UnityEngine.Object>),
+            typeof(Action<UnityEngine.Object,TinaX.Exceptions.VFSException>),   // new VFS 同步加载
 
             //Scene
             typeof(Action<TinaX.SceneLoadAsyncPlan>),
