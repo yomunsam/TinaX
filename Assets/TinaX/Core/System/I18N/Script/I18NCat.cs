@@ -6,9 +6,9 @@ namespace TinaX
 {
     
 
-    public class XI18N : Facade<I18N.IXI18N>
+    public class XI18N : Facade<I18NKit.IXI18N>
     {
-        public static I18N.IXI18N I
+        public static I18NKit.IXI18N I
         {
             get
             {
@@ -30,7 +30,7 @@ namespace TinaX.Cat
 
         public void Register()
         {
-            App.Singleton<I18N.XI18NMgr>().Alias<I18N.IXI18N>();
+            App.Singleton<I18NKit.XI18NMgr>().Alias<I18NKit.IXI18N>();
         }
     }
 }

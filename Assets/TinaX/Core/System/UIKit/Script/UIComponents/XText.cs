@@ -53,8 +53,9 @@ namespace TinaX.UIKit
         /// I18N的Key值
         /// </summary>
         public string I18NKey;
+        public string I18NGroup = TinaX.I18NKit.I18NConst.DefaultGroupName;
 
-        public bool UseI18NInRumtime;
+        //public bool UseI18NInRumtime;
 
 
 
@@ -65,19 +66,41 @@ namespace TinaX.UIKit
 #if UNITY_EDITOR
             if (Application.isPlaying)
             {
-                if (UseI18N && UseI18NInRumtime && I18NKey.Length > 0)
+                if (UseI18N && !I18NKey.IsNullOrEmpty())
                 {
-                    text = XI18N.I.GetString(I18NKey);
+                    text = XI18N.I.GetString(I18NKey,I18NGroup);
+                }
+
+                if (UseI18N)
+                {
+                    XI18N.I.OnRegionSwitched += OnI18NRegionSwitch;
                 }
             }
-            
+
 #else
-            if (UseI18N && UseI18NInRumtime && I18NKey.Length >0)
+            if (UseI18N && !I18NKey.IsNullOrEmpty())
             {
-                text = XI18N.I.GetString(I18NKey);
+                text = XI18N.I.GetString(I18NKey,I18NGroup);
+            }
+
+            if (UseI18N)
+            {
+                XI18N.I.OnRegionSwitched += OnI18NRegionSwitch;
             }
 #endif
 
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (Application.isPlaying)
+            {
+                if (UseI18N)
+                {
+                    XI18N.I.OnRegionSwitched -= OnI18NRegionSwitch;
+                }
+            }
         }
 
 
@@ -86,15 +109,23 @@ namespace TinaX.UIKit
         /// </summary>
         /// <param name="key">key值</param>
         /// <param name="default_str">如果key不存在，使用此处缺省</param>
-        public void SetI18NKey(string key,string default_str = null)
+        public void SetI18NKey(string key,string group = TinaX.I18NKit.I18NConst.DefaultGroupName,string default_str = null)
         {
-            var i18n_str = XI18N.I.GetString(key);
+            var i18n_str = XI18N.I.GetString(key, group);
             if (i18n_str == key && default_str != null)
             {
                 text = default_str;
             }
             else{
                 text = i18n_str;    
+            }
+        }
+
+        private void OnI18NRegionSwitch(string oldReg,string newReg)
+        {
+            if (!I18NKey.IsNullOrEmpty())
+            {
+                text = XI18N.I.GetString(I18NKey, I18NGroup);
             }
         }
 

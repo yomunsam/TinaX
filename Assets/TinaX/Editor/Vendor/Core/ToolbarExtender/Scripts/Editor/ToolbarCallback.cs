@@ -1,14 +1,13 @@
-﻿
-
-#if UNITY_2019_1_OR_NEWER
-
-#else
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEditor;
 using System.Reflection;
-using UnityEngine.Experimental.UIElements;
 
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+#endif
 
 namespace UnityToolbarExtender
 {
@@ -65,6 +64,3 @@ namespace UnityToolbarExtender
         }
     }
 }
-#endif
-
-

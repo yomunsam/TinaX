@@ -100,7 +100,7 @@ namespace TinaXEditor.Lua
             
 
             typeof(TinaX.XI18N),
-            typeof(TinaX.I18N.XI18NMgr),
+            typeof(TinaX.I18NKit.XI18NMgr),
 
             //UIKit
             typeof(TinaX.UIKit.XButton),

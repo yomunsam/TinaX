@@ -5,7 +5,8 @@ using UnityEditor;
 using UnityEditor.UI;
 using TinaX;
 using TinaX.UIKit;
-using TinaXEditor.I18N;
+using TinaXEditor.I18NKit;
+
 
 namespace TinaXEditor.UIKit
 {
@@ -29,6 +30,9 @@ namespace TinaXEditor.UIKit
             var xText = (XText)target;
             GUILayout.Label(target.name);
 
+            //内容
+            GUILayout.Label("Text:");
+            xText.text = GUILayout.TextField(xText.text);
             //字体大小
             
             GUILayout.BeginHorizontal();
@@ -53,11 +57,18 @@ namespace TinaXEditor.UIKit
             {
                 GUILayout.Label("I18N Key");
                 xText.I18NKey = GUILayout.TextField(xText.I18NKey);
-                xText.UseI18NInRumtime = GUILayout.Toggle(xText.UseI18NInRumtime, "运行时启用");
+                GUILayout.Label("I18N Group");
+                xText.I18NGroup = GUILayout.TextField(xText.I18NGroup);
+                //xText.UseI18NInRumtime = GUILayout.Toggle(xText.UseI18NInRumtime, "运行时启用");
 
                 if (GUILayout.Button("刷新文本"))
                 {
-                    xText.text = XI18NCacheEditor.GetGameStringByKey(xText.I18NKey);
+                    var regionName = I18NSwitcherEditor.GetCurSelectRegionName();
+                    if (!regionName.IsNullOrEmpty())
+                    {
+                        xText.text = I18NIOEditor.GetStringByKey(regionName, xText.I18NKey, xText.I18NGroup);
+
+                    }
                     //xText.SetAllDirty();
                 }
             }
@@ -78,12 +89,19 @@ namespace TinaXEditor.UIKit
             {
                 GUILayout.Label("I18N Key");
                 xText.I18NKey = GUILayout.TextField(xText.I18NKey);
-                xText.UseI18NInRumtime = GUILayout.Toggle(xText.UseI18NInRumtime, "运行时启用");
+                GUILayout.Label("I18N Group");
+                xText.I18NGroup = GUILayout.TextField(xText.I18NGroup);
+                //xText.UseI18NInRumtime = GUILayout.Toggle(xText.UseI18NInRumtime, "运行时启用");
 
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("刷新文本"))
                 {
-                    xText.text = XI18NCacheEditor.GetGameStringByKey(xText.I18NKey);
+                    var regionName = I18NSwitcherEditor.GetCurSelectRegionName();
+                    if (!regionName.IsNullOrEmpty())
+                    {
+                        xText.text = I18NIOEditor.GetStringByKey(regionName, xText.I18NKey, xText.I18NGroup);
+
+                    }
                     //xText.SetAllDirty();
                 }
                 if (GUILayout.Button("I18N编辑器"))

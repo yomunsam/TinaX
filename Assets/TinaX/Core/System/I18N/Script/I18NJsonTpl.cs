@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace TinaX.I18N
+namespace TinaX.I18NKit
 {
+    [System.Serializable]
     public class I18NJsonTpl
     {
         public S_KV[] data;

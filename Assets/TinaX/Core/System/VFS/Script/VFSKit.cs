@@ -666,6 +666,12 @@ namespace TinaX.VFSKit
             }
         }
 
+
+        public Task LoadScene<T>(string assetPath)
+        {
+            return Task.CompletedTask;
+        }
+
         public void RemoveUse(string load_path)
         {
             RemoveAssetBundleUseNum(load_path);

@@ -1,11 +1,22 @@
 XCore.I18N = XCore.I18N or {}
 
 ---置当前使用地区
-XCore.I18N.UseRegion = function(region)
-    return CS.TinaX.XI18N.I:UseRegion(region)
+XCore.I18N.UseRegion = function(regionName)
+    return CS.TinaX.XI18N.I:UseRegion(regionName)
+end
+
+XCore.I18N.UseRegionAsync = function (regionName, callback)
+    CS.TinaX.LuaScript.I:I18NSwitchRegionAsync(regionName,function(exception)
+        if(callback ~= nil) then
+            callback(exception)
+        end
+    end)
 end
 
 ---获取当前语言中key对应的字符
-XCore.I18N.GetString = function(key)
-    return CS.TinaX.XI18N.I:GetString(key)
+XCore.I18N.GetString = function(key,group)
+    if(group == nil) then
+        group = CS.TinaX.I18NKit.I18NConst.DefaultGroupName
+    end
+    return CS.TinaX.XI18N.I:GetString(key,group)
 end

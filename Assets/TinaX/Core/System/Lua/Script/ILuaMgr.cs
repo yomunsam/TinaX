@@ -84,6 +84,8 @@ namespace TinaX.Lua
         void VFSLoadAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback);
 
         void VFSLoadWebAssetAsync(string assetPath, System.Type type, Action<UnityEngine.Object, TinaX.Exceptions.VFSException> callback);
+
+        void I18NSwitchRegionAsync(string regionName, Action<Exception> callback);
         #endregion
 
     }

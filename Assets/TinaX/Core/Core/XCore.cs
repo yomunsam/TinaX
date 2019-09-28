@@ -242,6 +242,8 @@ namespace TinaX
             }
 #endif
 
+            
+
             if (mMainConfig.Startup_Scene != null && mMainConfig.Startup_Scene != "")
             {
                 if (SceneMgr.Instance.GetActiveSceneName() != mMainConfig.Startup_Scene)

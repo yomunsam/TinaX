@@ -94,11 +94,11 @@ namespace TinaX.Conf
                 Title = "国际化系统",
                 Action_Create = () =>
                 {
-                    return Config.CreateIfNotExist<TinaX.I18N.I18NConfig>(ConfigPath.i18n);
+                    return Config.CreateIfNotExist<TinaX.I18NKit.I18NConfigModel>(ConfigPath.i18n);
                 },
                 Action_GetInstance = () =>
                 {
-                    return Config.GetTinaXConfig<TinaX.I18N.I18NConfig>(ConfigPath.i18n);
+                    return Config.GetTinaXConfig<TinaX.I18NKit.I18NConfigModel>(ConfigPath.i18n);
                 }
             },
 #if TinaX_CA_LuaRuntime_Enable

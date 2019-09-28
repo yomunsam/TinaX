@@ -7,6 +7,7 @@ using UnityEngine;
 using TinaX;
 using XLua;
 using UniRx.Async;
+using UniRx;
 
 namespace TinaX.Lua
 {
@@ -278,6 +279,26 @@ namespace TinaX.Lua
             catch (Exceptions.VFSException e)
             {
                 callback?.Invoke(null, e);
+            }
+        }
+
+        /// <summary>
+        /// I18N 异步切换区域
+        /// </summary>
+        /// <param name="regionName"></param>
+        /// <param name="callback"></param>
+        public void I18NSwitchRegionAsync(string regionName, Action<Exception> callback)
+        {
+            try
+            {
+                XI18N.I.UseRegionAsync(regionName).ToObservable().Subscribe(_ =>
+                {
+                    callback?.Invoke(null);
+                });
+            }
+            catch(Exception e)
+            {
+                callback?.Invoke(e);
             }
         }
 
