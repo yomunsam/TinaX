@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("TinaX/UIKit/xText")]

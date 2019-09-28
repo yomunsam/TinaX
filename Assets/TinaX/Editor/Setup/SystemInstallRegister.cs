@@ -49,11 +49,11 @@ namespace TinaXEditor.Setup
                 Selectable = false,
                 DoInstall = () =>
                 {
-                    Config.CreateIfNotExist<TinaX.UIKit.UIKitConfig>(ConfigPath.uikit);
+                    Config.CreateIfNotExist<TinaX.UIKits.UIKitConfig>(ConfigPath.uikit);
                 },
                 IsInstalled = () =>
                 {
-                    return Config.GetTinaXConfig<TinaX.UIKit.UIKitConfig>(ConfigPath.uikit) != null;
+                    return Config.GetTinaXConfig<TinaX.UIKits.UIKitConfig>(ConfigPath.uikit) != null;
                 }
             },
             //I18N

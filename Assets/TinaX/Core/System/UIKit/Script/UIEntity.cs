@@ -5,7 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 #endif
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Canvas))]

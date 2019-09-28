@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TinaX.UIKit;
+using TinaX.UIKits;
 #if TinaX_CA_LuaRuntime_Enable
 using XLua;
 #endif
@@ -84,8 +84,12 @@ namespace TinaX.Lua
 
         private bool lua_runed = false;
         private bool enable_update = false;
+        private ulong mUpdate_Handle_Id;
         private bool enable_lateupdate = false;
+        private ulong mLateUpdate_Handle_Id;
+
         private UIEntity mUIEntity;
+
 
 #region 生命周期
 
@@ -151,7 +155,7 @@ namespace TinaX.Lua
                 if (luaUpdate.GetInvocationList().Length >= 1)
                 {
                     enable_update = true;
-                    TimeMachine.I.AddUpdate(xUpdate, UpdateOrder);
+                    mUpdate_Handle_Id = TimeMachine.I.AddUpdate(xUpdate, UpdateOrder);
                 }
             }
             if (luaLateUpdate != null)
@@ -159,7 +163,7 @@ namespace TinaX.Lua
                 if (luaLateUpdate.GetInvocationList().Length >= 1)
                 {
                     enable_lateupdate = true;
-                    TimeMachine.I.AddUpdate(xLateUpdate, UpdateOrder);
+                    mLateUpdate_Handle_Id = TimeMachine.I.AddUpdate(xLateUpdate, UpdateOrder);
                 }
             }
                 
@@ -198,11 +202,11 @@ namespace TinaX.Lua
             }
             if (enable_update)
             {
-                TimeMachine.I.RemoveUpdate(xUpdate, UpdateOrder);
+                TimeMachine.I.RemoveUpdate(mUpdate_Handle_Id);
             }
             if (enable_lateupdate)
             {
-                TimeMachine.I.RemoveLateUpdate(xLateUpdate, UpdateOrder);
+                TimeMachine.I.RemoveLateUpdate(mLateUpdate_Handle_Id);
             }
             if (mEventIds.Count > 0)
             {
@@ -211,6 +215,12 @@ namespace TinaX.Lua
                     XEvent.Remove(i);
                 }
             }
+
+            if(luaOnUICloseMessage != null)
+                luaOnUICloseMessage.Dispose();
+
+            if (luaOnUICloseMessage != null)
+                luaOnUICloseMessage.Dispose();
         }
 
         private void xUpdate()
@@ -261,9 +271,9 @@ namespace TinaX.Lua
 
 #region 安全的事件系统
 
-        private List<int> mEventIds = new List<int>();
+        private List<ulong> mEventIds = new List<ulong>();
 
-        public int EventRegister(string eventName,LuaFunction callback)
+        public ulong EventRegister(string eventName,LuaFunction callback)
         {
             var id = XEvent.RegisterFromLua(eventName, callback);
             mEventIds.Add(id);

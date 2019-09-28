@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 #endif
 using System.Threading.Tasks;
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(UIEntity))]
@@ -38,6 +38,10 @@ namespace TinaX.UIKit
         private bool mEnableLateUpdate;
         private int mLateUpdateOrder;
 
+        private ulong mUpdateHandleId;
+        private ulong mLateUpdateHandleId;
+
+
         private UIEntity mUIEntity;
 
 
@@ -52,11 +56,11 @@ namespace TinaX.UIKit
             mLateUpdateOrder = LateUpdateOrder;
             if (mEnableUpdate)
             {
-                TimeMachine.I.AddUpdate(Self_Update, mUpdateOrder);
+                mUpdateHandleId = TimeMachine.I.AddUpdate(Self_Update, mUpdateOrder);
             }
             if (mEnableLateUpdate)
             {
-                TimeMachine.I.AddLateUpdate(Self_LateUpdate, mLateUpdateOrder);
+                mLateUpdateHandleId = TimeMachine.I.AddLateUpdate(Self_LateUpdate, mLateUpdateOrder);
             }
 
             mUIEntity = gameObject.GetComponent<UIEntity>();
@@ -88,11 +92,11 @@ namespace TinaX.UIKit
             //Debug.Log("UI被关闭");
             if (mEnableUpdate)
             {
-                TimeMachine.I.RemoveUpdate(Self_Update, mUpdateOrder);
+                TimeMachine.I.RemoveUpdate(mUpdateHandleId);
             }
             if (mEnableLateUpdate)
             {
-                TimeMachine.I.RemoveLateUpdate(Self_LateUpdate, mLateUpdateOrder);
+                TimeMachine.I.RemoveLateUpdate(mLateUpdateHandleId);
             }
 
             //注销事件
@@ -149,7 +153,7 @@ namespace TinaX.UIKit
         #region 安全的事件
 
 
-        private List<int> mEventPool = new List<int>();
+        private List<ulong> mEventPool = new List<ulong>();
 
         /// <summary>
         /// 注册事件

@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 
 namespace TinaXEditor.UIKit
 {

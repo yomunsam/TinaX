@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TinaX.Conf;
 using TinaX;
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     /// <summary>
     /// UI管理器 入口

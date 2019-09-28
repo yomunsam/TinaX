@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UniRx;
+using UnityEngine;
 
-namespace TinaX
+namespace TinaX.TimeMachines
 {
     [DisallowMultipleComponent]
     public class TimeMachineBehaviour : MonoBehaviour
@@ -32,11 +31,18 @@ namespace TinaX
 
         #region 时间刷新驱动
         //Update之类的全局驱动
-        private Dictionary<int, Action> mUpdate = new Dictionary<int, Action>();
+        private Dictionary<int, Dictionary<uint, Action>> mUpdate = new Dictionary<int, Dictionary<uint, Action>>();    //key:order ( key: handle_id , value_action)
+        private Dictionary<ulong, TimeUpdates> mUpdateIdCache = new Dictionary<ulong, TimeUpdates>();
         private List<int> mUpdateOrder = new List<int>();
 
-        private Dictionary<int, Action> mLateUpdate = new Dictionary<int, Action>();
+        private Dictionary<int, Dictionary<uint, Action>> mLateUpdate = new Dictionary<int, Dictionary<uint, Action>>();
+        private Dictionary<ulong, TimeUpdates> mLateUpdateIdCache = new Dictionary<ulong, TimeUpdates>();
         private List<int> mLateUpdateOrder = new List<int>();
+
+
+        private Dictionary<int, Dictionary<uint, Action>> mFixedUpdate = new Dictionary<int, Dictionary<uint, Action>>();
+        private Dictionary<ulong, TimeUpdates> mFixedUpdateIdCache = new Dictionary<ulong, TimeUpdates>();
+        private List<int> mFixedUpdateOrder = new List<int>();
 
         #endregion
 
@@ -144,66 +150,240 @@ namespace TinaX
             return handle_id;
         }
 
-        public void AddUpdate(Action callback,int Order = 0)
+        public ulong AddUpdate(Action callback,int Order = 0)
         {
-            if (mUpdate.ContainsKey(Order))
+            lock (this)
             {
-                mUpdate[Order] += callback;
+                if (mUpdate.ContainsKey(Order))
+                {
+                    //找一个空的order_id
+                    uint new_order_id = 0;
+                    while (mUpdate[Order].ContainsKey(new_order_id))
+                    {
+                        new_order_id++;
+                    }
+                    //加入
+                    mUpdate[Order].Add(new_order_id, callback);
+                    //为其分配一个handle id
+                    ulong handle_id = 0;
+                    while (mUpdateIdCache.ContainsKey(handle_id))
+                    {
+                        handle_id++;
+                    }
+                    //存入
+                    mUpdateIdCache.Add(handle_id, new TimeUpdates()
+                    {
+                        id_in_order = new_order_id,
+                        order = Order
+                    });
+
+                    if (!mUpdateOrder.Contains(Order))
+                    {
+                        mUpdateOrder.Add(Order);
+                        mUpdateOrder.Sort();
+                    }
+
+                    return handle_id;
+                }
+                else
+                {
+                    mUpdate.Add(Order, new Dictionary<uint, Action>());
+                    //其实这儿没必要了，但还是走一遍吧
+                    uint new_order_id = 0;
+                    while (mUpdate[Order].ContainsKey(new_order_id))
+                    {
+                        new_order_id++;
+                    }
+                    mUpdate[Order].Add(new_order_id, callback);
+                    //为其分配一个handle id
+                    ulong handle_id = 0;
+                    while (mUpdateIdCache.ContainsKey(handle_id))
+                    {
+                        handle_id++;
+                    }
+                    //存入
+                    mUpdateIdCache.Add(handle_id, new TimeUpdates()
+                    {
+                        id_in_order = new_order_id,
+                        order = Order
+                    });
+
+                    if (!mUpdateOrder.Contains(Order))
+                    {
+                        mUpdateOrder.Add(Order);
+                        mUpdateOrder.Sort();
+                    }
+
+                    return handle_id;
+                }
             }
-            else
-            {
-                mUpdate.Add(Order, new Action(()=> { }));
-                mUpdate[Order] += callback;
-            }
-            if (!mUpdateOrder.Contains(Order))
-            {
-                mUpdateOrder.Add(Order);
-            }
-            mUpdateOrder.Sort();
+
+            
+            //if (mUpdate.ContainsKey(Order))
+            //{
+            //    mUpdate[Order] += callback;
+            //}
+            //else
+            //{
+            //    mUpdate.Add(Order, new Action(()=> { }));
+            //    mUpdate[Order] += callback;
+            //}
+            //if (!mUpdateOrder.Contains(Order))
+            //{
+            //    mUpdateOrder.Add(Order);
+            //}
+            //mUpdateOrder.Sort();
         }
 
-        public void RemoveUpdate(Action callback,int Order = 0)
+        public void RemoveUpdate(ulong handleId)
         {
-            //Debug.Log("移除：调用了");
-            if (mUpdate.ContainsKey(Order))
+            lock (this)
             {
-                //Debug.Log(mUpdate[Order].GetInvocationList().Length);
-                mUpdate[Order] -= callback;
+                //根据HandleId找Order和order中对应的id
+                if (mUpdateIdCache.TryGetValue(handleId, out var updateInfo))
+                {
+                    if (mUpdate.ContainsKey(updateInfo.order))
+                    {
+                        mUpdate[updateInfo.order].Remove(updateInfo.id_in_order);
+                        if(mUpdate[updateInfo.order].Count <= 0)
+                        {
+                            mUpdate.Remove(updateInfo.order);
+                            if (mUpdateOrder.Contains(updateInfo.order))
+                            {
+                                mUpdateOrder.Remove(updateInfo.order);
+                                mUpdateOrder.Sort();
+                            }
+                        }
+
+                    }
+                    mUpdateIdCache.Remove(handleId);
+                }
             }
-            if (mUpdate[Order].GetInvocationList().Length <= 1)
+
+            ////Debug.Log("移除：调用了");
+            //if (mUpdate.ContainsKey(Order))
+            //{
+            //    //Debug.Log(mUpdate[Order].GetInvocationList().Length);
+            //    mUpdate[Order] -= callback;
+            //}
+            //if (mUpdate[Order].GetInvocationList().Length <= 1)
+            //{
+            //    mUpdate.Remove(Order);
+            //    mUpdateOrder.Remove(Order);
+            //}
+        }
+
+        public ulong AddLateUpdate(Action callback, int Order = 0)
+        {
+            lock (this)
             {
-                mUpdate.Remove(Order);
-                mUpdateOrder.Remove(Order);
+                if (!mLateUpdate.ContainsKey(Order))
+                {
+                    mLateUpdate.Add(Order, new Dictionary<uint, Action>());
+                }
+
+                //找一个空的order_id
+                uint new_order_id = 0;
+                while (mLateUpdate[Order].ContainsKey(new_order_id))
+                {
+                    new_order_id++;
+                }
+                //加入
+                mLateUpdate[Order].Add(new_order_id, callback);
+                //登记handle_id
+                ulong handle_id = 0;
+                while (mLateUpdateIdCache.ContainsKey(handle_id))
+                {
+                    handle_id++;
+                }
+                mLateUpdateIdCache.Add(handle_id, new TimeUpdates() { order = Order, id_in_order = new_order_id });
+
+                if (!mLateUpdateOrder.Contains(Order))
+                {
+                    mLateUpdateOrder.Add(Order);
+                    mLateUpdateOrder.Sort();
+                }
+
+                return handle_id;
             }
         }
 
-        public void AddLateUpdate(Action callback, int Order = 0)
+        public void RemoveLateUpdate(ulong handle_id)
         {
-            if (mLateUpdate.ContainsKey(Order))
+            lock (this)
             {
-                mLateUpdate[Order] += callback;
+                if(mLateUpdateIdCache.TryGetValue(handle_id,out var uInfo))
+                {
+                    if (mLateUpdate.ContainsKey(uInfo.order))
+                    {
+                        mLateUpdate[uInfo.order].Remove(uInfo.id_in_order);
+                        if(mLateUpdate[uInfo.order].Count <= 0)
+                        {
+                            mLateUpdate.Remove(uInfo.order);
+                            mLateUpdateOrder.Remove(uInfo.order);
+                            mLateUpdateOrder.Sort();
+                        }
+                    }
+                    mLateUpdateIdCache.Remove(handle_id);
+                }
+                
             }
-            else
-            {
-                mLateUpdate.Add(Order, callback);
-            }
-            if (!mLateUpdateOrder.Contains(Order))
-            {
-                mLateUpdateOrder.Add(Order);
-            }
-            mLateUpdateOrder.Sort();
         }
 
-        public void RemoveLateUpdate(Action callback, int Order = 0)
+        public ulong AddFixedUpdate(Action callback, int Order = 0)
         {
-            if (mLateUpdate.ContainsKey(Order))
+            lock (this)
             {
-                mLateUpdate[Order] -= callback;
+                if (!mFixedUpdate.ContainsKey(Order))
+                {
+                    mFixedUpdate.Add(Order, new Dictionary<uint, Action>());
+                }
+
+                //找一个空的order_id
+                uint new_order_id = 0;
+                while (mFixedUpdate[Order].ContainsKey(new_order_id))
+                {
+                    new_order_id++;
+                }
+                //加入
+                mFixedUpdate[Order].Add(new_order_id, callback);
+                //登记handle_id
+                ulong handle_id = 0;
+                while (mFixedUpdateIdCache.ContainsKey(handle_id))
+                {
+                    handle_id++;
+                }
+                mFixedUpdateIdCache.Add(handle_id, new TimeUpdates() { order = Order, id_in_order = new_order_id });
+
+                if (!mFixedUpdateOrder.Contains(Order))
+                {
+                    mFixedUpdateOrder.Add(Order);
+                    mFixedUpdateOrder.Sort();
+                }
+
+                return handle_id;
             }
-            if (mLateUpdate[Order].GetInvocationList().Length <= 0)
+        }
+
+        public void RemoveFixedUpdate(ulong handle_id)
+        {
+            lock (this)
             {
-                mLateUpdate.Remove(Order);
-                mLateUpdateOrder.Remove(Order);
+                if (mFixedUpdateIdCache.TryGetValue(handle_id, out var uInfo))
+                {
+                    if (mFixedUpdate.ContainsKey(uInfo.order))
+                    {
+                        mFixedUpdate[uInfo.order].Remove(uInfo.id_in_order);
+                        if (mFixedUpdate[uInfo.order].Count <= 0)
+                        {
+                            mFixedUpdate.Remove(uInfo.order);
+                            mFixedUpdateOrder.Remove(uInfo.order);
+                            mFixedUpdateOrder.Sort();
+                        }
+                    }
+                    mFixedUpdateIdCache.Remove(handle_id);
+                }
+
             }
         }
 
@@ -216,7 +396,13 @@ namespace TinaX
         {
             foreach(var item in mUpdateOrder)
             {
-                mUpdate[item]();
+                if (mUpdate.ContainsKey(item))
+                {
+                    foreach(var a in mUpdate[item])
+                    {
+                        a.Value?.Invoke();
+                    }
+                }
             }
         }
 
@@ -224,7 +410,27 @@ namespace TinaX
         {
             foreach (var item in mLateUpdateOrder)
             {
-                mLateUpdate[item]();
+                if (mLateUpdate.ContainsKey(item))
+                {
+                    foreach(var a in mLateUpdate[item])
+                    {
+                        a.Value?.Invoke();
+                    }
+                }
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            foreach (var item in mFixedUpdateOrder)
+            {
+                if (mFixedUpdate.ContainsKey(item))
+                {
+                    foreach (var a in mFixedUpdate[item])
+                    {
+                        a.Value?.Invoke();
+                    }
+                }
             }
         }
 
@@ -397,6 +603,13 @@ namespace TinaX
         public enum E_IntervalType
         {
 
+        }
+
+
+        public struct TimeUpdates
+        {
+            public uint id_in_order;
+            public int order;
         }
 
     }

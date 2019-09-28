@@ -3,7 +3,7 @@
 using UnityEditor;
 #endif
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("TinaX/UIKit/xUISafeArea")]

@@ -9,7 +9,7 @@ using UnityEngine;
  * 
  */
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(UIEntity))]

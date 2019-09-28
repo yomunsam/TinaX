@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TinaX;
 
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     /// <summary>
     /// Advanced 高级UI管理器

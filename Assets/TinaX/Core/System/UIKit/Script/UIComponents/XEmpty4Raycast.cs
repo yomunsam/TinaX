@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     public class XEmpty4Raycast : MaskableGraphic
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 
-namespace TinaX.UIKit.ProjectSetting
+namespace TinaX.UIKits.ProjectSetting
 {
     static class PSUIKitConfig
     {

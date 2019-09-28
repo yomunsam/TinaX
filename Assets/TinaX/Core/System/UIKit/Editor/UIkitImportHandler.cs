@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 
 namespace TinaXEditor.UIKit
 {
@@ -15,7 +15,7 @@ namespace TinaXEditor.UIKit
         /// </summary>
         void OnPreprocessTexture()
         {
-            var uikitConf = TinaX.Config.GetTinaXConfig<TinaX.UIKit.UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
+            var uikitConf = TinaX.Config.GetTinaXConfig<TinaX.UIKits.UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
             string path = assetImporter.assetPath;
 
 

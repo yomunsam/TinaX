@@ -82,11 +82,11 @@ namespace TinaX.Conf
                 Title = "UIKit 用户界面系统",
                 Action_Create = () =>
                 {
-                    return Config.CreateIfNotExist<TinaX.UIKit.UIKitConfig>(ConfigPath.uikit);
+                    return Config.CreateIfNotExist<TinaX.UIKits.UIKitConfig>(ConfigPath.uikit);
                 },
                 Action_GetInstance = () =>
                 {
-                    return Config.GetTinaXConfig<TinaX.UIKit.UIKitConfig>(ConfigPath.uikit);
+                    return Config.GetTinaXConfig<TinaX.UIKits.UIKitConfig>(ConfigPath.uikit);
                 }
             },
             new S_ConfigInfo()

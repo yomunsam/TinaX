@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 #endif
 //using System.Collections.Generic;
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     [CreateAssetMenu(fileName ="UIGroup",menuName = "TinaX/UI组")]
     public class UIGroupConf : ScriptableObject

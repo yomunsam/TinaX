@@ -1,3 +1,15 @@
+## 2019.9.29
+
+1. TimeMachine，增加`FixedUpdate`是更新事件驱动。
+2. I18N系统重构，并添加[文档](https://tinax.corala.space/#/api/system/i18n/i18n)。（理论上旧版本直接升级不会影响兼容性）
+
+### **可能影响业务逻辑兼容性问题的改动：**
+
+1. TimeMachine, Updates类的注册和取消，由原先的直接传递Action类改为：注册时返回句柄id, 取消时传入句柄id取消。（针对Lambda优化）
+2. Event事件广播系统，事件注册句柄id从`int`类型改为`ulong`类型。
+3. UIKit 命名空间调整，UIKit入口从`TinaX.UIKit.UIkit`改为`TinaX.UIKit`，UIKit功能整体从命名空间`TinaX.UIKit`改为`TinaX.UIKits`.
+
+
 ## 2019.8.21
 
 1. 新增接口`IXBootstrap` （`TinaX.IXBootstrap`），用于在Framework启动之前的初始化工作。开发者可继承并实现接口，以获取精确的Framework生命周期。Framework会在启动后自动反射所有实现了接口的类。

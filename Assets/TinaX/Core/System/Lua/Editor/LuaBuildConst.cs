@@ -96,22 +96,22 @@ namespace TinaXEditor.Lua
             //TinaX System
             typeof(TinaX.Sound.XSoundMgr),
             typeof(TinaX.TimeMachine),
-            typeof(TinaX.XTimeMachine),
+            typeof(TinaX.TimeMachines.XTimeMachine),
             
 
             typeof(TinaX.XI18N),
             typeof(TinaX.I18NKit.XI18NMgr),
 
             //UIKit
-            typeof(TinaX.UIKit.XButton),
-            typeof(TinaX.UIKit.XImage),
-            typeof(TinaX.UIKit.XText),
-            typeof(TinaX.UIKit.UIKit),
-            typeof(TinaX.UIKit.XUIManager),
-            typeof(TinaX.UIKit.UIEntity),
-            typeof(TinaX.UIKit.XUIMgrGateway),
-            typeof(TinaX.UIKit.IUIEntity),
-            typeof(TinaX.UIKit.IUIKit),
+            typeof(TinaX.UIKits.XButton),
+            typeof(TinaX.UIKits.XImage),
+            typeof(TinaX.UIKits.XText),
+            typeof(TinaX.UIKit),
+            typeof(TinaX.UIKits.XUIManager),
+            typeof(TinaX.UIKits.UIEntity),
+            typeof(TinaX.UIKits.XUIMgrGateway),
+            typeof(TinaX.UIKits.IUIEntity),
+            typeof(TinaX.UIKits.IUIKit),
 
             //VFS
             typeof(TinaX.Exceptions.VFSException),

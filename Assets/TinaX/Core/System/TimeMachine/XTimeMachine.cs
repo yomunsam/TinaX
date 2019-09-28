@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TinaX
+namespace TinaX.TimeMachines
 {
     public class XTimeMachine :ITimeMachine
     {
@@ -42,25 +42,35 @@ namespace TinaX
             return mTimeMachineBehaviour.AddTimePlane_Event(timeLater, eventName);
         }
 
-        public void AddUpdate(Action callback, int Order = 0)
+        public ulong AddUpdate(Action callback, int Order = 0)
         {
-            mTimeMachineBehaviour.AddUpdate(callback, Order);
+            return mTimeMachineBehaviour.AddUpdate(callback, Order);
         }
 
 
-        public void RemoveUpdate(Action callback, int Order = 0)
+        public void RemoveUpdate(ulong handle_id)
         {
-            mTimeMachineBehaviour.RemoveUpdate(callback, Order);
+            mTimeMachineBehaviour.RemoveUpdate(handle_id);
         }
 
-        public void AddLateUpdate(Action callback, int Order = 0)
+        public ulong AddLateUpdate(Action callback, int Order = 0)
         {
-            mTimeMachineBehaviour.AddLateUpdate(callback, Order);
+            return mTimeMachineBehaviour.AddLateUpdate(callback, Order);
         }
 
-        public void RemoveLateUpdate(Action callback, int Order = 0)
+        public void RemoveLateUpdate(ulong handle_id)
         {
-            mTimeMachineBehaviour.RemoveLateUpdate(callback, Order);
+            mTimeMachineBehaviour.RemoveLateUpdate(handle_id);
+        }
+
+        public ulong AddFixedUpdate(Action callback, int Order = 0)
+        {
+            return mTimeMachineBehaviour.AddFixedUpdate(callback, Order);
+        }
+
+        public void RemoveFixedUpdate(ulong handle_id)
+        {
+            mTimeMachineBehaviour.RemoveFixedUpdate(handle_id);
         }
 
     }

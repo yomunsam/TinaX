@@ -1,7 +1,7 @@
 XCore.UIKit = XCore.UIKit or {}
 
 --@RefType [XCore.UIKit#CS.TinaX.UIKit.IUIKit]
-local UIKitMgr = CS.TinaX.UIKit.UIKit.I
+local UIKitMgr = CS.TinaX.UIKit.I
 
 ---设置当前使用的UI组
 XCore.UIKit.SetUIGroup = function(ui_group)
@@ -35,15 +35,15 @@ XCore.UIKit.OpenUI = function(data)
     end
     if ui_path ~= nil then
         if data_isTable then
-            return CS.TinaX.UIKit.UIKit.I:OpenUIByPathWhitLuaParam(ui_path,param_data,ui_name,use_mask,smart_close)
+            return CS.TinaX.UIKit.I:OpenUIByPathWhitLuaParam(ui_path,param_data,ui_name,use_mask,smart_close)
         else
-            return CS.TinaX.UIKit.UIKit.I:OpenUIByPath(ui_path,param_data,ui_name,use_mask,smart_close)
+            return CS.TinaX.UIKit.I:OpenUIByPath(ui_path,param_data,ui_name,use_mask,smart_close)
         end
     else
         if data_isTable then
-            return CS.TinaX.UIKit.UIKit.I:OpenUIWhitLuaParam(ui_name,param_data,use_mask,smart_close)
+            return CS.TinaX.UIKit.I:OpenUIWhitLuaParam(ui_name,param_data,use_mask,smart_close)
         else
-            return CS.TinaX.UIKit.UIKit.I:OpenUI(ui_name,param_data,use_mask,smart_close)
+            return CS.TinaX.UIKit.I:OpenUI(ui_name,param_data,use_mask,smart_close)
         end
     end
     
@@ -107,7 +107,7 @@ end
 
 ---显示UI，使用Path
 XCore.UIKit.ShowUI_ByPath = function(ui_path)
-    CS.TinaX.UIKit.UIKit.I:ShowUIByPath(ui_name)
+    CS.TinaX.UIKit.I:ShowUIByPath(ui_name)
 end
 
 --是否为UIKit高级模式

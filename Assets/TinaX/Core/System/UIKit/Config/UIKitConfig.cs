@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 //using CatLib; //我也忘了这里为什么会引用CatLib了，先给注释掉看看会怎么样
 #endif
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
     public class UIKitConfig : ScriptableObject
     {

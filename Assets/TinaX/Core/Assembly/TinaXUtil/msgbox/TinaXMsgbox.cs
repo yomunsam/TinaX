@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TinaX.UIKit;
+using TinaX.UIKits;
 using System;
 
 namespace TinaX.Common

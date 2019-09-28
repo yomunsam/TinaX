@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TinaX.UIKit;
+using TinaX.UIKits;
 using CatLib;
 
-namespace TinaX.UIKit
+namespace TinaX
 {
     
 

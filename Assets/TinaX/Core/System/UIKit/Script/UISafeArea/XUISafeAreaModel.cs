@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
-namespace TinaX.UIKit
+namespace TinaX.UIKits
 {
 
     //UIKit UISafeArea 数据模型

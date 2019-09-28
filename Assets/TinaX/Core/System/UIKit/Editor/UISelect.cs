@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityToolbarExtender;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 
 namespace TinaXEditor.UIKit
 {

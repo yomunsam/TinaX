@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine.UI;
 using UnityEditor.UI;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 
 namespace TinaXEditor.UIKit
 {

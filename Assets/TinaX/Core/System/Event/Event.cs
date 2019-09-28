@@ -19,14 +19,14 @@ namespace TinaX
     public static class XEvent
     {
         private static Dictionary<string, List<S_Event>> mEvents = new Dictionary<string, List<S_Event>>();
-        private static Dictionary<int, S_Event> mEvent_id = new Dictionary<int, S_Event>();
+        private static Dictionary<ulong, S_Event> mEvent_id = new Dictionary<ulong, S_Event>();
 
         /// <summary>
         /// 注册事件
         /// </summary>
         /// <param name="eventName">事件名</param>
         /// <param name="callback">回调</param>
-        public static int Register(string eventName, Action callback)
+        public static ulong Register(string eventName, Action callback)
         {
             if (!mEvents.ContainsKey(eventName))
             {
@@ -49,7 +49,7 @@ namespace TinaX
         /// </summary>
         /// <param name="eventName"></param>
         /// <param name="callback"></param>
-        public static int Register(string eventName, Action<System.Object> callback)
+        public static ulong Register(string eventName, Action<System.Object> callback)
         {
             if (!mEvents.ContainsKey(eventName))
             {
@@ -74,7 +74,7 @@ namespace TinaX
         /// </summary>
         /// <param name="eventName"></param>
         /// <param name="callback"></param>
-        public static int RegisterFromLua(string eventName, LuaFunction callback)
+        public static ulong RegisterFromLua(string eventName, LuaFunction callback)
         {
             if (!mEvents.ContainsKey(eventName))
             {
@@ -94,7 +94,7 @@ namespace TinaX
 
 #endif
 
-        public static void Remove(int id)
+        public static void Remove(ulong id)
         {
             if (mEvent_id.ContainsKey(id))
             {
@@ -176,7 +176,7 @@ namespace TinaX
 
         public struct S_Event
         {
-            public int id;
+            public ulong id;
             public string eventName;
             public int type;
             public Action callback; //type1
@@ -186,9 +186,9 @@ namespace TinaX
             public Action<System.Object> callback_param; //type3
         }
 
-        private static int GetFreeId()
+        private static ulong GetFreeId()
         {
-            int id = UnityEngine.Random.Range(999, 9999);
+            ulong id = (ulong)UnityEngine.Random.Range(999, 9999);
             while (mEvent_id.ContainsKey(id))
             {
                 id++;

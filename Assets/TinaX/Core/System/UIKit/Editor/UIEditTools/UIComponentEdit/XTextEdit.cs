@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.UI;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 using TinaXEditor.I18NKit;
 
 

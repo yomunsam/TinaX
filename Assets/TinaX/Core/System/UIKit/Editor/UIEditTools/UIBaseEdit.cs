@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using TinaX;
-using TinaX.UIKit;
+using TinaX.UIKits;
 
 namespace TinaXEditor.UIKit
 {
