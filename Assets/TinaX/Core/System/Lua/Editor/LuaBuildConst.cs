@@ -107,9 +107,9 @@ namespace TinaXEditor.Lua
             typeof(TinaX.UIKits.XImage),
             typeof(TinaX.UIKits.XText),
             typeof(TinaX.UIKit),
-            typeof(TinaX.UIKits.XUIManager),
+            typeof(TinaX.UIKits.UIManager),
             typeof(TinaX.UIKits.UIEntity),
-            typeof(TinaX.UIKits.XUIMgrGateway),
+            //typeof(TinaX.UIKits.XUIMgrGateway),
             typeof(TinaX.UIKits.IUIEntity),
             typeof(TinaX.UIKits.IUIKit),
 

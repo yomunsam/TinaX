@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TinaX
 {
-    public class XStart
+    public class XStartup
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static async void OnGameStart()

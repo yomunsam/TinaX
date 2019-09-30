@@ -200,7 +200,7 @@ namespace TinaX
             App.Terminate(); //停用CatLib
 
 
-            XStart.RestartFramework();
+            XStartup.RestartFramework();
 #pragma warning disable 0618
             OnFrameworkRestart?.Invoke();
 #pragma warning restore 0618

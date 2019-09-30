@@ -77,7 +77,7 @@ namespace TinaX.UIKits
 
 
 
-            var ui_root_rect = UIKit.I.UIKit_UIRoot_RectTrans;
+            var ui_root_rect = UIKit.I.UIRootRectTransform;
             var cur_ui_size = ui_root_rect.sizeDelta;
 
             if (screenAspectRation > bgAspectRation)

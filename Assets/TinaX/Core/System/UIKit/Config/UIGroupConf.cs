@@ -19,7 +19,7 @@ namespace TinaX.UIKits
         public UIGroupItem[] UIRegister;
 
 
-
+        private bool mInited = false;
 
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace TinaX.UIKits
         /// <returns></returns>
         public string GetPathByName(string name)
         {
-            if(m_dict_ui_register == null)
+            if(!mInited)
             {
                 InitDict();
             }
@@ -44,7 +44,7 @@ namespace TinaX.UIKits
             }
             else
             {
-                return "";
+                return null;
             }
         }
 

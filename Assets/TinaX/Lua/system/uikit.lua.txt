@@ -16,7 +16,8 @@ XCore.UIKit.OpenUI = function(data)
             ui_path = "ui_path",    --可选项，不建议使用
             use_mask = true/false,
             smart_close = true/false,  --点击遮罩区域可否关闭遮罩所附在的UI
-            data = 启动附带参数，单个参数或table
+            data = 启动附带参数，单个参数或table,
+            controller = UIControllerType
         }
     ]]
     local ui_path = data.ui_path or nil
@@ -29,7 +30,10 @@ XCore.UIKit.OpenUI = function(data)
     if param_data ~= nil and type(param_data) == "table" then
         data_isTable = true 
     end
-    if ui_name == nil and ui_path == nil then
+
+    local ui_controller_type = data.controller or nil
+    
+    if ui_name == nil and ui_path == nil and ui_controller_type == nil then
         printE("[TinaX][UIKit] 打开UI失败：参数中未传递有效的获取UI的方式")
         return
     end
@@ -39,15 +43,40 @@ XCore.UIKit.OpenUI = function(data)
         else
             return CS.TinaX.UIKit.I:OpenUIByPath(ui_path,param_data,ui_name,use_mask,smart_close)
         end
-    else
+    elseif ui_name ~= nil then
         if data_isTable then
             return CS.TinaX.UIKit.I:OpenUIWhitLuaParam(ui_name,param_data,use_mask,smart_close)
         else
             return CS.TinaX.UIKit.I:OpenUI(ui_name,param_data,use_mask,smart_close)
         end
+    elseif ui_controller_type ~= nil then
+        if not data_isTable then
+            local openUIParam = CS.TinaX.UIKits.OpenUIParam();
+            openUIParam.UIName = ui_name;
+            openUIParam.UIPath = ui_path;
+            openUIParam.Param = param_data;
+            openUIParam.UseMask = use_mask;
+            openUIParam.CloseByMask = smart_close;
+
+            return CS.TinaX.UIKit.I:OpenUI(ui_controller_type,openUIParam);
+        else
+            local openUIParam = CS.TinaX.UIKits.OpenUIParam();
+            openUIParam.UIName = ui_name;
+            openUIParam.UIPath = ui_path;
+            openUIParam.Param = nil;    --UIController肯定是C#写的啦，所以肯定是不能发lua table过去的
+            openUIParam.UseMask = use_mask;
+            openUIParam.CloseByMask = smart_close;
+
+            return CS.TinaX.UIKit.I:OpenUI(ui_controller_type,openUIParam);
+        end
     end
     
 end
+
+-- XCore.UIKit.OpenUIByUIController = function(UIControllerType,data)
+
+
+-- end
 
 --@desc: 关闭UI通用方法
 --@ui_name_or_id: [string] UI名

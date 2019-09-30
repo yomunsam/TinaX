@@ -31,7 +31,7 @@ namespace TinaX.Cat
 
         public void Register()
         {
-            App.Singleton<XUIMgrGateway>().Alias<IUIKit>();
+            App.Singleton<UIManager>().Alias<IUIKit>();
         }
     }
 }

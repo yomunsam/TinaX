@@ -1,3 +1,11 @@
+## 2019.9.30
+
+1. `UIKit` 功能完全重构。
+    1. 新增了不继承`MonoBehaviour`的基于C#的UI逻辑开发方式`UIController`. (目前与`UIBase`并存)
+    2. 关闭UI、隐藏UI、显示UI、置顶UI 等操作，统一只提供使用UI句柄id的操作接口（使用`UI Name`的接口依然可以使用，但是目前被标记为`Obsolete`
+    3. 打开UI 接口针对`UIController`增加了`UIKit.I.OpenUI<TController>();`的重载函数。
+    4. 再强调一遍命名空间调整，参考上面9月29日changlog
+
 ## 2019.9.29
 
 1. TimeMachine，增加`FixedUpdate`是更新事件驱动。

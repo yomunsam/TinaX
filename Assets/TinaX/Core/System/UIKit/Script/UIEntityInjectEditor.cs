@@ -1,38 +1,32 @@
-﻿#if TinaX_CA_LuaRuntime_Enable
-
+﻿#if UNITY_EDITOR && ODIN_INSPECTOR
 using System;
 using UnityEngine;
-#if UNITY_EDITOR && ODIN_INSPECTOR
 using UnityEditor;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
-#endif
 
-#if UNITY_EDITOR && ODIN_INSPECTOR
 
-namespace TinaX.Lua
+namespace TinaX.UIKits
 {
-    public class LuaBehaviourBindEditor : OdinEditorWindow
+    public class UIEntityInjectEditor : OdinEditorWindow
     {
-
-        [TabGroup("对象注入绑定")]
+        [TabGroup("Inject Object")]
         [TableList]
-        [Title("对象注入绑定")]
-        [OnValueChanged("OnInjectionChanged",true)]
-        public Injection[] b_injection;
+        [Title("注入对象编辑")]
+        [OnValueChanged("OnInjectionChanged", true)]
+        public UIEntity.Injection[] b_injection;
 
-        [TabGroup("文本注入绑定")]
-        [TableList]
-        [Title("文本注入绑定")]
-        public Injection_String[] b_injection_str;
+        [TabGroup("Inject Data")]
+        [Title("注入数据编辑")]
+        public UIEntity.Injection_Data[] b_injection_str;
 
-        private LuaBehaviour mTarget;
+        private UIEntity mTarget;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            this.titleContent = new GUIContent("注入绑定编辑器");
-            mTarget = Selection.activeGameObject.GetComponent<LuaBehaviour>();
+            this.titleContent = new GUIContent("Inject Editor");
+            mTarget = Selection.activeGameObject.GetComponent<UIEntity>();
 
             if (mTarget == null)
             {
@@ -41,7 +35,7 @@ namespace TinaX.Lua
             }
             this.UseScrollView = true;
             b_injection = mTarget.Injections;
-            b_injection_str = mTarget.Injections_str;
+            b_injection_str = mTarget.Injections_Data;
 
         }
 
@@ -51,19 +45,19 @@ namespace TinaX.Lua
             if (mTarget != null)
             {
                 mTarget.Injections = b_injection;
-                mTarget.Injections_str = b_injection_str;
+                mTarget.Injections_Data = b_injection_str;
 
                 EditorUtility.SetDirty(mTarget.gameObject);
                 EditorUtility.SetDirty(mTarget);
 
-                
+
             }
-            
+
         }
 
         private void OnInjectionChanged()
         {
-            foreach(var item in b_injection)
+            foreach (var item in b_injection)
             {
                 if (item.Object != null && string.IsNullOrEmpty(item.Name))
                 {
@@ -113,12 +107,14 @@ namespace TinaX.Lua
                 }
             }
         }
-
-        
     }
+
+
+
+
 }
 
-#endif
+
 
 
 #endif

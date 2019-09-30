@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR && ODIN_INSPECTOR
 using Sirenix.OdinInspector;
+using UnityEditor;
 #endif
 
 namespace TinaX.UIKits
@@ -15,215 +16,200 @@ namespace TinaX.UIKits
 
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
-        private void OnHandleTypeChanged()
-        {
-            print("喵");
-            if (!Application.isPlaying)
-            {
-#if TinaX_CA_LuaRuntime_Enable
-                if (HandleType == E_MainHandleType.LuaBehaviour)
-                {
-                    gameObject.GetComponentOrAdd<Lua.LuaBehaviour>().UIBehaviour = true;
-                }
+        [BoxGroup("Base Config")]
 #endif
-            }
-        }
         [Header("主处理方式")]
-        [OnValueChanged("OnHandleTypeChanged",true)]
-#endif
         public E_MainHandleType HandleType = E_MainHandleType.UIBase;
 
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [BoxGroup("Base Config")]
+#endif
+        [Header("可同时打开多个")]
+        public bool MultiUI = false;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [FoldoutGroup("Full Screen")]
+#endif
         [Header("全屏UI")]
         [Tooltip("打开全屏UI时会隐藏上一个全屏UI")]
         public bool IsFullScreenUI;
 
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [FoldoutGroup("Full Screen")]
+#endif
         [Header("在隐藏时不要暂停")]
         [Tooltip("如果为true,当本UI被隐藏时不会被暂停（SetActive(false)")]
         public bool DontPauseWhenHide;
 
+
 #if UNITY_EDITOR && ODIN_INSPECTOR
-        [FoldoutGroup("高级模式")]
-        [Header("可同时打开多个")]
-        [InfoBox("如果勾选，在高级模式下可同时打开多个该UI")]
+        [FoldoutGroup("Full Screen")]
 #endif
-        public bool MultiUI = false;
+        [Header("全屏规则忽略路径")]
+        public string[] FullScreenIgnorePath;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [InfoBox("需要注意仅在同一UI组且使用UI名加载时有效")]
+        [FoldoutGroup("Full Screen")]
+#endif
+        [Header("全屏规则忽略UI名")]
+        [Tooltip("需要注意仅在同一UI组且使用UI名加载时有效")]
+        public string[] FullScreenIgnoreUIName;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [FoldoutGroup("HandleType/Inject")]
+        [ShowIfGroup("HandleType",E_MainHandleType.UIController)]
+        [ShowIf("HandleType", E_MainHandleType.UIController)]
+        [TableList]
+#endif
+        [Header("注入对象绑定")]
+        public Injection[] Injections;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+        [Button("Inject Editor",ButtonSizes.Medium)]
+        [ShowIfGroup("HandleType", E_MainHandleType.UIController)]
+        [ShowIf("HandleType", E_MainHandleType.UIController)]
+        static void OpenBindEditor()
+        {
+            EditorWindow.GetWindow<UIEntityInjectEditor>().Show();
+        }
+
+        [FoldoutGroup("HandleType/Inject")]
+        [ShowIfGroup("HandleType", E_MainHandleType.UIController)]
+        [ShowIf("HandleType", E_MainHandleType.UIController)]
+        //[TableList]
+#endif
+        [Header("基础数据注入绑定")]
+        public Injection_Data[] Injections_Data;
 
         #endregion
 
-        private Canvas mCanvas;
-        private RectTransform rectTrans;
-        private string m_uiPath;
-        private string m_uiName;
-
-        #region 高级模式
-        
-        private int m_ID;   //UI句柄ID
-        private UIEntity m_Parent;  //父UI
-        private List<UIEntity> m_childs = new List<UIEntity>() ;    //子UI
-
-        #endregion
-
-        /// <summary>
-        /// [高级模式]分配句柄ID
-        /// </summary>
-        /// <returns></returns>
-        public void SetID(int id)
-        {
-            m_ID = id;
-        }
-        /// <summary>
-        /// [高级模式]获取句柄ID
-        /// </summary>
-        /// <returns></returns>
-        public int GetID()
-        {
-            return m_ID;
-        }
-
-        public void AddChild(UIEntity child)
-        {
-            
-            m_childs.Add(child);
-        }
-
+        public string UIPath { get; internal set; }
+        public string UIName { get; internal set; }
+        public ulong ID { get; internal set; }
 
         public int LayerIndex
         {
             get
             {
-                return mCanvas.sortingOrder;
+                if (UICanvas == null)
+                    return 0;
+                else
+                    return UICanvas.sortingOrder;
+            }
+            set
+            {
+                if(UICanvas != null)
+                {
+                    UICanvas.overrideSorting = true;
+                    UICanvas.sortingOrder = value;
+                }
+            }
+        }
+
+        private RectTransform mRectTransform;
+        public Canvas UICanvas { get; private set; }
+
+        private List<ulong> mChildIds = new List<ulong>(); //只存储直接子级的id
+
+
+        private CtrlBehaviourMaster mControllerBehaviourMaster;
+
+
+        internal void AddChild(ulong child_id)
+        {
+            if (!mChildIds.Contains(child_id))
+            {
+                mChildIds.Add(child_id);
             }
         }
 
 
-        public int SetLayer(int layer)
-        {
-            mCanvas.sortingOrder = layer;
-            return mCanvas.sortingOrder;
-        }
 
-
-        public GameObject GetGameObject()
-        {
-            return gameObject;
-        }
-
-        public string GetUIName()
-        {
-            return m_uiName;
-        }
-
-        public string GetUIPath()
-        {
-            return m_uiPath;
-        }
+        internal bool EnableCloseByMaskClick { get; set; } = false; //点击遮罩能不能关闭它
+        
 
 
         #region UI操作
 
-        /// <summary>
-        /// 隐藏本UI
-        /// </summary>
-        /// <returns></returns>
-        public IUIEntity Hide()
-        {
-            if (!UIKit.I.IsAdvanced)
-            {
-                UIKit.I.HideUIByPath(m_uiPath);
-            }
-            else
-            {
-                UIKit.I.HideUI(m_ID);
-            }
-            return this;
-        }
-
-        public IUIEntity Show()
-        {
-            if (!UIKit.I.IsAdvanced)
-            {
-                UIKit.I.ShowUIByPath(m_uiPath);
-            }
-            else
-            {
-                UIKit.I.ShowUI(m_ID);
-            }
-            return this;
-        }
-
         public void Close()
         {
-            if (!UIKit.I.IsAdvanced)
+            UIKit.I.CloseUI(ID);
+        }
+
+        public int childCount => mChildIds.Count;
+
+        public ulong GetChildID(int index)
+        {
+            if(mChildIds.Count <= index || index < 0)
             {
-                UIKit.I.CloseUIByPath(m_uiPath);
+                return default;
             }
             else
             {
-                UIKit.I.CloseUI(m_ID);
+                return mChildIds[index];
             }
-            
-        }
 
+        }
 
         #endregion
 
 
-        #region 高级模式的UI操作
+        #region UI注入对象
 
-        /// <summary>
-        /// 打开UI,在高级模式下，被打开的UI被认为是当前UI的子级UI
-        /// </summary>
-        /// <param name="ui_name">UI名</param>
-        /// <param name="Param">附加参数</param>
-        public IUIEntity OpenUI(string ui_name,System.Object Param = null)
+        public Injection GetInjectObject(string Name)
         {
-            if (UIKit.I.IsAdvanced)
+            foreach(var item in Injections)
             {
-#if TinaX_CA_LuaRuntime_Enable
-                return UIKit.I.OpenUIChild(ui_name, m_ID, Param, null, false, false);
-#else
-                return UIKit.I.OpenUIChild(ui_name, m_ID, Param, false, false);
-
-#endif
+                if(item.Name == Name)
+                {
+                    return item;
+                }
             }
-            else
-            {
-                return UIKit.I.OpenUI(ui_name, Param);
-            }
+            return null;
         }
 
-#endregion
+        public Injection_Data GetInjectData(string Name)
+        {
+            foreach(var item in Injections_Data)
+            {
+                if(item.Name == Name)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        #endregion
 
 
-
-#region 事件们
+        #region 事件们
 
 
         /// <summary>
         /// 当UI创建后，由UI管理系统调用
         /// </summary>
-        public void OnUICreated(string ui_path, string ui_name = "unknow")
+        internal void OnUICreated()
         {
-            mCanvas = gameObject.GetComponent<Canvas>();
-            rectTrans = gameObject.GetComponent<RectTransform>();
+            mRectTransform = this.gameObject.GetComponent<RectTransform>();
+            UICanvas = this.gameObject.GetComponent<Canvas>();
 
             transform.localScale = Vector3.one;
 
-            rectTrans.anchorMax = Vector2.one;
-            rectTrans.anchorMin = Vector2.zero;
-            rectTrans.anchoredPosition = Vector2.zero;
+            mRectTransform.anchorMax = Vector2.one;
+            mRectTransform.anchorMin = Vector2.zero;
+            mRectTransform.anchoredPosition = Vector2.zero;
 
-            mCanvas.overrideSorting = true;
-            m_uiPath = ui_path;
-            m_uiName = ui_name;
-
+            UICanvas.overrideSorting = true;
+            
         }
 
         /// <summary>
         /// UI打开的附带参数
         /// </summary>
         /// <param name="param"></param>
-        public void OnUIOpenMessage(System.Object param)
+        public void OnUIOpenMessage(object param)
         {
             if (HandleType == E_MainHandleType.UIBase)
             {
@@ -243,6 +229,10 @@ namespace TinaX.UIKits
                 }
             }
 #endif
+            else if(HandleType == E_MainHandleType.UIController)
+            {
+                mControllerBehaviourMaster?.GetUIController()?.OnOpenUIMessage(param);
+            }
         }
 
 #if TinaX_CA_LuaRuntime_Enable
@@ -284,6 +274,10 @@ namespace TinaX.UIKits
                 }
             }
 #endif
+            else if( HandleType == E_MainHandleType.UIController)
+            {
+                mControllerBehaviourMaster?.GetUIController()?.OnCloseUIMessage(param);
+            }
         }
 
 #if TinaX_CA_LuaRuntime_Enable
@@ -302,7 +296,27 @@ namespace TinaX.UIKits
 
 #endif
 
-#endregion
+        #endregion
+
+
+        #region 内部操作
+
+        internal void SetupUIController(UIController UI_Controller)
+        {
+            mControllerBehaviourMaster = this.gameObject.GetComponent<CtrlBehaviourMaster>();
+            if(mControllerBehaviourMaster != null)
+            {
+                //这个情况在设计中是不应该出现的
+                UnityEngine.Object.Destroy(mControllerBehaviourMaster);
+            }
+
+            mControllerBehaviourMaster = this.gameObject.AddComponent<CtrlBehaviourMaster>();
+            mControllerBehaviourMaster.InitController(UI_Controller);
+        }
+
+
+
+        #endregion
 
 
         /// <summary>
@@ -312,8 +326,156 @@ namespace TinaX.UIKits
         {
             UIBase,
 #if TinaX_CA_LuaRuntime_Enable
-            LuaBehaviour
+            LuaBehaviour,
 #endif
+            UIController,
+        }
+
+        /// <summary>
+        /// 可注入UI管理器的对象
+        /// </summary>
+        [System.Serializable]
+        public class Injection
+        {
+            public UnityEngine.Object Object;
+
+            public string Name;
+        }
+
+        /// <summary>
+        /// 可注入UI管理器的对象
+        /// </summary>
+        [System.Serializable]
+        public class Injection_Data
+        {
+            public string Name;
+
+            public InjectDataType DataType;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType",InjectDataType.Int)]
+#endif
+            public int IntData;
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Text)]
+#endif
+            public string TextData;
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Float)]
+#endif
+            public float FloatData;
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Boolean)]
+#endif
+            public bool BoolData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Long)]
+#endif
+            public bool LongData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Double)]
+#endif
+            public bool DoubleData;
+
+
+
+
+
+
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.TextArray)]
+#endif
+            public string[] StringArrayData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.IntArray)]
+#endif
+            public int[] IntArrayData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.FloatArray)]
+#endif
+            public float[] FloatArrayData;
+
+
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Color)]
+            [ColorPalette]
+#endif
+            public UnityEngine.Color ColorData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Color32)]
+#endif
+            public UnityEngine.Color32 Color32Data;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Vector3)]
+#endif
+            public UnityEngine.Vector3 Vector3Data;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Vector3Int)]
+#endif
+            public UnityEngine.Vector3Int Vector3IntData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Vector2)]
+#endif
+            public UnityEngine.Vector2 Vector2Data;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Vector2Int)]
+#endif
+            public UnityEngine.Vector2Int Vector2IntData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Quaternion)]
+#endif
+            public UnityEngine.Quaternion QuaternionData;
+
+#if UNITY_EDITOR && ODIN_INSPECTOR
+            [ShowIf("DataType", InjectDataType.Sprite)]
+            [PreviewField(Alignment = ObjectFieldAlignment.Left,Height = 60)]
+#endif
+            public UnityEngine.Sprite SpriteData;
+
+
+        }
+
+        [System.Serializable]
+        public enum InjectDataType
+        {
+            //C#
+            Text,
+            Int,
+            Float,
+            Boolean,
+            Long,
+            Double,
+
+            //C#数组
+            TextArray,
+            IntArray,
+            FloatArray,
+
+            //Unity系列
+            Color,
+            Color32,
+            Vector3,
+            Vector3Int,
+            Vector2,
+            Vector2Int,
+            Quaternion,
+            Sprite,
+
+            
+
+
         }
 
     }

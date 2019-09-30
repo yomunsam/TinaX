@@ -32,6 +32,9 @@ namespace TinaX
         internal ulong mFixedUpdateHandleId { get; private set; }
         #endregion
 
+        public bool PauseUpdatesWhenDisable { get; set; } = true;
+        private bool mPauseUpdatesWhenDisable;
+
         #region 安全的事件注册
 
         List<ulong> mEventPool = new List<ulong>();
@@ -40,21 +43,21 @@ namespace TinaX
 
         #region 暴露给之类的生命周期
 
-        protected void XAwake() { }
+        protected virtual void XAwake() { }
 
-        protected void XEnable() { }
+        protected virtual void XEnable() { }
 
-        protected void XStart() { }
+        protected virtual void XStart() { }
 
-        protected void XFixedUpdate() { }
+        protected virtual void XFixedUpdate() { }
 
-        protected void XUpdate() { }
+        protected virtual void XUpdate() { }
 
-        protected void XLateUpdate() { }
+        protected virtual void XLateUpdate() { }
 
-        protected void XOnDisable() { }
+        protected virtual void XOnDisable() { }
 
-        protected void XOnDestroy() { }
+        protected virtual void XOnDestroy() { }
 
         #endregion
 
@@ -72,6 +75,8 @@ namespace TinaX
         {
             XAwake();
 
+            mPauseUpdatesWhenDisable = PauseUpdatesWhenDisable;
+
             TryAddUpdate();
             TryAddLateUpdate();
             TryAddFixedUpdate();
@@ -80,6 +85,13 @@ namespace TinaX
         internal void FrameworkPEnable()
         {
             XEnable();
+
+            if (mPauseUpdatesWhenDisable)
+            {
+                TryAddUpdate();
+                TryAddLateUpdate();
+                TryAddFixedUpdate();
+            }
         }
 
         internal void FrameworkPStart()
@@ -104,6 +116,12 @@ namespace TinaX
 
         internal void FrameworkPOnDisable()
         {
+            if (mPauseUpdatesWhenDisable)
+            {
+                TryRemoveFixedUpdate();
+                TryRemoveLateUpdate();
+                TryRemoveUpdate();
+            }
             XOnDisable();
         }
 
