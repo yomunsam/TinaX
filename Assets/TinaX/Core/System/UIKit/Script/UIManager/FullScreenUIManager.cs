@@ -67,7 +67,7 @@ namespace TinaX.UIKits
             {
                 mFSUIPool.Remove(entity);
 
-                if (mCurActiveFullScreenUI.ID == entity.ID)
+                if (mCurActiveFullScreenUI != null && mCurActiveFullScreenUI.ID == entity.ID)
                 {
                     //将被关掉的就是最顶级UI,找到上一个UI并放出来
                     if (mFSUIPool.Count > 0)

@@ -13,12 +13,12 @@ namespace TinaX.VFSKit
         /// <summary>
         /// 偏移
         /// </summary>
-        [Header("偏移")]
+        [Header("Offset | 偏移")]
         Offset = 1,
         /// <summary>
         /// RSA 非对称加密
         /// </summary>
-        [Header("RSA算法 非对称加密")]
+        [Header("RSA | RSA 非对称加密")]
         RSA = 2,
         /// <summary>
         /// DES
@@ -44,14 +44,14 @@ namespace TinaX.VFSKit
     [System.Serializable]
     public enum EncryOffsetType
     {
-        [Header("默认方式")]
+        [Header("Default | 默认方式")]
         Default = 0,    //默认方式采用AssetBundle的HashCode的特征值来计算
-        [Header("固定值")]
+        [Header("FixedValue | 固定值")]
         FixedValue = 1, //在设置中给定为某个值
         /// <summary>
         /// 填写一个自定义C#方法的路径，系统将尝试对其反射并作为方法使用。
         /// </summary>
-        [Header("自定义方法")]
+        [Header("Custom Function | 自定义方法")]
         CustomFunction = 2,
     }
 

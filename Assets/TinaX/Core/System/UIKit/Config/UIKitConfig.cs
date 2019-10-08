@@ -21,20 +21,6 @@ namespace TinaX.UIKits
         public UIGroupConf Default_UIGroup;
 
 
-#if UNITY_EDITOR && ODIN_INSPECTOR
-
-        private void HelpURL_AdvMode()
-        {
-            UnityEngine.Application.OpenURL("https://github.com/yomunsam/TinaX/wiki/system_uikit_advanced_mode");
-        }
-
-        [FoldoutGroup("UI系统")]
-        [Header("UI高级模式")]
-        [InfoBox("该设置不可在运行时修改")]
-        [InlineButton("HelpURL_AdvMode","About Adv Mode")]
-#endif
-        public bool Use_AdvancedMode = false;
-
         #endregion
 
 
@@ -85,11 +71,19 @@ namespace TinaX.UIKits
             }
             else { return false; }
         }
+
+        private Color GetProgressBarColor()
+        {
+            return TinaX.Core.XEditorStyleDefine.Color_Blue;
+        }
+
         [FoldoutGroup("UI绘制")]
         [Header("缩放权重")]
         [ShowIf("can_show_match")]
         [MinValue(0)]
         [MaxValue(1)]
+        [ProgressBar(0,1,Height = 25,ColorMember = "GetProgressBarColor")]
+        //[CustomValueDrawer("Match | 权重")]
         [InfoBox("宽度：0 | 高度：1")]
 #endif
         public float Match = 1;

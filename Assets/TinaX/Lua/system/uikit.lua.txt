@@ -84,38 +84,22 @@ end
 XCore.UIKit.CloseUI = function(ui_name_or_id,data)
     if data ~= nil and type(data) == "table" then
         --带了一个table参数
-        if UIKitMgr.IsAdvanced then
-            UIKitMgr:CloseUIWithLuaParam(tonumber(ui_name_or_id),data)
-        else
-            UIKitMgr:CloseUIWithLuaParam(tostring(ui_name_or_id),data)
-        end
+        UIKitMgr:CloseUIWithLuaParam(ui_name_or_id,data)
     else
         --可能没带参数，或者带了个普通的参数
-        if UIKitMgr.IsAdvanced then
-            UIKitMgr:CloseUI(tonumber(ui_name_or_id),data)
-        else
-            UIKitMgr:CloseUI(tostring(ui_name_or_id),data)
-        end
+        UIKitMgr:CloseUI(ui_name_or_id,data)
     end
     
 end
 
 ---隐藏UI
 XCore.UIKit.HideUI = function(ui_name_or_id)
-    if UIKitMgr.IsAdvanced then
-        UIKitMgr:HideUI(tonumber(ui_name_or_id))
-    else
-        UIKitMgr:HideUI(tostring(ui_name_or_id))
-    end
+    UIKitMgr:HideUI(ui_name_or_id)
 end
 
 ---显示UI
 XCore.UIKit.ShowUI = function(ui_name_or_id)
-    if UIKitMgr.IsAdvanced then
-        UIKitMgr:ShowUI(tonumber(ui_name_or_id))
-    else
-        UIKitMgr:ShowUI(tostring(ui_name_or_id))
-    end
+    UIKitMgr:ShowUI(ui_name_or_id)
 end
 
 --@desc: 通过寻址路径关闭UI
@@ -136,25 +120,21 @@ end
 
 ---显示UI，使用Path
 XCore.UIKit.ShowUI_ByPath = function(ui_path)
-    CS.TinaX.UIKit.I:ShowUIByPath(ui_name)
+    CS.TinaX.UIKit.I:ShowUIByPath(ui_path)
 end
 
---是否为UIKit高级模式
-XCore.UIKit.IsAdvanced = function()
-    return UIKitMgr.IsAdvanced
-end
 
 ---获取UIkit UIRoot Transform
 XCore.UIKit.GetUIRootRectTransform = function()
-    return UIKitMgr.UIKit_UIRoot_RectTrans
+    return UIKitMgr.UIRootRectTransform
 end
 
 XCore.UIKit.GetUICamera = function()
-    return UIKitMgr.UIKit_UICamera
+    return UIKitMgr.UICamera
 end
 
 XCore.UIKit.GetUICameraGameObject = function()
-    return UIKitMgr.UIKit_UICamera_GameObject
+    return UIKitMgr.UICameraGameObject
 end
 
 

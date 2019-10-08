@@ -24,7 +24,6 @@ namespace TinaX.VFSKit
 #else
         [EnumLabel("加密方式")]
 #endif
-
         public EncryptionType EncryType;
 
     }

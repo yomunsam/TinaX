@@ -53,6 +53,15 @@ namespace TinaXEditor.VFSKit
             {
                 StartBuildAssetBundle(mPackPlanList[i]);
                 HandleEncry(config, mPackPlanList[i]);
+                
+
+                //最后执行移动
+                if (mPackPlanList[i].CopyToStreamingAssets)
+                {
+                    CopyToStreamingAssets(mPackPlanList[i]);
+                }
+
+
                 mPackPlanList.RemoveAt(i);
             }
 
@@ -224,16 +233,36 @@ namespace TinaXEditor.VFSKit
             var ab_hash_json = JsonUtility.ToJson(ab_file_hash);
             File.WriteAllText(Path.Combine(output_path, TinaX.VFSKit.VFSPathConst.VFS_File_AssetBundleHash_FileName), ab_hash_json);
 
-            //打包完,
+            ////打包完,
+            //if (plan.CopyToStreamingAssets)
+            //{
+            //    //移动到
+            //    var target_path = Path.GetFullPath(Path.Combine("Assets/StreamingAssets/",TinaX.VFSKit.VFSPathConst.VFS_File,plan.XPlatform.ToString().ToLower()));
+            //    //Debug.Log("移动到目录:" + target_path);
+            //    //移动目标目录
+            //    TinaX.IO.XDirectory.CopyDir(output_path, target_path);
+            //}
+            
+        }
+
+
+        private void CopyToStreamingAssets(VFSPackPlan plan)
+        {
             if (plan.CopyToStreamingAssets)
             {
+                var output_path = Path.GetFullPath(plan.OutputPath);
+
                 //移动到
-                var target_path = Path.GetFullPath(Path.Combine("Assets/StreamingAssets/",TinaX.VFSKit.VFSPathConst.VFS_File,plan.XPlatform.ToString().ToLower()));
+                var target_path = Path.GetFullPath(Path.Combine("Assets/StreamingAssets/", TinaX.VFSKit.VFSPathConst.VFS_File, plan.XPlatform.ToString().ToLower()));
                 //Debug.Log("移动到目录:" + target_path);
+                if (Directory.Exists(target_path))
+                {
+                    Directory.Delete(target_path,true);
+                }
+                Directory.CreateDirectory(target_path);
                 //移动目标目录
                 TinaX.IO.XDirectory.CopyDir(output_path, target_path);
             }
-            
         }
 
         /// <summary>

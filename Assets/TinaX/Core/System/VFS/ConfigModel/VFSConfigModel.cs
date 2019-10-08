@@ -89,14 +89,15 @@ namespace TinaX.VFSKit
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("Web VFS")]
-        [ShowIf("IsAssetBundleMode")]
+        [InfoBox("WebVFS目前属于实验性功能，可能不稳定。请谨慎用于生产环境", InfoMessageType.Warning)]
+        //[ShowIf("IsAssetBundleMode")]
 #endif
         [Header("启用 以Web方式加载资源")]
         public bool EnableWebVFS = false;
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("Web VFS")]
-        [ShowIf("IsAssetBundleMode")]
+        //[ShowIf("IsAssetBundleMode")]
 #endif
         [Header("在框架启动时初始化WebVFS （网络请求会堵塞主线程）")]
         public bool InitWebVFSOnFrameworkStart = false;
@@ -104,7 +105,7 @@ namespace TinaX.VFSKit
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("Web VFS")]
-        [ShowIf("IsAssetBundleMode")]
+        //[ShowIf("IsAssetBundleMode")]
         [ShowIf("EnableWebVFS")]
 #endif
         [Header("以Web方式加载资源的基础Url路径")]
@@ -127,8 +128,9 @@ namespace TinaX.VFSKit
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [FoldoutGroup("Assets Encry")]
 #else
-        [EnumLabel("Offset 加密处理方式")]
+        //[EnumLabel("Offset 加密处理方式")]
 #endif
+        [EnumLabel("Offset 加密处理方式")]
         [Header("Offset 加密处理方式")]
         public EncryOffsetType Encry_OffsetHandleType = EncryOffsetType.Default;
 
@@ -141,17 +143,20 @@ namespace TinaX.VFSKit
 #if UNITY_EDITOR
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
-        [FoldoutGroup("Assets Input Rule")]
+        [FoldoutGroup("Assets Import Rule")]
 #endif
         [Header("处理导入的非字母或数字文件")]
         public bool HandlerInputNotLettersOrNums = false;
 
 #if UNITY_EDITOR && ODIN_INSPECTOR
-        [FoldoutGroup("Assets Input Rule")]
+        [FoldoutGroup("Assets Import Rule")]
         [ShowIf("HandlerInputNotLettersOrNums")]
 #endif
+        [EnumLabel("Handle Type")]
         [Header("当导入了非字母、数字或下划线命名的文件的处理方式")]
         public ImportNotLettersOrNumsHandleType NotLettersOrNumsHandleType = ImportNotLettersOrNumsHandleType.Warning;
+
+
 #endif
 
         public object Clone()

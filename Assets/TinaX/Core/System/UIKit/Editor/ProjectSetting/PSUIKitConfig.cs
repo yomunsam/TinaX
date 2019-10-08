@@ -35,7 +35,6 @@ namespace TinaX.UIKits.ProjectSetting
                         if (mSer_Config != null)
                         {
                             mConf_UIKit_Default_UIGroup = mSer_Config.FindProperty("Default_UIGroup");
-                            mConf_UIKit_Use_AdvancedMode = mSer_Config.FindProperty("Use_AdvancedMode");
 
                         }
 
@@ -52,7 +51,6 @@ namespace TinaX.UIKits.ProjectSetting
                         EditorGUILayout.Space();
 
                         EditorGUILayout.PropertyField(mConf_UIKit_Default_UIGroup, new GUIContent("默认UI组"), true);
-                        EditorGUILayout.PropertyField(mConf_UIKit_Use_AdvancedMode, new GUIContent("启用UI高级模式"), true);
 
 
 

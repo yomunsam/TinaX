@@ -29,7 +29,7 @@ namespace TinaXEditor
         public static void Config_uikit()
         {
             Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
-            var conf = TinaX.Config.CreateIfNotExist<TinaX.UIKit.UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
+            var conf = TinaX.Config.CreateIfNotExist<TinaX.UIKits.UIKitConfig>(TinaX.Conf.ConfigPath.uikit);
             Selection.activeObject = conf;
         }
 
@@ -37,7 +37,7 @@ namespace TinaXEditor
         public static void Config_i18n()
         {
             Folder.CreateFolder("Assets/Resources/" + TinaX.Setup.Framework_Config_Path);
-            var conf = TinaX.Config.CreateIfNotExist<TinaX.I18N.I18NConfig>(TinaX.Conf.ConfigPath.i18n);
+            var conf = TinaX.Config.CreateIfNotExist<TinaX.I18NKit.I18NConfigModel>(TinaX.Conf.ConfigPath.i18n);
             Selection.activeObject = conf;
         }
 
