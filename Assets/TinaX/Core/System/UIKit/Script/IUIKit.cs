@@ -196,6 +196,10 @@ namespace TinaX.UIKits
         [Obsolete("It is no longer recommended to show UI by UI name or UI path, Please use UI handle ID, or close UI by IUIEntity")]
         void ShowUIByPath(string ui_path, bool IncludeChild = true);
 
+
+
+        void SetUIlayerTop(ulong id);
+
         /// <summary>
         /// 设置当前使用的UI组
         /// </summary>

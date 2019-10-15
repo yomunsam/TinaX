@@ -233,10 +233,12 @@ namespace TinaX.Lua
             {
                 var asset = mVFSMgr.LoadAsset(assetPath, type);
                 callback?.Invoke(asset, null);
+                return;
             }
             catch (Exceptions.VFSException e)
             {
                 callback?.Invoke(null, e);
+                return;
             }
         }
 

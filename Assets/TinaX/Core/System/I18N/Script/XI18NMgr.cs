@@ -313,13 +313,16 @@ namespace TinaX.I18NKit
                             }
                             foreach (var kv_item in json_obj.data)
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                 {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
                                 }
                             }
                         }
@@ -354,13 +357,16 @@ namespace TinaX.I18NKit
                             }
                             foreach (var kv_item in item.ListFile.Items)
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                 {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
                                 }
                             }
                         }
@@ -388,13 +394,16 @@ namespace TinaX.I18NKit
                             }
                             foreach (var kv_item in json_obj.data)
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                 {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
                                 }
                             }
                         }
@@ -455,13 +464,16 @@ namespace TinaX.I18NKit
                         }
                         foreach (var kv_item in json_obj.data)
                         {
-                            if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                             {
-                                mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                            }
-                            else
-                            {
-                                XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                {
+                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                }
+                                else
+                                {
+                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                }
                             }
                         }
                     }
@@ -487,14 +499,18 @@ namespace TinaX.I18NKit
                         }
                         foreach (var kv_item in item.ListFile.Items)
                         {
-                            if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                             {
-                                mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                {
+                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                }
+                                else
+                                {
+                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                }
                             }
-                            else
-                            {
-                                XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
-                            }
+                                
                         }
                     }
                 }
@@ -516,14 +532,18 @@ namespace TinaX.I18NKit
                         }
                         foreach (var kv_item in json_obj.data)
                         {
-                            if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                             {
-                                mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
+                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                {
+                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
+                                }
+                                else
+                                {
+                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                }
                             }
-                            else
-                            {
-                                XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
-                            }
+                                
                         }
                     }
 

@@ -612,6 +612,7 @@ namespace TinaX.VFSKit
         {
             LoadWebAssetAsync<T>(assetPath, useCache)
                 .ToObservable<T>()
+                .ObserveOnMainThread()
                 .Subscribe(asset =>
                 {
                     callback?.Invoke(asset);
@@ -622,6 +623,7 @@ namespace TinaX.VFSKit
         {
             LoadWebAssetAsyncWithType(assetPath, type, useCache)
                 .ToObservable()
+                .ObserveOnMainThread()
                 .Subscribe(asset =>
                 {
                     callback?.Invoke(asset);
@@ -819,6 +821,7 @@ namespace TinaX.VFSKit
         {
             LoadAssetBundleAndDependencesRecursionAsync(parseInfo.ABFileNameWithExtName)
                 .ToObservable()
+                .ObserveOnMainThread()
                 .Subscribe(ab =>
                 {
                     ab.LoadAssetAsync<T>(path)
@@ -837,6 +840,7 @@ namespace TinaX.VFSKit
         {
             LoadAssetBundleAndDependencesRecursionAsync(parseInfo.ABFileNameWithExtName)
                 .ToObservable()
+                .ObserveOnMainThread()
                 .Subscribe(ab =>
                 {
                     ab.LoadAssetAsync(path,type)

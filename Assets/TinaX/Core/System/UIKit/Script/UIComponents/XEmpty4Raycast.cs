@@ -45,7 +45,7 @@ namespace TinaX.UIKits
                         .CreateGameObject(go_name, typeof(XEmpty4Raycast));
                     var xe4r = go.GetComponent<XEmpty4Raycast>();
                     xe4r.rectTransform.anchoredPosition3D = Vector3.zero;
-                    xe4r.rectTransform.localScale = Vector3.zero;
+                    xe4r.rectTransform.localScale = Vector3.one;
                     xe4r.rectTransform.sizeDelta = new Vector2(100, 100);
 
                     

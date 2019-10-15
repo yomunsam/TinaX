@@ -137,6 +137,24 @@ namespace TinaX.UIKits
             UIKit.I.CloseUI(ID);
         }
 
+
+
+        public void Hide()
+        {
+            UIKit.I.HideUI(ID);
+        }
+
+        public void Show()
+        {
+            UIKit.I.ShowUI(ID);
+        }
+
+        public void SetUILayerTop()
+        {
+            UIKit.I.SetUIlayerTop(ID);
+        }
+
+
         public int childCount => mChildIds.Count;
 
         public ulong GetChildID(int index)
@@ -209,7 +227,7 @@ namespace TinaX.UIKits
         /// UI打开的附带参数
         /// </summary>
         /// <param name="param"></param>
-        public void OnUIOpenMessage(object param)
+        internal void OnUIOpenMessage(object param)
         {
             if (HandleType == E_MainHandleType.UIBase)
             {
@@ -240,7 +258,7 @@ namespace TinaX.UIKits
         /// UI打开的附带参数（lua）
         /// </summary>
         /// <param name="table"></param>
-        public void OnUIOpenMessage_LuaTable(XLua.LuaTable table)
+        internal void OnUIOpenMessage_LuaTable(XLua.LuaTable table)
         {
             var luabehaviour = gameObject.GetComponent<Lua.LuaBehaviour>();
             if (luabehaviour != null)
@@ -254,7 +272,7 @@ namespace TinaX.UIKits
         /// 关闭UI的附带参数
         /// </summary>
         /// <param name="param"></param>
-        public void OnUICloseMessage(System.Object param)
+        internal void OnUICloseMessage(System.Object param)
         {
             if (HandleType == E_MainHandleType.UIBase)
             {
@@ -285,7 +303,7 @@ namespace TinaX.UIKits
         /// 关闭UI的附带参数 Lua table
         /// </summary>
         /// <param name="table"></param>
-        public void OnUICloseMessage_LuaTable(XLua.LuaTable table)
+        internal void OnUICloseMessage_LuaTable(XLua.LuaTable table)
         {
             var luabehaviour = gameObject.GetComponent<Lua.LuaBehaviour>();
             if (luabehaviour != null)
