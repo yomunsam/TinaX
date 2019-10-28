@@ -295,130 +295,142 @@ namespace TinaX.I18NKit
             var origin_region_name = mCurRegionName;
 
             //读取Json
-            foreach(var item in region.language_json_files)
+            if(region.language_json_files != null)
             {
-                try
+                foreach (var item in region.language_json_files)
                 {
-                    var json_file = await mVFS.LoadAssetLocalOrWebAsync<TextAsset>(item.JsonFilePath);
-                    mLoadedAssetPath.Add(item.JsonFilePath);
-
-                    var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
-                    if(json_obj != null && json_obj.data != null)
+                    try
                     {
-                        lock (this)
+                        var json_file = await mVFS.LoadAssetLocalOrWebAsync<TextAsset>(item.JsonFilePath);
+                        mLoadedAssetPath.Add(item.JsonFilePath);
+
+                        var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
+                        if (json_obj != null && json_obj.data != null)
                         {
-                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                            lock (this)
                             {
-                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                            }
-                            foreach (var kv_item in json_obj.data)
-                            {
-                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                                if (!mDict_I18NLists.ContainsKey(item.GroupName))
                                 {
-                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
+                                }
+                                foreach (var kv_item in json_obj.data)
+                                {
+                                    if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                     {
-                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                    }
-                                    else
-                                    {
-                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                        {
+                                            mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                        }
+                                        else
+                                        {
+                                            XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        }
                                     }
                                 }
                             }
+
                         }
-                        
-                    }
 
-                }
-                catch (Exceptions.VFSException e)
-                {
-                    if(e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                    }
+                    catch (Exceptions.VFSException e)
                     {
-                        XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
+                        if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                        {
+                            XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
+                        }
                     }
+
+
+
                 }
 
-
-                
             }
 
             //读取.asset文件
-            foreach(var item in region.language_asset_files)
+            if(region.language_asset_files != null)
             {
-                if(item.ListFile != null)
+                foreach (var item in region.language_asset_files)
                 {
-                    if(item.ListFile.Items != null)
+                    if (item.ListFile != null)
                     {
-                        lock (this)
+                        if (item.ListFile.Items != null)
                         {
-                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                            lock (this)
                             {
-                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                            }
-                            foreach (var kv_item in item.ListFile.Items)
-                            {
-                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                                if (!mDict_I18NLists.ContainsKey(item.GroupName))
                                 {
-                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
+                                }
+                                foreach (var kv_item in item.ListFile.Items)
+                                {
+                                    if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                     {
-                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                    }
-                                    else
-                                    {
-                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                        {
+                                            mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                        }
+                                        else
+                                        {
+                                            XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        }
                                     }
                                 }
                             }
+
                         }
-                        
                     }
                 }
             }
+            
 
             //读取Json base64文件，
-            foreach(var item in region.language_json_files_base64)
+            if(region.language_json_files_base64 != null)
             {
-                try
+                foreach (var item in region.language_json_files_base64)
                 {
-                    var json_file = await mVFS.LoadAssetLocalOrWebAsync<TextAsset>(item.JsonFilePath);
-                    mLoadedAssetPath.Add(item.JsonFilePath);
-
-                    var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
-                    if (json_obj != null && json_obj.data != null)
+                    try
                     {
-                        lock (this)
+                        var json_file = await mVFS.LoadAssetLocalOrWebAsync<TextAsset>(item.JsonFilePath);
+                        mLoadedAssetPath.Add(item.JsonFilePath);
+
+                        var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
+                        if (json_obj != null && json_obj.data != null)
                         {
-                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                            lock (this)
                             {
-                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                            }
-                            foreach (var kv_item in json_obj.data)
-                            {
-                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                                if (!mDict_I18NLists.ContainsKey(item.GroupName))
                                 {
-                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
+                                }
+                                foreach (var kv_item in json_obj.data)
+                                {
+                                    if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                     {
-                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
-                                    }
-                                    else
-                                    {
-                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                        {
+                                            mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
+                                        }
+                                        else
+                                        {
+                                            XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                        }
                                     }
                                 }
                             }
+
                         }
 
                     }
-
-                }
-                catch (Exceptions.VFSException e)
-                {
-                    if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                    catch (Exceptions.VFSException e)
                     {
-                        XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
+                        if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                        {
+                            XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
+                        }
                     }
                 }
             }
+            
 
             mCurRegionName = region.region_name;
             mCurRegion = region;
@@ -449,112 +461,124 @@ namespace TinaX.I18NKit
 
             var origin_region_name = mCurRegionName;
             //读取Json
-            foreach (var item in region.language_json_files)
+            if(region.language_json_files != null)
             {
-                try
+                foreach (var item in region.language_json_files)
                 {
-                    var json_file = mVFS.LoadAsset<TextAsset>(item.JsonFilePath);
-                    mLoadedAssetPath.Add(item.JsonFilePath);
-                    var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
-                    if (json_obj != null && json_obj.data != null)
+                    try
                     {
-                        if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                        var json_file = mVFS.LoadAsset<TextAsset>(item.JsonFilePath);
+                        mLoadedAssetPath.Add(item.JsonFilePath);
+                        var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
+                        if (json_obj != null && json_obj.data != null)
                         {
-                            mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                        }
-                        foreach (var kv_item in json_obj.data)
-                        {
-                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
+                            }
+                            foreach (var kv_item in json_obj.data)
+                            {
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
                                 {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                catch (Exceptions.VFSException e)
-                {
-                    if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
-                        XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
-                }
+                    catch (Exceptions.VFSException e)
+                    {
+                        if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                            XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
+                    }
 
+                }
             }
+            
 
             //读取.asset文件
-            foreach (var item in region.language_asset_files)
+            if(region.language_asset_files != null)
             {
-                if (item.ListFile != null)
+                foreach (var item in region.language_asset_files)
                 {
-                    if (item.ListFile.Items != null)
+                    if (item.ListFile != null)
                     {
-                        if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                        if (item.ListFile.Items != null)
                         {
-                            mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                        }
-                        foreach (var kv_item in item.ListFile.Items)
-                        {
-                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
-                                {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
-                                }
+                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
                             }
-                                
+                            foreach (var kv_item in item.ListFile.Items)
+                            {
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                                {
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value);
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
+                                }
+
+                            }
                         }
                     }
                 }
+
             }
 
             //读取Json base64文件，
-            foreach (var item in region.language_json_files_base64)
+            if(region.language_json_files_base64 != null)
             {
-                try
+                foreach (var item in region.language_json_files_base64)
                 {
-                    var json_file = mVFS.LoadAsset<TextAsset>(item.JsonFilePath);
-                    mLoadedAssetPath.Add(item.JsonFilePath);
-                    var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
-                    if (json_obj != null && json_obj.data != null)
+                    try
                     {
-                        if (!mDict_I18NLists.ContainsKey(item.GroupName))
+                        var json_file = mVFS.LoadAsset<TextAsset>(item.JsonFilePath);
+                        mLoadedAssetPath.Add(item.JsonFilePath);
+                        var json_obj = UnityEngine.JsonUtility.FromJson<I18NJsonTpl>(json_file.text);
+                        if (json_obj != null && json_obj.data != null)
                         {
-                            mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
-                        }
-                        foreach (var kv_item in json_obj.data)
-                        {
-                            if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                            if (!mDict_I18NLists.ContainsKey(item.GroupName))
                             {
-                                if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
-                                {
-                                    mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
-                                }
-                                else
-                                {
-                                    XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
-                                }
+                                mDict_I18NLists.Add(item.GroupName, new Dictionary<string, string>());
                             }
-                                
+                            foreach (var kv_item in json_obj.data)
+                            {
+                                if (!kv_item.key.IsNullOrEmpty() && !kv_item.value.IsNullOrEmpty())
+                                {
+                                    if (!mDict_I18NLists[item.GroupName].ContainsKey(kv_item.key))
+                                    {
+                                        mDict_I18NLists[item.GroupName].Add(kv_item.key, kv_item.value.Base64ToStr());
+                                    }
+                                    else
+                                    {
+                                        XLog.PrintE($"[TinaX.I18N Kit] Group \"{item.GroupName}\" had the same key \"{kv_item.key}\" , value:\"{mDict_I18NLists[item.GroupName][kv_item.key]}\" and \"{kv_item.value}\"");
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                    catch (Exceptions.VFSException e)
+                    {
+                        if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
+                        {
+                            XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
                         }
                     }
+                }
 
-                }
-                catch (Exceptions.VFSException e)
-                {
-                    if (e.ErrorType == Exceptions.VFSException.VFSErrorType.FileNotExist || e.ErrorType == Exceptions.VFSException.VFSErrorType.PathNotValid)
-                    {
-                        XLog.PrintW("Can't load language file from VFS:" + item.JsonFilePath);
-                    }
-                }
             }
 
             mCurRegionName = region.region_name;

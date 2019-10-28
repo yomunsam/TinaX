@@ -2002,7 +2002,10 @@ namespace TinaX.VFSKit
             var uri = new System.Uri(streamingAssets_fileHash_path);
             var req = UnityEngine.Networking.UnityWebRequest.Get(uri);
             req.timeout = 3;
-            var result = await req.SendWebRequest();
+            var reqOperation = req.SendWebRequest();
+            await Task.Delay(0);
+            var result = await reqOperation;
+            //var result = await req.SendWebRequest(); //这段代码在IL2CPP下会出bug，拆成上面三句话好像就没事了（至少暂时没发现什么不对的）， 详见：https://github.com/yomunsam/TinaX/issues/8
             if (result.error.IsNullOrEmpty() && !result.downloadHandler.text.IsNullOrEmpty())
             {
                 var str_json = result.downloadHandler.text;
