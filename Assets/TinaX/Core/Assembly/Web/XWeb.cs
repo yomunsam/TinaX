@@ -26,8 +26,10 @@ namespace TinaX
             {
                 //不存在，从web下载到本地
                 var req = UnityWebRequest.Get(web_uri);
-                var op = await req.SendWebRequest();
-                var data = op.downloadHandler.data;
+                var op = req.SendWebRequest();
+                await Task.Delay(1);
+                var result = await op;
+                var data = result.downloadHandler.data;
                 if (!File.Exists(local_path))
                 {
                     File.WriteAllBytes(local_path, data);
@@ -39,19 +41,22 @@ namespace TinaX
 
         public static async UniTask<string> GetText(Uri web_uri)
         {
-            var req = await UnityWebRequest
+            var req_op = UnityWebRequest
                 .Get(web_uri)
                 .SendWebRequest();
+            await Task.Delay(1);
+            var result = await req_op;
+
             //状态
-            if (req.isHttpError)
+            if (result.isHttpError)
             {
-                throw new TinaX.Exceptions.XWebException("GET Text HTTP Error, uri:" + web_uri.ToString() + "  err:" + req.error, (System.Net.HttpStatusCode)req.responseCode);
-            }else if (req.isNetworkError)
+                throw new TinaX.Exceptions.XWebException("GET Text HTTP Error, uri:" + web_uri.ToString() + "  err:" + result.error, (System.Net.HttpStatusCode)result.responseCode);
+            }else if (result.isNetworkError)
             {
-                throw new TinaX.Exceptions.XWebException("GET Text Network Error, uri:" + web_uri.ToString() + "  err:" + req.error,Exceptions.XWebException.ErrorType.NetworkError, (System.Net.HttpStatusCode)req.responseCode);
+                throw new TinaX.Exceptions.XWebException("GET Text Network Error, uri:" + web_uri.ToString() + "  err:" + result.error,Exceptions.XWebException.ErrorType.NetworkError, (System.Net.HttpStatusCode)result.responseCode);
             }
 
-            return req.downloadHandler.text;
+            return result.downloadHandler.text;
         }
 
     }
