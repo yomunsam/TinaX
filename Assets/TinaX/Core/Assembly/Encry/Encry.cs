@@ -22,10 +22,18 @@ namespace TinaX
         /// <returns>MD5文件</returns>
         public static string GetMD5(string content)
         {
-            var md5 = new MD5CryptoServiceProvider();
-            var data = System.Text.Encoding.Default.GetBytes(content);
-            var t_data = md5.ComputeHash(data);
-            return System.Text.Encoding.Default.GetString(t_data);
+            MD5 md5Hash = MD5.Create();
+            var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(content));
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                str.Append(data[i].ToString("x2"));
+            }
+            return str.ToString();
+            //var md5 = new MD5CryptoServiceProvider();
+            //var data = System.Text.Encoding.Default.GetBytes(content);
+            //var t_data = md5.ComputeHash(data);
+            //return System.Text.Encoding.Default.GetString(t_data);
         }
     }
 }

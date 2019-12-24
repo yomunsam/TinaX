@@ -88,5 +88,10 @@ namespace TinaX
             return System.Text.Encoding.Default.GetString(b);
         }
 
+        public static string GetMD5(this string str)
+        {
+            return Encry.GetMD5(str);
+        }
+
     }
 }
