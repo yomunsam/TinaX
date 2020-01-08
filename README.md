@@ -101,3 +101,10 @@ VFS支持热更新。
 **Odin Inspector** (付费)
 
 <a href="https://odininspector.com/" target="_blank"><img src="https://odininspector.com/files/misc/logo.png" width = "150" /></a>
+
+
+## 优秀的Unity项目安利
+
+- [QFramework](https://github.com/liangxiegame/QFramework) : 一套渐进式的快速开发框架
+- [xasset](https://github.com/xasset/xasset) : 一个简易轻量的Unity资源管理框架
+- [CatLib](https://github.com/CatLib/Core) : 轻量级依赖注入框架
