@@ -16,7 +16,7 @@ namespace TinaXEditor.UIKit
     /// </summary>
     public class XUIKitMenus
     {
-        [MenuItem("TinaX/UIKit/创建UI")]
+        [MenuItem("TinaX/UIKit/Create UI")]
         [MenuItem("Assets/Create/TinaX/UI")]
         static void Create_UI_Prefab()
         {
