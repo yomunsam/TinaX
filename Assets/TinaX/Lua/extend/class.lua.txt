@@ -27,6 +27,7 @@ function class(super)
             return obj
         end
     local vtbl={}
+    vtbl.super = _class[super] --让子类可以调用父类
     _class[class_type]=vtbl
  
     setmetatable(class_type,{__newindex=
