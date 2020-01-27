@@ -163,7 +163,7 @@ namespace TinaX.Lua
                 if (luaLateUpdate.GetInvocationList().Length >= 1)
                 {
                     enable_lateupdate = true;
-                    mLateUpdate_Handle_Id = TimeMachine.I.AddUpdate(xLateUpdate, UpdateOrder);
+                    mLateUpdate_Handle_Id = TimeMachine.I.AddLateUpdate(xLateUpdate, UpdateOrder);
                 }
             }
                 

@@ -63,6 +63,9 @@ Assets/Example.meta
 Assets/Test/*
 Assets/Test.meta
 Assets/Resources/*
+Assets/Resources.meta
+Assets/xlua
+Assets/xlua.meta
 
 #Tencent Lua Prefect
 Assets/.lpproj/*

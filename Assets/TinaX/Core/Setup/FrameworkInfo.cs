@@ -16,9 +16,9 @@ namespace TinaX
 
         public static string FrameworkVersion = "Tina X6";
 
-        public const string FrameworkVersionName = "6.4.1";
+        public const string FrameworkVersionName = "6.5.180-alpha";
 
-        public const int FrameworkVersionCode = 5;
+        public const int FrameworkVersionCode = 10;
 
 
         public static string Framework_Url_Github = "https://github.com/yomunsam/TinaX6";

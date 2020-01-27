@@ -644,7 +644,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: TinaX_CA_LuaRuntime_Enable;ODIN_INSPECTOR;HOTFIX_ENABLE;TinaX_CA_VFS_Enable
+    1: 
     4: ODIN_INSPECTOR;TinaX_CA_LuaRuntime_Enable;HOTFIX_ENABLE;TinaX_CA_VFS_Enable
     7: TinaX_CA_LuaRuntime_Enable;TinaX_CA_VFS_Enable;ODIN_INSPECTOR;HOTFIX_ENABLE
     13: ODIN_INSPECTOR
