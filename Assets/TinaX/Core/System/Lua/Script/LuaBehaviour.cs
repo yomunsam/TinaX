@@ -159,7 +159,7 @@ namespace TinaX.Lua
                 if (luaLateUpdate.GetInvocationList().Length >= 1)
                 {
                     enable_lateupdate = true;
-                    TimeMachine.I.AddUpdate(xLateUpdate, UpdateOrder);
+                    TimeMachine.I.AddLateUpdate(xLateUpdate, UpdateOrder);
                 }
             }
                 
