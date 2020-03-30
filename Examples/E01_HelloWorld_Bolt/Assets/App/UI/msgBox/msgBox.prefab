@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenUI: 1
-  FullScreenUI: 1
+  FullScreenUI: 0
   SortingLayerID: 0
   AllowMultiple: 0
   UIMainHandler: {fileID: 5839950047267583515}
