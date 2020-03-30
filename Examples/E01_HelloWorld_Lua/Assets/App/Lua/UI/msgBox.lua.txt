@@ -1,0 +1,13 @@
+--[[
+    UI Handler Script - msgbox
+]]
+
+function OnOpenUIMessage(content, title)
+    print("ヾ(•ω•`)o");
+    if(content ~= nil) then
+        txt_content.text = content;
+    end
+    if(title ~= nil) then
+        txt_title.text = title
+    end
+end

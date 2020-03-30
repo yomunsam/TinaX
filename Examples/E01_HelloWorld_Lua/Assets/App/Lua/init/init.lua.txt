@@ -1,0 +1,20 @@
+print("meow~~");
+
+App = App or {}
+
+App.VFS = XCore.CSCore:GetService(typeof(CS.TinaX.VFSKit.IVFS));
+App.UIKit = XCore.CSCore:GetService(typeof(CS.TinaX.UIKit.IUIKit));
+
+-- openui
+App.UIKit:OpenUIAsync("mainScreen", function(ui_entity,err)
+    if err ~= nil then
+        printE("open ui \"mainScreen\"failed. " .. err.Message)
+    end
+end);
+
+-- load scene
+App.VFS:LoadSceneAsync("Assets/App/Scenes/App.Main.unity",function(sceneAsset,err)
+    if err == nil then
+        sceneAsset:OpenScene();
+    end
+end)

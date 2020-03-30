@@ -1,0 +1,18 @@
+--[[
+    
+]]
+
+function Start()
+    btn_1.onClick:AddListener(function()
+        local open_ui_param = CS.TinaX.UIKit.OpenUIParam();
+        open_ui_param.UseMask = true;
+        open_ui_param.CloseByMask = true;
+        App.UIKit:OpenUIWithParamAsync("msgBox",open_ui_param, function(ui_entity, err)
+            if(err ~= nil) then
+                printE("open ui \"msgBox\" failed: " .. err.Message);
+            else
+                print("o((>ω< ))o");
+            end
+        end,"Hello, World", "Meow");
+    end)
+end

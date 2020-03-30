@@ -1,0 +1,3 @@
+[submodule "Examples/E01_HelloWorld_Lua/Assets/TinaX/Lua"]
+	path = Examples/E01_HelloWorld_Lua/Assets/TinaX/Lua
+	url = https://github.com/yomunsam/TinaX.Lua
