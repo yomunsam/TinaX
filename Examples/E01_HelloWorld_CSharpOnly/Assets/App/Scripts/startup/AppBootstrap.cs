@@ -22,7 +22,7 @@ namespace Nekonya.Example
         {
             //open ui
             var uikit = XCore.MainInstance.GetService<IUIKit>();
-            _ = uikit.OpenUIAsync<MainScreen>("mainScreen");
+            _ = uikit.OpenUIAsync("mainScreen",new MainScreen());
 
             //load scene
             var vfs = XCore.MainInstance.GetService<IVFS>();
