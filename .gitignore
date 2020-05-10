@@ -3,6 +3,10 @@ Examples/*/Logs
 Examples/*/Temp
 Examples/*/obj
 Examples/*/bin
+Examples/*/TinaX/VFS_Build
+/Examples/E02_CloudBuild/Assets/StreamingAssets
+/Examples/E02_CloudBuild/Assets/StreamingAssets.meta
+
 
 **/.vs/
 

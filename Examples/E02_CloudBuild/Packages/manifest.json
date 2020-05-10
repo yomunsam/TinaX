@@ -65,21 +65,21 @@
       "revision": "HEAD",
       "hash": "4cfc6f0998c8e23348e229a675fb088918fd5783"
     },
+    "io.nekonya.tinax.i18n": {
+      "revision": "HEAD",
+      "hash": "1259af8c0fc4003529123c0d761a41582ce3e088"
+    },
     "io.nekonya.tinax.uikit": {
       "revision": "HEAD",
       "hash": "08553c06104b24c2e83b5d163913e8e21ab905a1"
     },
     "io.nekonya.tinax.vfs": {
       "revision": "HEAD",
-      "hash": "e908af96d15b78aa109a24f9409b34e2aa796515"
+      "hash": "37fc1af58cef6a13ddd68f8194baf7ba24151849"
     },
     "io.nekonya.tinax.xcomponent": {
       "revision": "HEAD",
       "hash": "24a0b40197bd181a45cba4dc61c96db21d6d382c"
-    },
-    "io.nekonya.tinax.i18n": {
-      "revision": "HEAD",
-      "hash": "1259af8c0fc4003529123c0d761a41582ce3e088"
     }
   }
 }
