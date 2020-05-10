@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab66fb7f15bc09428c8ab6cb19b3d06, type: 3}
+  m_Name: I18NConfig
+  m_EditorClassIdentifier: 
+  EnableI18N: 1
+  DefaultRegion: en
+  AutomaticMatchingBySystemLanaguage: 1
+  Regions:
+  - Name: cmn-hans
+    BindLanguage: 2800000006000000
+    JsonDicts: []
+    AssetDicts:
+    - Asset: {fileID: 11400000, guid: d34713b6503ca75429b59d55bde48c1d, type: 2}
+      GroupName: common
+  - Name: en
+    BindLanguage: 0a000000
+    JsonDicts: []
+    AssetDicts:
+    - Asset: {fileID: 11400000, guid: ca32ab548ead67c45be59dfa6ac5c99e, type: 2}
+      GroupName: common
