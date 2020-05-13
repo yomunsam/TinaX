@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.cysharp.unitask": "git://github.com/yomunsam/UniTask.UPM.git",
-    "com.neuecc.unirx": "git://github.com/yomunsam/UniRx.UPM.git",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=Assets/UniRx.Async#1.3.1",
+    "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
     "com.unity.2d.animation": "3.1.1",
     "com.unity.2d.pixel-perfect": "2.0.4",
     "com.unity.2d.psdimporter": "2.1.0",
@@ -15,7 +15,7 @@
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.2.13",
     "com.unity.ugui": "1.0.0",
-    "io.nekonya.tinax.core": "git://github.com/yomunsam/TinaX.Core.git",
+    "io.nekonya.tinax.core": "git://github.com/yomunsam/TinaX.Core.git#6.6.0-preview",
     "io.nekonya.tinax.uikit": "git://github.com/yomunsam/TinaX.UIKit.git",
     "io.nekonya.tinax.vfs": "git://github.com/yomunsam/TinaX.VFS.git",
     "io.nekonya.tinax.xcomponent": "git://github.com/yomunsam/TinaX.XComponent.git",
@@ -53,16 +53,12 @@
   },
   "lock": {
     "com.cysharp.unitask": {
-      "revision": "HEAD",
-      "hash": "68856234768acc691f3bf47855882b03b3b1986d"
+      "revision": "1.3.1",
+      "hash": "28e1fa98c9db7a6fbe5d3bf2bcaf7a82d89e5b9a"
     },
     "com.neuecc.unirx": {
       "revision": "HEAD",
-      "hash": "a0a434377551a47896c7e6bf4c9264460a7a08d5"
-    },
-    "io.nekonya.tinax.core": {
-      "revision": "HEAD",
-      "hash": "4cfc6f0998c8e23348e229a675fb088918fd5783"
+      "hash": "284d5c50d3f1ddd9fa7df3d382ea904732a9c2ff"
     },
     "io.nekonya.tinax.uikit": {
       "revision": "HEAD",
@@ -75,6 +71,10 @@
     "io.nekonya.tinax.xcomponent": {
       "revision": "HEAD",
       "hash": "24a0b40197bd181a45cba4dc61c96db21d6d382c"
+    },
+    "io.nekonya.tinax.core": {
+      "revision": "6.6.0-preview",
+      "hash": "dc6b78be356080761bdf1f7f4f7a8c9a13d6944c"
     }
   }
 }
