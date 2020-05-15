@@ -1,0 +1,57 @@
+﻿{
+    "packages": [
+        {
+            "packageName": "io.nekonya.tinax.core",
+            "versionTags": [
+                "6.6.0-preview"
+            ],
+            "displayName": "TinaX.Core",
+            "description": "TinaX Framework.",
+            "gitUrl": "git://github.com/yomunsam/TinaX.Core.git",
+            "repoUrl": "https://github.com/yomunsam/TinaX.Core",
+            "npmUrl": "",
+            "keywords": [
+                "TinaX",
+                "Core",
+                "XCore"
+            ],
+            "dependencies": [
+                {
+                    "packageName": "com.neuecc.unirx",
+                    "version": "7.1.0"
+                },
+                {
+                    "packageName": "com.cysharp.unitask",
+                    "version": "1.3.1"
+                }
+            ],
+            "thirdparty": false
+        },
+        {
+            "packageName": "com.neuecc.unirx",
+            "versionTags": [],
+            "displayName": "UniRx",
+            "description": "Reactive Extensions for Unity",
+            "gitUrl": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+            "repoUrl": "https://github.com/neuecc/UniRx",
+            "npmUrl": "",
+            "keywords": [],
+            "dependencies": [],
+            "thirdparty": true
+        },
+        {
+            "packageName": "com.cysharp.unitask",
+            "versionTags": [
+                "1.3.1"
+            ],
+            "displayName": "UniTask",
+            "description": "Provides an efficient async/await integration to Unity.",
+            "gitUrl": "https://github.com/Cysharp/UniTask.git?path=Assets/UniRx.Async",
+            "repoUrl": "https://github.com/Cysharp/UniTask",
+            "npmUrl": "",
+            "keywords": ["async/await", "async", "Task", "UniTask"],
+            "dependencies": [],
+            "thirdparty": true
+        }
+    ]
+}

@@ -7,8 +7,15 @@ Examples/*/TinaX/VFS_Build
 /Examples/E02_CloudBuild/Assets/StreamingAssets
 /Examples/E02_CloudBuild/Assets/StreamingAssets.meta
 
+**/Library
+**/Logs
+**/obj
+**/Temp
+**/UIElementsSchema
+
 
 **/.vs/
+**/.idea
 
 *.sln
 *.csproj
