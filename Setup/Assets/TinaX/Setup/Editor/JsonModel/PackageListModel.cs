@@ -17,6 +17,7 @@ namespace TinaXEditor.Setup.Internal
             public string gitUrl;
             public string repoUrl;
             public string npmUrl;
+            public string downloadUrl;
 
             public List<string> keywords;
 
@@ -30,8 +31,16 @@ namespace TinaXEditor.Setup.Internal
         public struct PackageDependency
         {
             public string packageName;
-            public string version;
+            public List<PackageDependencyVersion> version;
         }
+
+        [System.Serializable]
+        public struct PackageDependencyVersion
+        {
+            public string packageVersionTag;
+            public string dependencyVersionTag;
+        }
+
     }
 
 }

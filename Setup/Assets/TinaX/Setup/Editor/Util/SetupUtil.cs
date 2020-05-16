@@ -74,17 +74,57 @@ namespace TinaXEditor.Setup.Internal
         {
             var result = new List<PackageListInfo>();
             foreach (var item in model.packages)
+            {
                 result.Add(new PackageListInfo() { BaseInfo = item });
+            }
+
+            SetPackagesInfo(result, () =>
+            {
+                callback?.Invoke(new List<PackageListInfo>(result.Where(info => !info.BaseInfo.thirdparty)));
+            });
+        }
+
+        public static void GetPackages_Installed(ref PackageListModel model, Action<List<PackageListInfo>> callback)
+        {
+            var result = new List<PackageListInfo>();
+            foreach (var item in model.packages)
+            {
+                result.Add(new PackageListInfo() { BaseInfo = item });
+            }
+
+            SetPackagesInfo(result, () =>
+            {
+                var filter = result.Where(info => info.Installed);
+                callback?.Invoke(new List<PackageListInfo>(filter));
+            });
+        }
+
+        public static void GetPackages_Thirdparty(ref PackageListModel model, Action<List<PackageListInfo>> callback)
+        {
+            var result = new List<PackageListInfo>();
+            foreach (var item in model.packages)
+            {
+                result.Add(new PackageListInfo() { BaseInfo = item });
+            }
+
+            SetPackagesInfo(result, () =>
+            {
+                callback?.Invoke(new List<PackageListInfo>(result.Where(info => info.BaseInfo.thirdparty)));
+            });
+        }
+
+        public static void GetPackages_All(ref PackageListModel model, Action<List<PackageListInfo>> callback)
+        {
+            var result = new List<PackageListInfo>();
+            foreach (var item in model.packages)
+            {
+                result.Add(new PackageListInfo() { BaseInfo = item });
+            }
 
             SetPackagesInfo(result, () =>
             {
                 callback?.Invoke(result);
             });
-        }
-
-        public static List<PackageListModel.ListItem> GetPackages_Installed(ref PackageListModel model)
-        {
-            return model.packages;
         }
 
         public static void SetPackagesInfo(List<PackageListInfo> infos, Action onFinish)
@@ -95,10 +135,18 @@ namespace TinaXEditor.Setup.Internal
             {
                 for (int i = 0; i < infos.Count; i++)
                 {
-                    if (myList.Any(pinfo => pinfo.name.Equals(infos[i].BaseInfo.packageName)))
+                    var _pinfos = myList.Where(pinfo => pinfo.name.Equals(infos[i].BaseInfo.packageName));
+                    if(_pinfos.Count() > 0)
+                    {
+                        var _p_info = _pinfos.First();
                         infos[i].Installed = true;
+                        infos[i].Installed_VersionName = _p_info.version;
+                    }
                     else
+                    {
                         infos[i].Installed = false;
+                        infos[i].Installed_VersionName = string.Empty;
+                    }
                 }
                 onFinish?.Invoke();
             });
