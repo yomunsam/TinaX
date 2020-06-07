@@ -9,7 +9,7 @@
             "description": "TinaX Framework.",
             "gitUrl": "git://github.com/yomunsam/TinaX.Core.git",
             "repoUrl": "https://github.com/yomunsam/TinaX.Core",
-            "npmUrl": "",
+            "npmUrl": "https://registry.npmjs.org/io.nekonya.tinax.core",
             "keywords": [
                 "TinaX",
                 "Core",

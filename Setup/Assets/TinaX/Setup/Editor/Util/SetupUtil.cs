@@ -136,7 +136,7 @@ namespace TinaXEditor.Setup.Internal
                 for (int i = 0; i < infos.Count; i++)
                 {
                     var _pinfos = myList.Where(pinfo => pinfo.name.Equals(infos[i].BaseInfo.packageName));
-                    if(_pinfos.Count() > 0)
+                    if (_pinfos.Count() > 0)
                     {
                         var _p_info = _pinfos.First();
                         infos[i].Installed = true;
@@ -177,6 +177,44 @@ namespace TinaXEditor.Setup.Internal
             onFinish?.Invoke();
             yield break;
         }
+
+        /// <summary>
+        /// 总入口
+        /// </summary>
+        /// <param name="packageName"></param>
+        public static void AddPackageAndDependencies(string packageName)
+        {
+            //搜索
+            
+        }
+
+        public static PackageListModel.ListItem GetPackageInfoByName(string packageName)
+        {
+            var list = GetPackageList();
+            var infos = list.packages.Where(item => item.packageName.Equals(packageName));
+            if (infos.Count() == 0)
+                return null;
+            else
+                return infos.First();
+        }
+
+        public static void DirectAddPackage(string uri, Action<bool> callback)
+        {
+            var req = UnityEditor.PackageManager.Client.Add(uri);
+            EditorCoroutine.Start(waitAdd(req, () =>
+            {
+                callback?.Invoke(true);
+            }));
+        }
+
+        private static IEnumerator waitAdd(UnityEditor.PackageManager.Requests.AddRequest req, Action onFinish)
+        {
+            while (req.Status == StatusCode.InProgress)
+                yield return null;
+            onFinish?.Invoke();
+            yield break;
+        }
+
 
     }
 

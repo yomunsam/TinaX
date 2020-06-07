@@ -7,6 +7,13 @@ Examples/*/TinaX/VFS_Build
 /Examples/E02_CloudBuild/Assets/StreamingAssets
 /Examples/E02_CloudBuild/Assets/StreamingAssets.meta
 
+Tests/*/Library
+Tests/*/Logs
+Tests/*/Temp
+Tests/*/obj
+Tests/*/bin
+Tests/*/TinaX/VFS_Build
+
 **/Library
 **/Logs
 **/obj
