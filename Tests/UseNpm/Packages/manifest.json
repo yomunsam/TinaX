@@ -6,11 +6,17 @@
       "scopes": [
         "io.nekonya"
       ]
+    },
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+          "com.cysharp.unitask",
+          "com.neuecc.unirx"
+      ]
     }
   ],
   "dependencies": {
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.0.14",
-    "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
     "com.unity.2d.pixel-perfect": "2.0.4",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "3.0.11",
@@ -52,15 +58,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "lock": {
-    "com.cysharp.unitask": {
-      "revision": "2.0.14",
-      "hash": "686394c861391b042084658cd95022bdec256e70"
-    },
-    "com.neuecc.unirx": {
-      "revision": "HEAD",
-      "hash": "284d5c50d3f1ddd9fa7df3d382ea904732a9c2ff"
-    }
   }
 }
