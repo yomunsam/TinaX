@@ -3,5 +3,5 @@ guid: 181060bb66aaeef4a9a03e8d082eb5db
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: assets/app/ui/mainscreen/mainscreen.prefab
+  assetBundleVariant: xab

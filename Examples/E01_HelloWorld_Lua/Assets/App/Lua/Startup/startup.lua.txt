@@ -1,0 +1,19 @@
+
+-- XCore.Logger.EnableTraceback = false;
+--[[
+    By default, Lua prints the stack when print to console. If you don't need it, you can turn it off with the above code
+    默认情况下，lua在输出log时会打印堆栈，如果不需要，可通过上述代码关闭
+]]
+
+App = App or {}
+App.UIKit = CS.TinaX.UIKit.UIKit.That
+App.VFS = CS.TinaX.VFSKit.VFS.That
+App.I18N = CS.TinaX.I18N.XI18N.That
+
+-- open ui
+
+App.UIKit:OpenUIAsync("mainScreen", function(uiEntity, err)
+    if err ~= nil then
+        printE("OpenUI \"mainScreen\"failed. " .. err.Message)
+    end
+end);

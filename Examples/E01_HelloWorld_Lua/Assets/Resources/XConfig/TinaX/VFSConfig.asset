@@ -17,10 +17,11 @@ MonoBehaviour:
     ObfuscateDirectoryStructure: 0
     FolderPaths:
     - Assets/App/Scenes
-    - Assets/TinaX/Lua/Lua
-    - Assets/App/Lua
     - Assets/App/UI
     - Assets/Arts/UI/Images
+    - Assets/App/Data/text
+    - Assets/App/Lua
+    - Assets/TinaX/Lua/Lua
     AssetPaths: []
     GroupAssetsHandleMode: 2
     ExtensionGroup: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
   - .apk
   - .so
   GlobalVFS_Ignore_Path_Item:
-  - Editor
   - Resources
+  - Editor
   InitWebVFSOnStart: 0
   DefaultWebVFSBaseUrl: http://127.0.0.1:8080/files/

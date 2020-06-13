@@ -17,3 +17,7 @@ MonoBehaviour:
     Path: Assets/App/UI/mainScreen/mainScreen.prefab
   - Name: msgBox
     Path: Assets/App/UI/msgBox/msgBox.prefab
+  - Name: counter
+    Path: Assets/App/UI/counter/Counter.prefab
+  - Name: fetchData
+    Path: Assets/App/UI/FetchData/FetchData.prefab

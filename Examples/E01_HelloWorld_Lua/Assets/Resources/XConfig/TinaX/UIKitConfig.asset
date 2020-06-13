@@ -19,7 +19,16 @@ MonoBehaviour:
   UseUICamera: 1
   UICameraConfig: {fileID: 11400000, guid: d6ecec22ba4c03f43a240c5da1f8d79b, type: 2}
   AutoCreateEventSystem: 1
-  DefaultUIMaskColor: {r: 0, g: 0, b: 0, a: 0.59607846}
+  DefaultUIMaskColor: {r: 0, g: 0, b: 0, a: 0.7058824}
+  UICanvasScalerMode: 1
+  UIScaleFactor: 1
+  ReferencePixelsPerUnit: 100
+  ReferenceResolution: {x: 1920, y: 1080}
+  ScreenMatchMode: 0
+  CanvasScalerMatchWidthOrHeight: 1
+  PhySicalUnit: 3
+  FallbackScreenDPI: 96
+  DefaultSpriteDPI: 96
   UI_Image_Folders:
   - Path: Assets/Arts/UI/Images
     Atlas: 0

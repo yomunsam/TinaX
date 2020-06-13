@@ -1,24 +1,44 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "TinaX",
+      "url": "https://registry.npmjs.org",
+      "scopes": [
+        "io.nekonya"
+      ]
+    },
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.cysharp.unitask",
+        "com.neuecc.unirx",
+        "com.openupm",
+        "io.nekonya.tinax.i18n"
+      ]
+    }
+  ],
   "dependencies": {
-    "com.cysharp.unitask": "git://github.com/yomunsam/UniTask.UPM.git",
-    "com.neuecc.unirx": "git://github.com/yomunsam/UniRx.UPM.git",
-    "com.unity.2d.animation": "3.1.1",
+    "com.cysharp.unitask": "2.0.16",
+    "com.neuecc.unirx": "7.1.0",
+    "com.unity.2d.animation": "3.2.2",
     "com.unity.2d.pixel-perfect": "2.0.4",
-    "com.unity.2d.psdimporter": "2.1.0",
+    "com.unity.2d.psdimporter": "2.1.4",
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.2d.spriteshape": "3.0.9",
+    "com.unity.2d.spriteshape": "3.0.11",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",
-    "com.unity.ide.vscode": "1.1.4",
-    "com.unity.test-framework": "1.1.11",
+    "com.unity.ide.vscode": "1.2.0",
+    "com.unity.test-framework": "1.1.14",
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.2.13",
     "com.unity.ugui": "1.0.0",
-    "io.nekonya.tinax.core": "git://github.com/yomunsam/TinaX.Core.git",
-    "io.nekonya.tinax.uikit": "git://github.com/yomunsam/TinaX.UIKit.git",
-    "io.nekonya.tinax.vfs": "git://github.com/yomunsam/TinaX.VFS.git",
-    "io.nekonya.tinax.xcomponent": "git://github.com/yomunsam/TinaX.XComponent.git",
+    "io.nekonya.tinax.core": "6.6.3",
+    "io.nekonya.tinax.i18n": "6.6.3",
+    "io.nekonya.tinax.uikit": "6.6.4",
+    "io.nekonya.tinax.vfs": "6.6.4",
+    "io.nekonya.tinax.xcomponent": "6.6.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -50,31 +70,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "lock": {
-    "com.cysharp.unitask": {
-      "revision": "HEAD",
-      "hash": "68856234768acc691f3bf47855882b03b3b1986d"
-    },
-    "com.neuecc.unirx": {
-      "revision": "HEAD",
-      "hash": "a0a434377551a47896c7e6bf4c9264460a7a08d5"
-    },
-    "io.nekonya.tinax.core": {
-      "revision": "HEAD",
-      "hash": "2f1b08ec2f261205104798e7c68a4e1e8e44df91"
-    },
-    "io.nekonya.tinax.uikit": {
-      "revision": "HEAD",
-      "hash": "f65c8cb78d4df6204c9f214a7cce88ada9037919"
-    },
-    "io.nekonya.tinax.vfs": {
-      "revision": "HEAD",
-      "hash": "1cb795a6274dfd1581fe238a404ca2817247aaa1"
-    },
-    "io.nekonya.tinax.xcomponent": {
-      "revision": "HEAD",
-      "hash": "c95376b094b707a7532a3d5151bf0d6a0fbf36f7"
-    }
   }
 }

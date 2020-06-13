@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 5c0d2d550a7483f47a5e60e3b0f689c8
+guid: 3df5a221a04dc90489126adbcc3c6abb
 PrefabImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: assets/app/ui/msgbox/msgbox.prefab
+  assetBundleName: assets/app/ui/counter/counter.prefab
   assetBundleVariant: xab

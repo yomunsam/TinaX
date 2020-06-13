@@ -1,9 +1,6 @@
---[[
-    UI Handler Script - msgbox
-]]
+-- luabehaviour MsgBox
 
 function OnOpenUIMessage(content, title)
-    print("ヾ(•ω•`)o");
     if(content ~= nil) then
         txt_content.text = content;
     end

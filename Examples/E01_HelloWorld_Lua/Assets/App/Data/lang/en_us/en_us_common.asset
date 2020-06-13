@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8208dcfe04757324691e99ecaa79dcf1, type: 3}
+  m_Name: en_us_common
+  m_EditorClassIdentifier: 
+  data:
+  - k: hello_title
+    v: Hello, world!
+  - k: welcome
+    v: Welcome to your tinax app.
+  - k: btn_counter
+    v: Counter
+  - k: btn_fetchdata
+    v: Fetch data
+  - k: title_counter
+    v: Counter
+  - k: txt_cur_counter
+    v: 'Current count: %s'
+  - k: btn_counter_clickme
+    v: Click me
+  - k: title_data_from_VFS
+    v: Data from VFS
+  - k: btn_exit
+    v: Exit

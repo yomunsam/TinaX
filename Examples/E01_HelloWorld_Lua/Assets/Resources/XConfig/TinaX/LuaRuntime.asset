@@ -15,4 +15,4 @@ MonoBehaviour:
   EnableLua: 1
   LuaFileExtensionName: .lua.txt
   FrameworkInternalLuaFolderLoadPath: Assets/TinaX/Lua/Lua
-  EntryLuaFileLoadPath: Assets/App/Lua/init/init.lua.txt
+  EntryLuaFileLoadPath: Assets/App/Lua/Startup/startup.lua.txt

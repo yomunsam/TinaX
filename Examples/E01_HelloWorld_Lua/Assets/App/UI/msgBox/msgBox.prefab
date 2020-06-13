@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -227,6 +229,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.08627451, g: 0.3529412, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -307,6 +310,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -333,7 +337,7 @@ GameObject:
   - component: {fileID: 2630882087803480506}
   - component: {fileID: 1168984154185923142}
   - component: {fileID: 3247146538777887923}
-  - component: {fileID: 5326179800588001516}
+  - component: {fileID: 3096835970675029215}
   m_Layer: 5
   m_Name: msgBox
   m_TagString: Untagged
@@ -429,10 +433,10 @@ MonoBehaviour:
   FullScreenUI: 0
   SortingLayerID: 0
   AllowMultiple: 0
-  UIMainHandler: {fileID: 5326179800588001516}
+  UIMainHandler: {fileID: 3096835970675029215}
   UIShowAni: {fileID: 8036484341806899296}
   UIExitAni: {fileID: 3717910795175621675}
---- !u!114 &5326179800588001516
+--- !u!114 &3096835970675029215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,7 +454,7 @@ MonoBehaviour:
   - Name: txt_content
     Object: {fileID: 5146069942989299923}
   TypeBindInfos: []
-  LuaScript: {fileID: 4900000, guid: 4254327512ff7c94fa67bf2c98c7598f, type: 3}
+  LuaScript: {fileID: 4900000, guid: cf3cff88fc1f7b646af14856d9861ccd, type: 3}
   UpdateOrder: 0
   LateUpdateOrder: 0
   FixedUpdateOrder: 0
@@ -514,6 +518,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

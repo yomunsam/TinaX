@@ -1,12 +1,7 @@
 # TinaX Example - Hello World (Lua)
 
-- Unity : 2019.3.7f1
+- Unity : 2019.4.0f1
 - xLua : follow the `TinaX.Lua` package version
-- TinaX.Core : alpha
-- TinaX.VFS : alpha
-- TinaX.XComponent : alpha
-- TinaX.UIKit : alpha
-- TinaX.Lua : alpha
 
 
 The demo is "TinaX HelloWorld" made in lua language.

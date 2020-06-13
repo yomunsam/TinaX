@@ -1,0 +1,16 @@
+-- luabehaviour Counter
+
+local myTable = table.create();
+myTable.currentCounter = 0;
+
+function Awake()
+    myTable:listenKey("currentCounter", function(value)
+        txt_counter.text = string.format(App.I18N:GetText("txt_cur_counter", "common", "Current count: %s"), value);
+    end, true)
+
+    btn_click.onClick:AddListener(function()
+        myTable.currentCounter = myTable.currentCounter + 1;
+    end);
+end
+
+

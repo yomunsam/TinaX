@@ -1,0 +1,14 @@
+-- luabehaviour FetchData
+
+function Awake()
+    btn_exit.onClick:AddListener(function()
+        App.UIKit:CloseUI("fetchData");
+    end)
+end
+
+function Start()
+    App.VFS:LoadAssetAsync("Assets/App/Data/text/hello.txt", typeof(CS.UnityEngine.TextAsset), function(txt_asset)
+        txt_content.text = txt_asset.Asset.text
+        txt_asset:Release()
+    end)
+end

@@ -1,9 +1,7 @@
 ﻿using TinaX;
-using TinaX.UIKit;
-using TinaX.VFSKit;
-using TinaX.Lua;
+using TinaX.I18N;
+using TinaX.Services;
 using UnityEngine;
-using System.Threading.Tasks;
 
 
 namespace Nekonya.Example
@@ -13,9 +11,10 @@ namespace Nekonya.Example
         private async void Start()
         {
             var core = XCore.New()
-            .RegisterServiceProvider(new VFSProvider())
-            .RegisterServiceProvider(new UIKitProvider())
-            .RegisterServiceProvider(new LuaProvider())
+            .UseVFS()
+            .UseUIKit()
+            .UseI18N()
+            .UseLuaRuntime()
             .OnServicesStartException((service, err) =>
             {
                 //
