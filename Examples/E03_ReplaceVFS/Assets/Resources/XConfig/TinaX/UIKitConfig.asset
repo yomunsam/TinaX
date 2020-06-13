@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9e06d1da01b014cba569ea4206c9c8, type: 3}
+  m_Name: UIKitConfig
+  m_EditorClassIdentifier: 
+  EnableUIKit: 1
+  UINameMode: 0
+  DefaultUIGroup: {fileID: 11400000, guid: 5a584e8e4b38df548b27738cc3d86200, type: 2}
+  UIRootDirectoryLoadPath: 
+  UseUICamera: 0
+  UICameraConfig: {fileID: 0}
+  AutoCreateEventSystem: 1
+  DefaultUIMaskColor: {r: 0, g: 0, b: 0, a: 0.77254903}
+  UICanvasScalerMode: 0
+  UIScaleFactor: 1
+  ReferencePixelsPerUnit: 100
+  ReferenceResolution: {x: 1600, y: 1200}
+  ScreenMatchMode: 0
+  CanvasScalerMatchWidthOrHeight: 0
+  PhySicalUnit: 3
+  FallbackScreenDPI: 96
+  DefaultSpriteDPI: 96
+  UI_Image_Folders: []
