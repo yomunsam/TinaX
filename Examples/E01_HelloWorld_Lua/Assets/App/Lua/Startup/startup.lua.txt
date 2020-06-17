@@ -5,15 +5,45 @@
     默认情况下，lua在输出log时会打印堆栈，如果不需要，可通过上述代码关闭
 ]]
 
+-- require('LuaDebuggee').StartDebug('127.0.0.1', 9827) 
+--[[
+    LuaPerfect debug code. see: https://luaperfect.net/
+]]
+
+
 App = App or {}
-App.UIKit = CS.TinaX.UIKit.UIKit.That
-App.VFS = CS.TinaX.VFSKit.VFS.That
 App.I18N = CS.TinaX.I18N.XI18N.That
 
--- open ui
-
-App.UIKit:OpenUIAsync("mainScreen", function(uiEntity, err)
-    if err ~= nil then
-        printE("OpenUI \"mainScreen\"failed. " .. err.Message)
+-- init "TinaX Lua Extension" , https://github.com/yomunsam/TinaX.Lua.Extension
+requireAsync("Assets.TinaX.LuaExtension.init", function(extension, err)
+    if(err ~= nil ) then
+        error("init tinax lua extension failed  :" .. err.Message)
     end
-end);
+
+    extension.InitAsync("Assets.TinaX.LuaExtension", {
+        EnablePackages = {
+            TinaXLuaExtensionDefine.VFS,
+            TinaXLuaExtensionDefine.UIKit,
+        }
+    }, function() -- On init finish 
+        -- open ui
+        XCore.UIKit.OpenUIAsync("mainScreen", function(ui_entity,err)
+            if err ~= nil then
+                printE("OpenUI \"mainScreen\"failed. " .. err.Message)
+            end
+        end)
+    end)
+end)
+
+--[[
+    Non asynchronous writing of the above code
+]]
+-- local extension = require("Assets.TinaX.LuaExtension.init");
+-- extension.Init("Assets.TinaX.LuaExtension", {
+--     EnablePackages = {
+--         TinaXLuaExtensionDefine.VFS,
+--         -- .....
+--     }
+-- })
+
+

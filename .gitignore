@@ -31,5 +31,14 @@ Tests/*/TinaX/VFS_Build
 **/Ludiq
 **/Ludiq.Generated
 
+# Lua Debug
+LuaDebuggee.dll
+**/Assets/.lpproj
+**/Assets/ThirdParty.meta
+**/Assets/ThirdParty
+**/Assets/ThirdParty/LuaPerfect
+**/Assets/ThirdParty/LuaPerfect.meta
+
+
 
 *.apk

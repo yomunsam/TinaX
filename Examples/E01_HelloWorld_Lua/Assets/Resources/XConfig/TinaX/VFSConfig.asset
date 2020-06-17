@@ -22,6 +22,7 @@ MonoBehaviour:
     - Assets/App/Data/text
     - Assets/App/Lua
     - Assets/TinaX/Lua/Lua
+    - Assets/TinaX/LuaExtension
     AssetPaths: []
     GroupAssetsHandleMode: 2
     ExtensionGroup: 0
@@ -39,7 +40,7 @@ MonoBehaviour:
   - .apk
   - .so
   GlobalVFS_Ignore_Path_Item:
-  - Resources
   - Editor
+  - Resources
   InitWebVFSOnStart: 0
   DefaultWebVFSBaseUrl: http://127.0.0.1:8080/files/

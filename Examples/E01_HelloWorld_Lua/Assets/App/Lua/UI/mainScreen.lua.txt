@@ -1,27 +1,27 @@
 -- luabehaviour MainScreen
 
-local open_ui_param_mask;
-
-function Awake()
-    open_ui_param_mask= CS.TinaX.UIKit.OpenUIParam();
-    open_ui_param_mask.UseMask = true;
-    open_ui_param_mask.CloseByMask = true;
-end
-
 function Start()
 
     btn_1.onClick:AddListener(function()
-        App.UIKit:OpenUIWithParamAsync("msgBox", open_ui_param_mask,function(uiEntity,err)
+		XCore.UIKit.OpenUIAsync({
+            name = "msgBox",
+            useMask = true,
+            closeByMask = true
+        },function(entity, err) 
             if(err ~= nil) then
                 printE("Open UI \"msgBox\" failed: " .. err.Message);
             else
                 print("o((>ω< ))o");
             end
-        end, "Hello,World", "Meow");
+        end, "Hello,World", "Meow2");
     end)
 
     btn_counter.onClick:AddListener(function()
-        App.UIKit:OpenUIWithParamAsync("counter", open_ui_param_mask, function(uiEntity,err)
+        XCore.UIKit.OpenUIAsync({
+            name = "counter",
+            useMask = true,
+            closeByMask = true
+        },function(entity, err)
             if(err ~= nil) then
                 printE("Open UI \"counter\" failed: " .. err.Message);
             else
@@ -31,8 +31,6 @@ function Start()
     end)
 
     btn_fetchData.onClick:AddListener(function()
-        App.UIKit:OpenUIAsync("fetchData",function(uientity,err)
-            --
-        end);
+        XCore.UIKit.OpenUIAsync("fetchData", function(uientity,err) end);
     end)
 end

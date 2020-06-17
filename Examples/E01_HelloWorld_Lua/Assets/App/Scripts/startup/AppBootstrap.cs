@@ -1,6 +1,6 @@
 ﻿using TinaX;
-using TinaX.VFSKit;
-using TinaX.UIKit;
+using TinaX.Lua;
+
 
 namespace Nekonya.Example
 {
@@ -16,6 +16,12 @@ namespace Nekonya.Example
         /// </summary>
         public void OnInit(IXCore core)
         {
+            // 用于LuaPerfect调试, 详见https://luaperfect.net/
+            // For LuaPerfect Debugging
+            // If you don't use luaperfect, you can delete the code
+            core.Services.Get<ILua>().ConfigureCustomLoadHandler(options =>{
+                options.Add("LuaDebuggee", () => null); 
+            });
         }
 
         public void OnStart(IXCore core)
@@ -32,4 +38,5 @@ namespace Nekonya.Example
         }
 
     }
+    
 }
