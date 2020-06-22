@@ -1,0 +1,21 @@
+{
+    "name": "ILRuntimeGenCode",
+    "references": [
+        "GUID:7a1fa966b0ea23f40a6a4dc4dab1e297",
+        "GUID:4e58fd8b44ff4c14f917ce28647bad94",
+        "GUID:c2cbe029685ec88498e06f89c89cda5d",
+        "GUID:2b2b84db2356fe84d9158fa418cdac5e",
+        "GUID:861b42dc2c9c68d49b36d568b9f894d0",
+        "GUID:9db5e326baf15604fb41b0ba171e2039",
+        "GUID:76de87e88d7f16648b18970081285427"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

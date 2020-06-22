@@ -19,7 +19,7 @@ Tests/*/TinaX/VFS_Build
 **/obj
 **/Temp
 **/UIElementsSchema
-
+**/bin/
 
 **/.vs/
 **/.idea
