@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Nekonya.Main</AssemblyName>
+    <RootNamespace>Nekonya</RootNamespace>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(OutDir)$(TargetFileName) ..\Assets\App\Assemblies\$(TargetFileName).bytes&#xD;&#xA;copy $(OutDir)$(TargetName).pdb ..\Assets\App\Assemblies\$(TargetName).pdb.bytes" />
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="UnityDlls\**" />
+    <EmbeddedResource Remove="UnityDlls\**" />
+    <None Remove="UnityDlls\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CatLib.Core">
+      <HintPath>UnityDlls\CatLib.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TinaX.Core">
+      <HintPath>..\Library\ScriptAssemblies\TinaX.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TinaX.I18N">
+      <HintPath>..\Library\ScriptAssemblies\TinaX.I18N.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TinaX.UIKit">
+      <HintPath>..\Library\ScriptAssemblies\TinaX.UIKit.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TinaX.VFS">
+      <HintPath>..\Library\ScriptAssemblies\TinaX.VFS.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TinaX.XComponent">
+      <HintPath>..\Library\ScriptAssemblies\TinaX.XComponent.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UniRx">
+      <HintPath>..\Library\ScriptAssemblies\UniRx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>UnityDlls\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
