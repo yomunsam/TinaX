@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
+  m_Name: Rules
+  m_EditorClassIdentifier: 
+  searchPatternAsset: '*.asset'
+  searchPatternController: '*.controller'
+  searchPatternDir: '*'
+  searchPatternMaterial: '*.mat'
+  searchPatternPng: '*.png'
+  searchPatternPrefab: '*.prefab'
+  searchPatternScene: '*.unity'
+  searchPatternText: '*.txt,*.bytes,*.json,*.csv,*.xml,*htm,*.html,*.yaml,*.fnt'
+  version: 3
+  scenesInBuild:
+  - {fileID: 102900000, guid: 77cec8d68349efa4f99c5e8b737fab0a, type: 3}
+  rules:
+  - searchPath: Assets/App/UI
+    searchPattern: '*'
+    nameBy: 2
+    assetBundleName: 
+  - searchPath: Assets/App/Data/text
+    searchPattern: '*'
+    nameBy: 2
+    assetBundleName: 
+  - searchPath: Assets/App/Scenes
+    searchPattern: '*'
+    nameBy: 2
+    assetBundleName: 
+  ruleAssets:
+  - bundle: e1043278513eef13359bdaef4d186c37.unity3d
+    path: Assets/App/Data/text/hello.txt
+  - bundle: 0d0e4b0403a5bb8c979cc21246b54eca.unity3d
+    path: Assets/App/Scenes/App.Main.unity
+  - bundle: 0d0e4b0403a5bb8c979cc21246b54eca.unity3d
+    path: Assets/App/Scenes/App.Startup.unity
+  - bundle: 2a4ed1ec67233c7cdfe59ac72c31ca02.unity3d
+    path: Assets/App/UI/FetchData/FetchData.prefab
+  - bundle: 3d10a8887d90e6b8520713a210012863.unity3d
+    path: Assets/App/UI/UICameraConfig.asset
+  - bundle: 3d10a8887d90e6b8520713a210012863.unity3d
+    path: Assets/App/UI/UIGroup.asset
+  - bundle: a8be7fdae203166c97a05aec3b344579.unity3d
+    path: Assets/App/UI/counter/Counter.prefab
+  - bundle: cd6c6cde25ae3ce8c8683220ae955cd2.unity3d
+    path: Assets/App/UI/mainScreen/mainScreen.prefab
+  - bundle: 2dd154f8e8284fa8ed661506366e511c.unity3d
+    path: Assets/App/UI/msgBox/msgBox.prefab
+  ruleBundles:
+  - name: 3d10a8887d90e6b8520713a210012863.unity3d
+    assets:
+    - Assets/App/UI/UICameraConfig.asset
+    - Assets/App/UI/UIGroup.asset
+  - name: a8be7fdae203166c97a05aec3b344579.unity3d
+    assets:
+    - Assets/App/UI/counter/Counter.prefab
+  - name: 2a4ed1ec67233c7cdfe59ac72c31ca02.unity3d
+    assets:
+    - Assets/App/UI/FetchData/FetchData.prefab
+  - name: cd6c6cde25ae3ce8c8683220ae955cd2.unity3d
+    assets:
+    - Assets/App/UI/mainScreen/mainScreen.prefab
+  - name: 2dd154f8e8284fa8ed661506366e511c.unity3d
+    assets:
+    - Assets/App/UI/msgBox/msgBox.prefab
+  - name: e1043278513eef13359bdaef4d186c37.unity3d
+    assets:
+    - Assets/App/Data/text/hello.txt
+  - name: 0d0e4b0403a5bb8c979cc21246b54eca.unity3d
+    assets:
+    - Assets/App/Scenes/App.Main.unity
+    - Assets/App/Scenes/App.Startup.unity
+  - name: 49b7469c5ebd6cc83494274c77e8a5c1.unity3d
+    assets:
+    - Assets/Arts/UI/Images/common/btn_a_emerald.png

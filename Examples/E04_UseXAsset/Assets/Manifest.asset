@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7882bd278763c45f49cef7deeae496e5, type: 3}
+  m_Name: Manifest
+  m_EditorClassIdentifier: 
+  activeVariants: []
+  dirs:
+  - Assets/App/Data/text
+  - Assets/App/Scenes
+  - Assets/App/UI/FetchData
+  - Assets/App/UI
+  - Assets/App/UI/counter
+  - Assets/App/UI/mainScreen
+  - Assets/App/UI/msgBox
+  assets:
+  - name: hello.txt
+    bundle: 7
+    dir: 0
+  - name: App.Main.unity
+    bundle: 0
+    dir: 1
+  - name: App.Startup.unity
+    bundle: 0
+    dir: 1
+  - name: FetchData.prefab
+    bundle: 1
+    dir: 2
+  - name: UICameraConfig.asset
+    bundle: 3
+    dir: 3
+  - name: UIGroup.asset
+    bundle: 3
+    dir: 3
+  - name: Counter.prefab
+    bundle: 5
+    dir: 4
+  - name: mainScreen.prefab
+    bundle: 6
+    dir: 5
+  - name: msgBox.prefab
+    bundle: 2
+    dir: 6
+  bundles:
+  - name: 0d0e4b0403a5bb8c979cc21246b54eca.unity3d
+    id: 0
+    deps: 
+    len: 7248
+    hash: 8a38c9a205bd027b7f8e5ec68a95bf8d
+  - name: 2a4ed1ec67233c7cdfe59ac72c31ca02.unity3d
+    id: 1
+    deps: 04000000
+    len: 7794
+    hash: 525570be8e33193d3d8803b454de806c
+  - name: 2dd154f8e8284fa8ed661506366e511c.unity3d
+    id: 2
+    deps: 
+    len: 13306
+    hash: 8caeb31ce72205167a558170be1770d4
+  - name: 3d10a8887d90e6b8520713a210012863.unity3d
+    id: 3
+    deps: 
+    len: 2497
+    hash: d3aa5e04f0b6ff410ea94e7aed11e810
+  - name: 49b7469c5ebd6cc83494274c77e8a5c1.unity3d
+    id: 4
+    deps: 
+    len: 4792
+    hash: ee9e51a0b21f7c15accb2927d34230d6
+  - name: a8be7fdae203166c97a05aec3b344579.unity3d
+    id: 5
+    deps: 04000000
+    len: 8846
+    hash: 7cfb93f54ca669a75f68ce9fb1027704
+  - name: cd6c6cde25ae3ce8c8683220ae955cd2.unity3d
+    id: 6
+    deps: 04000000
+    len: 11966
+    hash: 5a5d66c035388fb3be21341aff0ddb0d
+  - name: e1043278513eef13359bdaef4d186c37.unity3d
+    id: 7
+    deps: 
+    len: 1244
+    hash: f7d434b07f0069cf6b7ef2bd76e3c55a
