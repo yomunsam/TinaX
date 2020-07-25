@@ -1,5 +1,4 @@
 ﻿using TinaX;
-using TinaX.I18N;
 using TinaX.Services;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Nekonya.Example
             var core = XCore.New()
             .UseVFS()
             .UseUIKit()
-            .RegisterServiceProvider(new I18NProvider())
+            .UseI18N()
             .OnServicesStartException((service, err) =>
             {
                 //

@@ -20,7 +20,7 @@
     }
   ],
   "dependencies": {
-    "com.cysharp.unitask": "2.0.16",
+    "com.cysharp.unitask": "2.0.26",
     "com.neuecc.unirx": "7.1.0",
     "com.unity.2d.pixel-perfect": "2.0.4",
     "com.unity.2d.sprite": "1.0.0",
@@ -30,9 +30,10 @@
     "com.unity.test-framework": "1.1.14",
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.ugui": "1.0.0",
-    "io.nekonya.tinax.core": "6.6.3",
-    "io.nekonya.tinax.uikit": "6.6.4",
-    "io.nekonya.tinax.vfs": "6.6.4",
+    "io.nekonya.tinax.core": "6.6.10",
+    "io.nekonya.tinax.i18n": "6.6.3",
+    "io.nekonya.tinax.uikit": "6.6.12",
+    "io.nekonya.tinax.vfs": "6.6.8",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -63,7 +64,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "io.nekonya.tinax.i18n": "6.6.3"
+    "com.unity.modules.xr": "1.0.0"
   }
 }

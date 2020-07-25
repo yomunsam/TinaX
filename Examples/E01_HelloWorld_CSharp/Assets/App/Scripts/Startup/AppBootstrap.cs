@@ -14,9 +14,7 @@ namespace Nekonya.Example
         /// <summary>
         /// "OnInit" be called after "TinaX's Services" Inited and Registered, before "TinaX's Services" started.
         /// </summary>
-        public void OnInit(IXCore core)
-        {
-        }
+        public void OnInit(IXCore core) { }
 
         public void OnStart(IXCore core)
         {
@@ -32,13 +30,7 @@ namespace Nekonya.Example
             });
         }
 
-        public void OnQuit()
-        {
-        }
-
-        public void OnAppRestart()
-        {
-        }
-
+        public void OnQuit() { }
+        public void OnAppRestart() { }
     }
 }

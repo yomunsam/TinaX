@@ -32,3 +32,6 @@ MonoBehaviour:
   UI_Image_Folders:
   - Path: Assets/Arts/UI/Images
     Atlas: 0
+  - Path: Assets/Arts/UI/Atlas
+    Atlas: 1
+  UseLegacySpritePacker: 0
