@@ -1,6 +1,6 @@
 ﻿using TinaX;
-using TinaX.VFSKit;
 using TinaX.UIKit;
+using TinaX.VFSKit;
 using UnityEngine.Rendering.Universal;
 
 namespace Nekonya.Example
@@ -23,6 +23,8 @@ namespace Nekonya.Example
             var uikit = core.GetService<IUIKit>();
             var uacd = uikit.UICamera.GetUniversalAdditionalCameraData();
             uacd.renderType = CameraRenderType.Overlay;
+            uacd.renderShadows = false;
+            uacd.volumeLayerMask = 1 << 5;
             MainCameraComponent.Instance.AddCamera(uikit.UICamera);
 
             _ = uikit.OpenUIAsync("mainScreen", new MainScreen());
