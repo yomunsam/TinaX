@@ -42,3 +42,4 @@ LuaDebuggee.dll
 
 
 *.apk
+/Examples/E04_UseXAsset/DLC
