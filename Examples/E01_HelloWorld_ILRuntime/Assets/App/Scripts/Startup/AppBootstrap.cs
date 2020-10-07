@@ -1,7 +1,5 @@
 ﻿using System;
 using TinaX;
-using TinaX.UIKit;
-using TinaX.VFSKit;
 using TinaX.XILRuntime;
 using TinaX.XILRuntime.Registers;
 
