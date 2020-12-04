@@ -1,0 +1,61 @@
+ManifestFileVersion: 0
+CRC: 1941487431
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: aac335c5b216582940fc48d2f5234309
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 45d47045a8db65edb8aa7345bdcf24a0
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71964a77405922b4da433d7b93e71ff8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9087ad9b46b1f4b48b841604dbed307d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b6805cdb3b7208a458e1370e5f69e913, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 568fde5d3b4f05f4aac3e320fd4faf79, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d48be6bdd45d52447a979279a2f04995, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/App/UI/mainScreen/mainScreen.prefab
+Dependencies:
+- D:/Meow/TinaX/Examples/E01_HelloWorld_CSharp/TinaX/VFS_Build/windows_amd64/build_temp/assets/arts/ui/atlas/common/btn_a_emerald.png.xab

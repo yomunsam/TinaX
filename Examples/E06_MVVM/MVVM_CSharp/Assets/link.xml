@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="Assembly-CSharp">
+    <type fullname="Nekonya.Example" preserve="all"/>
+  </assembly>
+</linker>

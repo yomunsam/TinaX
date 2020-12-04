@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 397873123
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 51b7318099b13a47df5a79a159a17744
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ae38e438db64d43e38c3835b284f4107
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2024e4cd48d320047bb8be136beee438, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+- Class: 850595691
+  Script: {instanceID: 0}
+Assets:
+- Assets/App/Scenes/App.Startup.unity
+Dependencies: []

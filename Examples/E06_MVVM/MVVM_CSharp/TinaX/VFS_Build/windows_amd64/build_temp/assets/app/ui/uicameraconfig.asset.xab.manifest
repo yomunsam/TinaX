@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3218876922
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: de2c5eea1d634fb7b707620272281c49
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c0c492d1eb7c7d2c969793916b76882d
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 38ab09cb66071094c84a345ce5610627, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/App/UI/UICameraConfig.asset
+Dependencies: []

@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2976267819
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eb76e8212039c9c3d828ae6eb7a440f0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b7506faad1b59f65dda6f99a4bb3e78a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/Arts/UI/Atlas/common/common.spriteatlas
+Dependencies:
+- D:/Meow/TinaX/Examples/E01_HelloWorld_CSharp/TinaX/VFS_Build/windows_amd64/build_temp/assets/arts/ui/atlas/common/box_b.png.xab
+- D:/Meow/TinaX/Examples/E01_HelloWorld_CSharp/TinaX/VFS_Build/windows_amd64/build_temp/assets/arts/ui/atlas/common/box_c.png.xab
+- D:/Meow/TinaX/Examples/E01_HelloWorld_CSharp/TinaX/VFS_Build/windows_amd64/build_temp/assets/arts/ui/atlas/common/btn_a_emerald.png.xab

@@ -1,0 +1,51 @@
+ManifestFileVersion: 0
+CRC: 1106041853
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assets/app/ui/fetchdata/fetchdata.prefab.xab
+      Dependencies:
+        Dependency_0: assets/arts/ui/atlas/common/btn_a_emerald.png.xab
+    Info_1:
+      Name: assets/app/ui/uigroup.asset.xab
+      Dependencies: {}
+    Info_2:
+      Name: assets/app/ui/uicameraconfig.asset.xab
+      Dependencies: {}
+    Info_3:
+      Name: assets/app/scenes/app.startup.unity.xab
+      Dependencies: {}
+    Info_4:
+      Name: assets/app/ui/counter/counter.prefab.xab
+      Dependencies:
+        Dependency_0: assets/arts/ui/atlas/common/btn_a_emerald.png.xab
+    Info_5:
+      Name: assets/app/ui/msgbox/msgbox.prefab.xab
+      Dependencies:
+        Dependency_0: assets/arts/ui/atlas/common/box_b.png.xab
+        Dependency_1: assets/arts/ui/atlas/common/box_c.png.xab
+    Info_6:
+      Name: assets/app/scenes/app.main.unity.xab
+      Dependencies: {}
+    Info_7:
+      Name: assets/app/ui/mainscreen/mainscreen.prefab.xab
+      Dependencies:
+        Dependency_0: assets/arts/ui/atlas/common/btn_a_emerald.png.xab
+    Info_8:
+      Name: assets/app/data/text/hello.txt.xab
+      Dependencies: {}
+    Info_9:
+      Name: assets/arts/ui/atlas/common/box_b.png.xab
+      Dependencies: {}
+    Info_10:
+      Name: assets/arts/ui/atlas/common/box_c.png.xab
+      Dependencies: {}
+    Info_11:
+      Name: assets/arts/ui/atlas/common/btn_a_emerald.png.xab
+      Dependencies: {}
+    Info_12:
+      Name: assets/arts/ui/atlas/common/common.spriteatlas.xab
+      Dependencies:
+        Dependency_0: assets/arts/ui/atlas/common/box_b.png.xab
+        Dependency_1: assets/arts/ui/atlas/common/box_c.png.xab
+        Dependency_2: assets/arts/ui/atlas/common/btn_a_emerald.png.xab
