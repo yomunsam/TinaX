@@ -123,24 +123,24 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.13",
+      "version": "6.6.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0",
         "com.cysharp.unitask": "2.0.36"
       },
-      "url": "https://package.openupm.com"
+      "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.i18n": {
-      "version": "6.6.3",
+      "version": "6.6.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.3",
+        "io.nekonya.tinax.core": "6.6.18",
         "com.neuecc.unirx": "7.1.0"
       },
-      "url": "https://package.openupm.com"
+      "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.uikit": {
       "version": "6.6.13",
@@ -154,11 +154,11 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.9",
+      "version": "6.6.10",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.10",
+        "io.nekonya.tinax.core": "6.6.18",
         "com.neuecc.unirx": "7.1.0",
         "com.cysharp.unitask": "2.0.26"
       },
