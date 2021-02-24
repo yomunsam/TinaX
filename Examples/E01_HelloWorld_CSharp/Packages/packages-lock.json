@@ -5,14 +5,14 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://package.openupm.cn"
+      "url": "https://package.openupm.com"
     },
     "com.neuecc.unirx": {
       "version": "7.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://package.openupm.cn"
+      "url": "https://package.openupm.com"
     },
     "com.unity.2d.common": {
       "version": "4.0.3",
@@ -123,7 +123,7 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.21",
+      "version": "6.6.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -154,11 +154,11 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.12",
+      "version": "6.6.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.20"
+        "io.nekonya.tinax.core": "6.6.21"
       },
       "url": "https://registry.npmjs.org"
     },
