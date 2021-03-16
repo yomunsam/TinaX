@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.2.4",
+      "version": "2.0.37",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -45,7 +45,7 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "5.1.1",
+      "version": "5.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -57,7 +57,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
-      "version": "1.0.6",
+      "version": "1.0.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -73,12 +73,10 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.7",
+      "version": "2.0.5",
       "depth": 0,
       "source": "registry",
-      "dependencies": {
-        "com.unity.test-framework": "1.1.9"
-      },
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
@@ -96,11 +94,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.22",
+      "version": "1.1.19",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.ext.nunit": "1.0.6",
+        "com.unity.ext.nunit": "1.0.5",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
@@ -156,7 +154,7 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.15",
+      "version": "6.6.13",
       "depth": 0,
       "source": "registry",
       "dependencies": {
