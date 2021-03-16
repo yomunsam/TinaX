@@ -26,8 +26,9 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: 4d07f641b715bc54aa3feff0bbad1f56, type: 3}
@@ -46,5 +47,6 @@ SpriteAtlas:
   - box_b
   - box_c
   - btn_a_emerald
+  m_RenderDataMap: {}
   m_Tag: common
   m_IsVariant: 0
