@@ -1,6 +1,6 @@
 # TinaX Example - Hello World (C#  via ILRuntime)
 
-- Unity : 2020.1.7f1
+- Unity : 2020.3.0f1
 
 
 这是一个使用C#代码进行热更新的案例。

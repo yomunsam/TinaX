@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.0.36",
+      "version": "2.2.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -15,14 +15,14 @@
       "url": "https://package.openupm.com"
     },
     "com.ourpalm.ilruntime": {
-      "version": "1.6.4",
-      "depth": 1,
+      "version": "1.6.7",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://registry.npmjs.org"
     },
     "com.unity.2d.common": {
-      "version": "3.0.1",
+      "version": "4.0.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -32,14 +32,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.path": {
-      "version": "3.0.2",
+      "version": "4.0.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.pixel-perfect": {
-      "version": "3.0.2",
+      "version": "4.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -52,26 +52,26 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "4.1.3",
+      "version": "5.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.2d.common": "3.0.1",
-        "com.unity.2d.path": "3.0.2",
+        "com.unity.2d.common": "4.0.3",
+        "com.unity.2d.path": "4.0.1",
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
-      "version": "1.0.0",
+      "version": "1.0.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "1.2.1",
+      "version": "2.0.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -80,14 +80,16 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.2",
+      "version": "2.0.7",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.1",
+      "version": "1.2.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -101,11 +103,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.16",
+      "version": "1.1.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.ext.nunit": "1.0.0",
+        "com.unity.ext.nunit": "1.0.6",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
@@ -130,32 +132,32 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.14",
+      "version": "6.6.23",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0",
-        "com.cysharp.unitask": "2.0.36"
+        "com.cysharp.unitask": "2.2.4"
       },
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.i18n": {
-      "version": "6.6.4",
+      "version": "6.6.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.6",
+        "io.nekonya.tinax.core": "6.6.18",
         "com.neuecc.unirx": "7.1.0"
       },
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.ilruntime": {
-      "version": "6.6.3",
+      "version": "6.6.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.14",
-        "com.ourpalm.ilruntime": "1.6.4"
+        "io.nekonya.tinax.core": "6.6.23",
+        "com.ourpalm.ilruntime": "1.6.6"
       },
       "url": "https://registry.npmjs.org"
     },
@@ -182,13 +184,11 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.9",
+      "version": "6.6.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.10",
-        "com.neuecc.unirx": "7.1.0",
-        "com.cysharp.unitask": "2.0.26"
+        "io.nekonya.tinax.core": "6.6.21"
       },
       "url": "https://registry.npmjs.org"
     },
