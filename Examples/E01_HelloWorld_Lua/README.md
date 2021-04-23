@@ -1,6 +1,6 @@
 # TinaX Example - Hello World (Lua)
 
-- Unity : 2019.4.0f1
+- Unity : 2020.3.0f1
 - xLua : follow the `TinaX.Lua` package version
 
 
