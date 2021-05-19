@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4956160853843919486}
   - component: {fileID: 8398653827419325437}
   - component: {fileID: 927742309918224615}
-  - component: {fileID: 3266624531348823496}
   m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
@@ -79,32 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3266624531348823496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191334785813829579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.5
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 927742309918224615}
-  AutoOriginValue: 0
-  FromValue: {r: 0, g: 0, b: 0, a: 1}
-  AutoTargetValue: 0
-  ToValue: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
-  Ease: 3
 --- !u!1 &1342228697712202593
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,8 +110,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3444522830353681534}
-  - {fileID: 75349621454811652}
-  - {fileID: 3334408969260108826}
   m_Father: {fileID: 6922856765486052578}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -240,8 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568fde5d3b4f05f4aac3e320fd4faf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnterAnimation: {fileID: 2616807108064810159}
-  ExitAnimation: {fileID: 9021622619156821922}
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -436,123 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   I18NKey: btn_fetchdata
   I18NGroup: common
---- !u!1 &2038380841014442987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8138986535000948377}
-  - component: {fileID: 8085218175135249689}
-  - component: {fileID: 2812079892431306316}
-  - component: {fileID: 1134262897444214219}
-  m_Layer: 5
-  m_Name: ani_hover_out
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8138986535000948377
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038380841014442987}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7675560110350984292}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 270}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8085218175135249689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038380841014442987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6813194811230390500}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  Ease: 0
---- !u!114 &2812079892431306316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038380841014442987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 7675560110350984292}
-  AutoOriginValue: 1
-  FromValue: {x: 0, y: 0}
-  AutoTargetValue: 0
-  ToValue: {x: 382.82172, y: 99}
-  Ease: 5
---- !u!114 &1134262897444214219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038380841014442987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 8085218175135249689}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 2812079892431306316}
-      ReadyOnQueueStart: 0
-    DelayAfter: 0
 --- !u!1 &3264372782388379028
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,8 +438,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5705181565125454953}
-  - {fileID: 8273937998496619993}
-  - {fileID: 8138986535000948377}
   m_Father: {fileID: 6922856765486052578}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -647,6 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -688,8 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568fde5d3b4f05f4aac3e320fd4faf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnterAnimation: {fileID: 1457005216333222989}
-  ExitAnimation: {fileID: 1134262897444214219}
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -705,9 +555,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2907995923391531487}
-  - component: {fileID: 8735798131190668377}
-  - component: {fileID: 935294527519032558}
-  - component: {fileID: 1547283997276356497}
+  - component: {fileID: 5613458315774935981}
+  - component: {fileID: 1697139848859043399}
+  - component: {fileID: 1504619201168241963}
   m_Layer: 5
   m_Name: ani_hover_in
   m_TagString: Untagged
@@ -734,7 +584,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8735798131190668377
+--- !u!114 &5613458315774935981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -743,51 +593,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3673728726435512571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
+  m_Script: {fileID: 11500000, guid: e7943b229c094684e823141414772784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _Duration: 1
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
     m_PersistentCalls:
       m_Calls: []
-  AniTarget: {fileID: 4037476532940028657}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.5465913, g: 0.5631786, b: 0.6698113, a: 0.4117647}
-  Ease: 0
---- !u!114 &935294527519032558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3673728726435512571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _OnTweenStop:
     m_PersistentCalls:
       m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 8735798131190668377}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 1547283997276356497}
-      ReadyOnQueueStart: 0
+  _Sequences:
+  - Tweens:
+    - TweenComponent: {fileID: 1697139848859043399}
+      ReadyOnSequenceStart: 0
+    - TweenComponent: {fileID: 1504619201168241963}
+      ReadyOnSequenceStart: 0
     DelayAfter: 0
---- !u!114 &1547283997276356497
+--- !u!114 &1697139848859043399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -796,23 +622,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 3673728726435512571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9de15258d46a70047a9478e22e80c51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _Duration: 0.35
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
     m_PersistentCalls:
       m_Calls: []
-  AniTarget: {fileID: 2603318875600053812}
-  AutoOriginValue: 1
-  FromValue: {x: 382.82172, y: 99}
-  AutoTargetValue: 0
-  ToValue: {x: 400, y: 99}
-  Ease: 2
+  _OnTweenStop:
+    m_PersistentCalls:
+      m_Calls: []
+  _Target: {fileID: 4037476532940028657}
+  _FromValue: {r: 0, g: 0, b: 0, a: 0}
+  _ToValue: {r: 0.54509807, g: 0.5647059, b: 0.67058825, a: 0.4117647}
+  _AutoOriginValue: 1
+  _AutoTargetValue: 0
+  _EaseType: 0
+  _PingPong: 0
+  _PingPongDelay: 0
+  _PongDelay: 0
+--- !u!114 &1504619201168241963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3673728726435512571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e450d51cd8d34dd49803d2766fe431de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Duration: 0.35
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnTweenStop:
+    m_PersistentCalls:
+      m_Calls: []
+  _Target: {fileID: 2603318875600053812}
+  _FromValue: {x: 0, y: 0}
+  _ToValue: {x: 400, y: 99}
+  _AutoOriginValue: 1
+  _AutoTargetValue: 0
+  _EaseType: 11
+  _PingPong: 0
+  _PingPongDelay: 0
+  _PongDelay: 0
 --- !u!1 &3797459620243380629
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +782,7 @@ GameObject:
   - component: {fileID: 4037476532940028657}
   - component: {fileID: 2734965270268713529}
   - component: {fileID: 8199908524605011887}
+  - component: {fileID: 6808906127516018241}
   m_Layer: 5
   m_Name: msgbox
   m_TagString: Untagged
@@ -1001,6 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1042,14 +906,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568fde5d3b4f05f4aac3e320fd4faf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnterAnimation: {fileID: 935294527519032558}
-  ExitAnimation: {fileID: 3736394351911879442}
   OnEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6808906127516018241}
+        m_TargetAssemblyTypeName: TinaX.Tween.Components.MultiTweensPlayer, TinaX.Tween
+        m_MethodName: BeginPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: enter
+          m_BoolArgument: 0
+        m_CallState: 2
   OnExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6808906127516018241}
+        m_TargetAssemblyTypeName: TinaX.Tween.Components.MultiTweensPlayer, TinaX.Tween
+        m_MethodName: BeginPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: exit
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6808906127516018241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832024600795701142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a742ab786dd081641b180eef1fb1e5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SingleTween: 1
+  StopAllOnDestory: 1
+  Tweens:
+  - Name: enter
+    Tween: {fileID: 5613458315774935981}
+  - Name: exit
+    Tween: {fileID: 8300573405321607895}
 --- !u!1 &4078433535635537505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1063,7 @@ GameObject:
   - component: {fileID: 3412013534600221694}
   - component: {fileID: 2173245622184747324}
   - component: {fileID: 3485851161115978291}
+  - component: {fileID: 9218587421965007485}
   m_Layer: 5
   m_Name: mainScreen
   m_TagString: Untagged
@@ -1241,8 +1147,21 @@ MonoBehaviour:
   SortingLayerId: 0
   AllowMultiple: 0
   UIMainHandler: {fileID: 3485851161115978291}
-  UIShowAni: {fileID: 882493124077677056}
-  UIExitAni: {fileID: 0}
+  OnOpenUIEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowUIEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHideUIEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCloseUIEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDestroyUIEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3485851161115978291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,123 +1184,22 @@ MonoBehaviour:
   - Name: welcome
     Object: {fileID: 3797459620243380629}
   TypeBindInfos: []
---- !u!1 &6904128398852897434
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 75349621454811652}
-  - component: {fileID: 30166591737385511}
-  - component: {fileID: 2616807108064810159}
-  - component: {fileID: 1169643104311907966}
-  m_Layer: 5
-  m_Name: ani_hover_in
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &75349621454811652
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904128398852897434}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6167918120536796294}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 133}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &30166591737385511
+--- !u!114 &9218587421965007485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904128398852897434}
+  m_GameObject: {fileID: 6594506516434053061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
+  m_Script: {fileID: 11500000, guid: bff6cf2ada1a89249b8d55297c45b56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6766398708630715040}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.5465913, g: 0.5631786, b: 0.6698113, a: 0.4117647}
-  Ease: 0
---- !u!114 &2616807108064810159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904128398852897434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 30166591737385511}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 1169643104311907966}
-      ReadyOnQueueStart: 0
-    DelayAfter: 0
---- !u!114 &1169643104311907966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904128398852897434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6167918120536796294}
-  AutoOriginValue: 1
-  FromValue: {x: 382.82172, y: 99}
-  AutoTargetValue: 0
-  ToValue: {x: 400, y: 99}
-  Ease: 2
+  OnUIOpen: {fileID: 957734298303056776}
+  OnUIShow: {fileID: 957734298303056776}
+  OnUIHide: {fileID: 0}
+  OnUIClose: {fileID: 0}
 --- !u!1 &7490118413047385127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3944931366385348912}
-  - component: {fileID: 882493124077677056}
+  - component: {fileID: 957734298303056776}
   m_Layer: 5
   m_Name: ani_enter
   m_TagString: Untagged
@@ -1497,7 +1315,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &882493124077677056
+--- !u!114 &957734298303056776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1506,23 +1324,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 7857276715967846501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48be6bdd45d52447a979279a2f04995, type: 3}
+  m_Script: {fileID: 11500000, guid: ff93f4dde2e706f4283680be982a5656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.4
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _Duration: 0.4
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
     m_PersistentCalls:
       m_Calls: []
-  AniTarget: {fileID: 6922856765486052578}
-  AutoOriginValue: 0
-  FromValue: {x: -231.12, y: 0}
-  AutoTargetValue: 0
-  ToValue: {x: 231.09998, y: 0}
-  Ease: 2
+  _OnTweenStop:
+    m_PersistentCalls:
+      m_Calls: []
+  _Target: {fileID: 6922856765486052578}
+  _FromValue: {x: -231.12, y: 0}
+  _ToValue: {x: 231.12, y: 0}
+  _AutoOriginValue: 0
+  _AutoTargetValue: 0
+  _EaseType: 8
+  _PingPong: 0
+  _PingPongDelay: 0
+  _PongDelay: 0
 --- !u!1 &8025145934805389259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,123 +1425,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8082872122683661592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3334408969260108826}
-  - component: {fileID: 1519941790077103078}
-  - component: {fileID: 6022048641619237857}
-  - component: {fileID: 9021622619156821922}
-  m_Layer: 5
-  m_Name: ani_hover_out
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3334408969260108826
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082872122683661592}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6167918120536796294}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 133}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1519941790077103078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082872122683661592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6766398708630715040}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  Ease: 0
---- !u!114 &6022048641619237857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082872122683661592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6167918120536796294}
-  AutoOriginValue: 1
-  FromValue: {x: 0, y: 0}
-  AutoTargetValue: 0
-  ToValue: {x: 382.82172, y: 99}
-  Ease: 5
---- !u!114 &9021622619156821922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082872122683661592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 1519941790077103078}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 6022048641619237857}
-      ReadyOnQueueStart: 0
-    DelayAfter: 0
 --- !u!1 &8427471040280699945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,9 +1434,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561993276058396319}
-  - component: {fileID: 7394843083559911820}
-  - component: {fileID: 8085896454583474195}
-  - component: {fileID: 3736394351911879442}
+  - component: {fileID: 8300573405321607895}
+  - component: {fileID: 3970033101400714231}
+  - component: {fileID: 3223068534691483011}
   m_Layer: 5
   m_Name: ani_hover_out
   m_TagString: Untagged
@@ -1757,7 +1463,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7394843083559911820
+--- !u!114 &8300573405321607895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1766,76 +1472,88 @@ MonoBehaviour:
   m_GameObject: {fileID: 8427471040280699945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
+  m_Script: {fileID: 11500000, guid: e7943b229c094684e823141414772784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _Duration: 1
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
     m_PersistentCalls:
       m_Calls: []
-  AniTarget: {fileID: 4037476532940028657}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  Ease: 0
---- !u!114 &8085896454583474195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427471040280699945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
+  _OnTweenStop:
     m_PersistentCalls:
       m_Calls: []
-  AniTarget: {fileID: 2603318875600053812}
-  AutoOriginValue: 1
-  FromValue: {x: 0, y: 0}
-  AutoTargetValue: 0
-  ToValue: {x: 382.82172, y: 99}
-  Ease: 5
---- !u!114 &3736394351911879442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427471040280699945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 7394843083559911820}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 8085896454583474195}
-      ReadyOnQueueStart: 0
+  _Sequences:
+  - Tweens:
+    - TweenComponent: {fileID: 3970033101400714231}
+      ReadyOnSequenceStart: 0
+    - TweenComponent: {fileID: 3223068534691483011}
+      ReadyOnSequenceStart: 0
     DelayAfter: 0
+--- !u!114 &3970033101400714231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427471040280699945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de15258d46a70047a9478e22e80c51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Duration: 0.35
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnTweenStop:
+    m_PersistentCalls:
+      m_Calls: []
+  _Target: {fileID: 4037476532940028657}
+  _FromValue: {r: 0.3254902, g: 0.3529412, b: 0.5294118, a: 0.4117647}
+  _ToValue: {r: 0.3254902, g: 0.3529412, b: 0.5294118, a: 0.4117647}
+  _AutoOriginValue: 1
+  _AutoTargetValue: 0
+  _EaseType: 0
+  _PingPong: 0
+  _PingPongDelay: 0
+  _PongDelay: 0
+--- !u!114 &3223068534691483011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427471040280699945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e450d51cd8d34dd49803d2766fe431de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Duration: 0.35
+  _DelayBefore: 0
+  _Description: tween1
+  _PlayOnAwake: 0
+  _OnTweenFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  _OnTweenStop:
+    m_PersistentCalls:
+      m_Calls: []
+  _Target: {fileID: 2603318875600053812}
+  _FromValue: {x: 0, y: 0}
+  _ToValue: {x: 382.8217, y: 99}
+  _AutoOriginValue: 1
+  _AutoTargetValue: 0
+  _EaseType: 5
+  _PingPong: 0
+  _PingPongDelay: 0
+  _PongDelay: 0
 --- !u!1 &8682767040416401995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,120 +1648,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   I18NKey: btn_counter
   I18NGroup: common
---- !u!1 &8807810065183045051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8273937998496619993}
-  - component: {fileID: 1938630181404618410}
-  - component: {fileID: 1457005216333222989}
-  - component: {fileID: 8216663201059905329}
-  m_Layer: 5
-  m_Name: ani_hover_in
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8273937998496619993
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807810065183045051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7675560110350984292}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 270}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1938630181404618410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807810065183045051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb039c9960eaef4da7de7b2c7a0f0f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 6813194811230390500}
-  AutoOriginValue: 1
-  FromValue: {r: 0.3264507, g: 0.3526166, b: 0.5283019, a: 0.4117647}
-  AutoTargetValue: 0
-  ToValue: {r: 0.5465913, g: 0.5631786, b: 0.6698113, a: 0.4117647}
-  Ease: 0
---- !u!114 &1457005216333222989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807810065183045051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae04b08691634459328946e49483c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 1
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  Queues:
-  - UI_Anis:
-    - UI_Ani: {fileID: 1938630181404618410}
-      ReadyOnQueueStart: 0
-    - UI_Ani: {fileID: 8216663201059905329}
-      ReadyOnQueueStart: 0
-    DelayAfter: 0
---- !u!114 &8216663201059905329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8807810065183045051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16e41cb7c6887f4b93e93955b917fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: 0.35
-  title: ani
-  playOnAwake: 0
-  pingPong: 0
-  DelayBefore: 0
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  AniTarget: {fileID: 7675560110350984292}
-  AutoOriginValue: 1
-  FromValue: {x: 382.82172, y: 99}
-  AutoTargetValue: 0
-  ToValue: {x: 400, y: 99}
-  Ease: 2

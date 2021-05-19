@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.2.4",
+      "version": "2.2.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -73,7 +73,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.7",
+      "version": "2.0.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -125,12 +125,12 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.22",
+      "version": "6.6.24",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0",
-        "com.cysharp.unitask": "2.0.37"
+        "com.cysharp.unitask": "2.2.4"
       },
       "url": "https://registry.npmjs.org"
     },
@@ -144,14 +144,32 @@
       },
       "url": "https://registry.npmjs.org"
     },
+    "io.nekonya.tinax.tween": {
+      "version": "6.6.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "io.nekonya.tinax.core": "6.6.24"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "io.nekonya.tinax.uikit": {
-      "version": "6.6.13",
+      "version": "6.6.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.10",
-        "com.neuecc.unirx": "7.1.0",
-        "io.nekonya.tinax.xcomponent": "6.6.3"
+        "io.nekonya.tinax.core": "6.6.23",
+        "io.nekonya.tinax.xcomponent": "6.6.4"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "io.nekonya.tinax.uikit.animation": {
+      "version": "6.6.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.nekonya.tinax.uikit": "6.6.17",
+        "io.nekonya.tinax.tween": "6.6.3"
       },
       "url": "https://registry.npmjs.org"
     },
@@ -165,11 +183,11 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.xcomponent": {
-      "version": "6.6.3",
+      "version": "6.6.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.5"
+        "io.nekonya.tinax.core": "6.6.7"
       },
       "url": "https://registry.npmjs.org"
     },
