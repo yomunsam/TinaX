@@ -3,9 +3,9 @@ Examples/*/Logs
 Examples/*/Temp
 Examples/*/obj
 Examples/*/bin
-Examples/*/TinaX/VFS_Build
-/Examples/*/Assets/StreamingAssets
-/Examples/*/Assets/StreamingAssets.meta
+**/TinaX/VFS_Build
+**/Assets/StreamingAssets
+**/Assets/StreamingAssets.meta
 
 Tests/*/Library
 Tests/*/Logs
@@ -43,5 +43,5 @@ LuaDebuggee.dll
 
 *.apk
 /Examples/E04_UseXAsset/DLC
-/Examples/*/.vsconfig
+**/.vsconfig
 **/UserSettings
