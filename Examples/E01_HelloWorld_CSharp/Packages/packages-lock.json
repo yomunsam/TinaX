@@ -125,7 +125,7 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.24",
+      "version": "6.6.25",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -154,7 +154,7 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.uikit": {
-      "version": "6.6.18",
+      "version": "6.6.21",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -174,7 +174,7 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.15",
+      "version": "6.6.16",
       "depth": 0,
       "source": "registry",
       "dependencies": {
