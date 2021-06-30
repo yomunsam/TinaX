@@ -174,7 +174,7 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.16",
+      "version": "6.6.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
