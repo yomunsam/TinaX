@@ -1,21 +1,21 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.0.37",
+      "version": "2.2.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://package.openupm.cn"
+      "url": "https://package.openupm.com"
     },
     "com.neuecc.unirx": {
       "version": "7.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://package.openupm.cn"
+      "url": "https://package.openupm.com"
     },
     "com.unity.2d.common": {
-      "version": "4.0.3",
+      "version": "5.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -25,14 +25,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.path": {
-      "version": "4.0.1",
+      "version": "5.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.pixel-perfect": {
-      "version": "4.0.1",
+      "version": "5.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -45,67 +45,69 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "5.1.0",
+      "version": "6.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.2d.common": "4.0.3",
-        "com.unity.2d.path": "4.0.1",
+        "com.unity.2d.common": "5.0.0",
+        "com.unity.2d.path": "5.0.0",
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
-      "version": "1.0.5",
+      "version": "1.0.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "2.0.7",
+      "version": "3.0.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.1"
+        "com.unity.ext.nunit": "1.0.6"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.5",
+      "version": "2.0.11",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.3",
+      "version": "1.2.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.1.0",
+      "version": "1.2.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.19",
+      "version": "1.1.29",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.ext.nunit": "1.0.5",
+        "com.unity.ext.nunit": "1.0.6",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.1",
+      "version": "3.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -123,12 +125,12 @@
       }
     },
     "io.nekonya.tinax.core": {
-      "version": "6.6.21",
+      "version": "6.6.25",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.neuecc.unirx": "7.1.0",
-        "com.cysharp.unitask": "2.0.37"
+        "com.cysharp.unitask": "2.2.4"
       },
       "url": "https://registry.npmjs.org"
     },
@@ -142,19 +144,37 @@
       },
       "url": "https://registry.npmjs.org"
     },
-    "io.nekonya.tinax.uikit": {
-      "version": "6.6.13",
+    "io.nekonya.tinax.tween": {
+      "version": "6.6.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.10",
-        "com.neuecc.unirx": "7.1.0",
-        "io.nekonya.tinax.xcomponent": "6.6.3"
+        "io.nekonya.tinax.core": "6.6.24"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "io.nekonya.tinax.uikit": {
+      "version": "6.6.22",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.nekonya.tinax.core": "6.6.23",
+        "io.nekonya.tinax.xcomponent": "6.6.4"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "io.nekonya.tinax.uikit.animation": {
+      "version": "6.6.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.nekonya.tinax.uikit": "6.6.17",
+        "io.nekonya.tinax.tween": "6.6.3"
       },
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.uikit.mvvm": {
-      "version": "6.6.2-preview",
+      "version": "6.6.3-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -164,20 +184,20 @@
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.vfs": {
-      "version": "6.6.12",
+      "version": "6.6.19",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.20"
+        "io.nekonya.tinax.core": "6.6.21"
       },
       "url": "https://registry.npmjs.org"
     },
     "io.nekonya.tinax.xcomponent": {
-      "version": "6.6.3",
+      "version": "6.6.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "io.nekonya.tinax.core": "6.6.5"
+        "io.nekonya.tinax.core": "6.6.7"
       },
       "url": "https://registry.npmjs.org"
     },

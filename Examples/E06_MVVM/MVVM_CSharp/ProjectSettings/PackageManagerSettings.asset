@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 13964, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnablePreviewPackages: 1
+  m_EnablePreReleasePackages: 0
   m_EnablePackageDependencies: 0
   m_AdvancedSettingsExpanded: 1
   m_ScopedRegistriesSettingsExpanded: 1
+  m_SeeAllPackageVersions: 0
   oneTimeWarningShown: 1
   m_Registries:
   - m_Id: main
@@ -31,29 +32,32 @@ MonoBehaviour:
     - io.nekonya
     m_IsDefault: 0
     m_Capabilities: 0
-  - m_Id: scoped:package.openupm.cn
-    m_Name: package.openupm.cn
-    m_Url: https://package.openupm.cn
+  - m_Id: scoped:package.openupm.com
+    m_Name: package.openupm.com
+    m_Url: https://package.openupm.com
     m_Scopes:
     - com.cysharp.unitask
     - com.neuecc.unirx
     m_IsDefault: 0
     m_Capabilities: 0
-  m_UserSelectedRegistryName: 
+  m_UserSelectedRegistryName: package.openupm.com
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_ErrorMessage: 
     m_Original:
-      m_Id: scoped:TinaX
-      m_Name: TinaX
-      m_Url: https://registry.npmjs.org
+      m_Id: scoped:package.openupm.com
+      m_Name: package.openupm.com
+      m_Url: https://package.openupm.com
       m_Scopes:
-      - io.nekonya
+      - com.cysharp.unitask
+      - com.neuecc.unirx
       m_IsDefault: 0
       m_Capabilities: 0
     m_Modified: 0
-    m_Name: TinaX
-    m_Url: https://registry.npmjs.org
+    m_Name: package.openupm.com
+    m_Url: https://package.openupm.com
     m_Scopes:
-    - io.nekonya
+    - com.cysharp.unitask
+    - com.neuecc.unirx
     m_SelectedScopeIndex: 0
+  m_LoadAssets: 0
