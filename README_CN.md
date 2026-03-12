@@ -1,6 +1,14 @@
 # TinaX
 简洁、愉快、“开箱即用”的Unity独立游戏开发工具 | Unity-based Game Client Framework
 
+> **项目现状声明**
+>
+> 由于作者个人情况和工作安排已经发生变化，作者已无力继续维护本仓库及其相关的一系列子仓库。
+>
+> 这个项目展示的是作者在五六年前对游戏客户端框架的理解。以今天的视角来看，其中不少设计与实现已经过时，也不能代表作者当前的技术水平与判断；从作者现在的角度回看，它本身也存在不少缺陷。因此，这个仓库目前仅作为参考与交流而保留。
+>
+> 也请各位读者和使用者自行甄别。建议将本仓库主要用于参考学习，或仅在充分理解相关代码的前提下，有选择性地使用其中的内容。
+
 [![LICENSE](Doc/996icu_license.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
 [![LICENSE](https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667)](https://github.com/yomunsam/TinaX/blob/master/LICENSE)
