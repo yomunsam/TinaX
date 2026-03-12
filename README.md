@@ -1,5 +1,13 @@
 # TinaX
 
+> **Project status notice**
+>
+> Due to changes in the author's personal circumstances and work, the author no longer has the time or energy to continue maintaining this repository and its related sub-repositories.
+>
+> This project reflects the author's understanding of a game client framework from five or six years ago. From today's perspective, many ideas and implementations are outdated, and they do not represent the author's current level or current technical judgment. The repository is kept online only as material for reference and technical discussion.
+>
+> Please evaluate the content carefully before using it. It is recommended to use this repository mainly for reference and learning, or to selectively reuse code only after you have fully understood it.
+
 Documentation is being written.
 
 > Sorry, English is not the author ’s native language, writing English documentation is more difficult for the author. 
